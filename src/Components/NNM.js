@@ -1,15 +1,18 @@
 import React from 'react';
-import {Bootstrap, Grid, Row, Col} from 'react-bootstrap';
 import styled from 'styled-components';
 
+
+const Assesment = require('./images/internshipfinal.png');
+const Background = require('./images/NNMBackground.jpg');
+
 const Div = styled.div `
-	background-image: url('./Components/images/NNMBackground.jpg');
+	background-image: url(${(props)=> props.Background});
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-position: center;
 	background-color: #cccccc;
 	height: 80vh;
-	width: 100vw;
+	width: 100%;
 	position: relative;
 `;
 
@@ -46,7 +49,7 @@ export default class NNM extends React.Component {
 	render() {
 		return (
 			<div>
-				<Div>
+				<Div Background={Background}>
 					<H1>National Nuclear Museum: Internship</H1>
 				</Div>
 				<H2>Prep: </H2>
@@ -68,7 +71,7 @@ export default class NNM extends React.Component {
 				<H2>Conclusion:</H2>
 				<P>Most of the internship was stuck at a standstill and so we did what everyone does at a standstill...find work. Which is why most of this is all over the place. I did learn what seems like an unfathomable about from the internship though. Personally I would say that I got some really great experience in presenting, google tag manager, and WordPress. Overall I was very happy with what I learned during the internship. </P>
 			
-				<Img src="./app/Components/images/internshipfinal.png"></Img>
+				<Img src={Assesment}></Img>
 				<P>This was the final assement written by my supervisor.</P>
 			</div>
 		);

@@ -1,9 +1,12 @@
 import React from 'react';
-import {Bootstrap, Grid, Row, Col} from 'react-bootstrap';
 import styled from 'styled-components';
 
+const Image1 = require('./images/tokyoghoul1.png');
+const Image2 = require('./images/tokyoghoul2.jpg');
+
+
 const Div = styled.div `
-	background-image: url(${(props) => props.bottom === 1? './app/Components/images/tokyoghoul1.png' : './app/Components/images/tokyoghoul2.jpg'});
+	background-image: url(${(props) => props.bottom? props.bottom : props.top});
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-position: center;
@@ -97,7 +100,7 @@ const H1 = styled.h1`
 		mouseposition(event){
 			let x = event.clientX;
 			let w = window.innerWidth;
-			if (this.state.mousedown == false){
+			if (this.state.mousedown === false){
 				this.setState({mouseposx: x, clientwidth: w});
 			}
 		}
@@ -112,12 +115,12 @@ const H1 = styled.h1`
 			render (){
 				return (
 					<Div>
-						<Div bottom={1} onMouseMove={this.mouseposition}>
+						<Div bottom={Image1} onMouseMove={this.mouseposition}>
 							<H1 bottom={1}>Tokyo</H1>
 						</Div>
 
 						<OuterDiv onMouseMove={this.mouseposition} pos={this.state.mouseposx} mount={this.state.mounted} width={this.state.clientwidth}>
-							<Div top={1}>
+							<Div top={Image2}>
 								<H1>Tokyo</H1>
 								<Divider onMouseDown={this.handlemousedown} onMouseUp={this.handlemouseup} pos={this.state.mouseposx} mount={this.state.mounted} width={this.state.clientwidth}/>
 							</Div>

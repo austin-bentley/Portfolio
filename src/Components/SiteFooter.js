@@ -2,6 +2,9 @@ import React from 'react';
 import {Bootstrap, Grid, Row, Col} from 'react-bootstrap';
 import styled from 'styled-components';
 
+const Resume = require('./images/AustinBentley.jpg');
+
+
 const Footer = styled.div `
 	right: 0vw;
 	background-color: #597fff;
@@ -31,7 +34,7 @@ const Button = styled.a `
 	width: 40px;
 	`;
 
-const resumeP = styled.p `
+const ResumeP = styled.p `
 	color: white; 
 	display: inline-block;
 	font-size: 7vh;
@@ -47,7 +50,7 @@ const SiteP = styled.h1 `
 	margin-left: 10vw;
 `;
 
-const creditP = styled.p `
+const CreditP = styled.p `
 	color: #ffffff !important; 
 	display: inline-block;
 	font-size: 7vh;
@@ -167,11 +170,11 @@ export class SiteFooter extends React.Component {
 								</Ul>
 							</Div>
 							<Div>
-								<creditP> this is the credit div</creditP>
+								<CreditP>I'm gonna use this, but what? I'm not quite sure yet</CreditP>
 							</Div>
 							<Div>
-								<resumeP><a download="AustinBentley.pdf" href="./app/Components/images/AustinBentley.pdf" title="Resume">Download</a> my Resume</resumeP>	
-								<Img alt="AustinBentley's Resume failed to load" src="./app/Components/images/AustinBentley.jpg" />
+								<ResumeP><a download="AustinBentley.pdf" href="./app/Components/images/AustinBentley.pdf" title="Resume">Download</a> my Resume</ResumeP>	
+								<Img alt="AustinBentley's Resume failed to load" src={Resume} />
 							</Div>
 						</Container>
 					</Wrapper>

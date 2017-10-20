@@ -1,7 +1,9 @@
 import React from 'react';
-import {Bootstrap, Grid, Row, Col} from 'react-bootstrap';
 import styled from 'styled-components';
 
+const Wave01 = require('./images/wave_01.png');
+const Wave02 = require('./images/wave_02.png');
+const Wave03 = require('./images/wave_03.png');
 
 
 
@@ -28,14 +30,14 @@ const activeScale = {
 
 const Img = styled.img`
 	background-image: url(${(props) => {
-		if (props.left === 1){ 
-			return './app/Components/images/wave_01.png'
+		if (props.left){ 
+			return props.left
 		}
-		else if (props.middle === 1){ 
-			return './app/Components/images/wave_02.png'
+		else if (props.middle){ 
+			return props.middle
 		}
 		else { 
-			return './app/Components/images/wave_03.png'
+			return props.right
 		}
 	}});
 
@@ -57,7 +59,7 @@ const workButton = {
 }
 
 const schoolButton = {
-	position: 'absolute',
+	textAlign: 'center',
 	left: '40%',
     top: '40%'
 }
@@ -75,14 +77,15 @@ const Button = styled.button`
 	border: 2px solid #597fff;
 	position: absolute;
 	font-size: 50px;
+	display: inline;
 	
 `;
 
 class WorkThumbnail extends React.Component {
 	render() {
 		return (
-			<Wrapper style={this.props.show == 3? activeScale : null}>
-				<Img style={this.props.show == 3? activeOpacity : null} className="div" middle={1}></Img>
+			<Wrapper style={this.props.show === 3? activeScale : null}>
+				<Img style={this.props.show === 3? activeOpacity : null} className="div" middle={Wave02}></Img>
 				<Button className="center-block" style={workButton} onClick={() => this.props.showThumbnail(3)}>Work</Button>
 			</Wrapper>
 		);
@@ -92,9 +95,9 @@ class WorkThumbnail extends React.Component {
 class SchoolThumbnail extends React.Component {	
 	render() {
 		return (
-			<Wrapper style={this.props.show == 2? activeScale : null}>
-				<Img style={this.props.show == 2? activeOpacity : null} className="div" right={1}></Img>
-				<Button style={schoolButton} onClick={() => this.props.showThumbnail(2)}>School</Button>
+			<Wrapper style={this.props.show === 2? activeScale : null}>
+				<Img style={this.props.show === 2? activeOpacity : null} className="div" right={Wave03}></Img>
+				<Button onClick={() => this.props.showThumbnail(2)} style={schoolButton} >School</Button>
 			</Wrapper>
 		);
 	}  
@@ -103,8 +106,8 @@ class SchoolThumbnail extends React.Component {
 class AboutThumbnail extends React.Component {
 	render() {
 		return (
-			<Wrapper style={this.props.show == 1? activeScale : null}>
-				<Img style={this.props.show == 1? activeOpacity : null} className="div" left={1}></Img>
+			<Wrapper style={this.props.show === 1? activeScale : null}>
+				<Img style={this.props.show === 1? activeOpacity : null} className="div" left={Wave01}></Img>
 				<Button style={aboutButton} onClick={() => this.props.showThumbnail(1)}>About</Button>
 			</Wrapper>
 		);

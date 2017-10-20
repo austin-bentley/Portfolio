@@ -1,9 +1,10 @@
 import React from 'react';
-import {Bootstrap, Grid, Row, Col} from 'react-bootstrap';
 import styled from 'styled-components';
 
+const Background = require('./images/rheintechhome.PNG');
+
 const HomeImg = styled.div`
-	background-image: url('./app/Components/images/rheintechhome.png');
+	background-image: url(${(props)=> props.Background});
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-position: center;
@@ -66,13 +67,13 @@ export default class Rheintech extends React.Component {
 
 	redirect() {
 	let url = 'http://www.rheintech.com/';
-    window.location.replace(url);
+    window.location.assign(url);
 	}
 
 	render() {
 		return (
 			<div>
-			<HomeImg/>
+			<HomeImg Background={Background}/>
 			<H1><strong>Rheintech</strong></H1>
 			<P>In short, Rheintech was SEO contract work for a family friend
 			I began by researching their home page and services to find out exactly what the company provided and which one of those services was the most popular.</P>

@@ -4,6 +4,13 @@ import ScrollUpButton from "react-scroll-up-button";
 import styled from 'styled-components';
 import { ExampleWork } from './exampleWork';
 
+const Me = require('./images/me.jpg');
+const Rheintech = require('./images/RheinTech.png');
+const NNM = require('./images/nationalnuclearmuseum.png');
+const draggable = require('./images/draggable.PNG');
+const slider = require('./images/slider.PNG');
+
+
 const H1 = styled.h1`
 	font-size: 7vh;
 `;
@@ -68,6 +75,33 @@ const Related = styled.div`
 	float: right;
 `;
 
+const Wrapper = styled.div `
+	width: 100%;
+	height: 100%;
+	overflow-x: hidden;
+	margin-bottom: 20vh;
+
+`;
+
+const UlContainer = styled.ul `
+	margin-left: ${(props)=> '-' + props.scroll * 12 + 'vw'};
+	width: 180vw;
+	list-style-type: none; 
+	transition: all 0.3s ease-out;
+	background: white;
+	height: 70vh;
+`;
+
+const LiContainer = styled.li `
+	display: inline-block;
+	float: left;
+	width: 25vw;
+	height: 70vh;
+	margin-right: 10vw;
+
+`;
+
+
 export class AboutMeBody extends React.Component {
 	render(){
 		return (
@@ -80,7 +114,7 @@ export class AboutMeBody extends React.Component {
 					</Row>
 					<Row>
 						<Col lg={6} md={6} sm={12} xs={12}>	
-							<Img src='./app/Components/images/me.jpg'></Img>
+							<Img src={Me}></Img>
 						</Col>
 						<Col lg={6} md={6} sm={12} xs={12}>	
 						<ScrollUpButton />	
@@ -107,6 +141,35 @@ export class AboutMeBody extends React.Component {
 }
 
 export class WorkBody extends React.Component {
+	constructor(){
+		super();
+		this.state = {
+			mouseIn: false,
+			scrollValue: 0
+		}
+		this.Handlescroll = this.Handlescroll.bind(this);
+	}
+
+	Handlescroll(x) {
+		x.preventDefault();
+		if (x.deltaY === 150){
+			this.setState({mousein: true, scrollValue: this.state.scrollValue + 1});
+
+			if (this.state.scrollValue >= 7){
+				this.setState({scrollValue: 7});
+			}
+		}
+		else if (x.deltaY === -150){
+			this.setState({mousein: true, scrollValue: this.state.scrollValue - 1});
+
+			if (this.state.scrollValue <= 0){
+				this.setState({scrollValue: 0});
+			}
+		}
+		console.log(this.state.scrollValue);
+		
+	}
+
 	render(){
 		return (
 			<div>
@@ -120,20 +183,26 @@ export class WorkBody extends React.Component {
 							</div>
 						</Col>
 					</Row>
-					<WorkContainer>
-						<Row>
-							<Col lg={6} md={6} sm={12} xs={12}>
-									<ExampleWork src="./app/Components/images/nationalnuclearmuseum.png" title="National Nuclear Museum: internship" link="NNM"/>
-									<ExampleWork src="./app/Components/images/RheinTech.png" title="Rhein Tech Laboratories Inc" link="Rheintech"/>
-							</Col>
-							<Col lg={6} md={6} sm={12} xs={12}>
-									<ExampleWork src="./app/Components/images/draggable.png" title="Draggable" link="TokyoGhoul"/>
-									<ExampleWork src="./app/Components/images/logoXviridis2.png" title="Random Designs" link="Designs"/>
-									<ExampleWork src="./app/Components/images/Slider.png" title="Slider" link="Slider"/>
-							</Col>
-						</Row>
-					</WorkContainer>
 				</Grid>
+				<Wrapper>
+					<UlContainer onWheel={this.Handlescroll} scroll={this.state.scrollValue}>
+						<LiContainer>
+							<ExampleWork title="National Nuclear Museum" link="/NNM" img={NNM} code="https://github.com/Abentley95/Portfolio/blob/master/src/Components/NNM.js"></ExampleWork>
+						</LiContainer>
+						<LiContainer>	
+							<ExampleWork title="Rhein Tech Laboratories" link="/Rheintech" img={Rheintech} code="https://github.com/Abentley95/Portfolio/blob/master/src/Components/Rheintech.js"/>
+						</LiContainer>
+						<LiContainer>	
+							<ExampleWork title="Draggable" link="/TokyoGhoul" img={draggable} code="https://github.com/Abentley95/Portfolio/blob/master/src/Components/Draggable.js"/>
+						</LiContainer>
+						<LiContainer>	
+							<ExampleWork title="Random Designs" link="/" img={NNM} code=""/>
+						</LiContainer>
+						<LiContainer>	
+							<ExampleWork title="Slider" link="/Slider" img={slider} code="https://github.com/Abentley95/Portfolio/blob/master/src/Components/Slider.js"/>
+						</LiContainer>
+					</UlContainer>
+				</Wrapper>
 			</div>
 		);
 	}

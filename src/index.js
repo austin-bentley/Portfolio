@@ -7,7 +7,7 @@ import { Provider } from 'react-redux';
 import  store  from "./store";
 import  Root  from "./Components/Router";
 import { syncHistoryWithStore, routerReducer, routerMiddleware } from 'react-router-redux';
-import { Router, Route, IndexRoute, Switch} from "react-router";
+import { HashRouter, Route, Switch} from "react-router-dom";
 import createBrowserHistory from 'history/createBrowserHistory';
 import  NNM  from "./Components/NNM";
 import  Rheintech  from "./Components/Rheintech";
@@ -21,16 +21,16 @@ const middleware = routerMiddleware(newHistory);
 
 ReactDOM.render(
 	<Provider store = {store}>
-				<Router history={newHistory}>
+				<HashRouter>
 					<Switch>						
 						<Route path="/" exact component={Layout}/>
-						<Route path="/Slider" exact component={Slider}/>
-						<Route path="/NNM" exact component={NNM}/>
-						<Route path="/Rheintech" exact component={Rheintech}/>
-						<Route path="/Designs" exact component={Design}/>
-						<Route path="/TokyoGhoul" exact component={TokyoGhoul}/>
+						// <Route path="/Slider" exact component={Slider}/>
+						// <Route path="/NNM" exact component={NNM}/>
+						// <Route path="/Rheintech" exact component={Rheintech}/>
+						// <Route path="/Designs" exact component={Design}/>
+						// <Route path="/TokyoGhoul" exact component={TokyoGhoul}/>
 					</Switch>	
-				</Router>
+				</HashRouter>
 	</Provider>,
 	  document.getElementById('app')
 );

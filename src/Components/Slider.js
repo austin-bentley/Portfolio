@@ -1,6 +1,12 @@
 import React from 'react';
-import {Bootstrap, Grid, Row, Col} from 'react-bootstrap';
 import styled from 'styled-components';
+
+const BackgroundImg = require('./images/background.jpg');
+const Image1 = require('./images/laptops1.jpg');
+const Image2 = require('./images/laptops2.jpg');
+const Image3 = require('./images/laptops3.jpg');
+const Image4 = require('./images/laptops4.jpg');
+
 
 
 const Body = styled.div `
@@ -10,7 +16,7 @@ const Body = styled.div `
 
 
 const Background = styled.div `
-	background-image: url('./app/Components/images/background.jpg');
+	background-image: url(${(props)=> props.Background});
     height: 75%; 
     background-position: center top;
     background-repeat: no-repeat;
@@ -37,16 +43,12 @@ const Slides = styled.ul`
 		switch (props.pos) {
 		    case 2:
 		        return '-100vw';
-		        break; 
 		    case 3: 
 		    	return '-200vw';
-		    	break;
 		    case 4: 
 		    	return '-300vw';
-		    	break;
 		    case 5: 
 		    	return '-400vw';
-		    	break;
 		    default: 
 		        return '0px; transition: all .0s';
 	}
@@ -118,7 +120,7 @@ componentDidMount() {
 		this.time = function() {
 			
 				let slide = setInterval(()=>{
-					if (this.state.run == true){
+					if (this.state.run === true){
 						console.log(this.state.pos);
 						this.setState({pos: this.state.pos + 1});
 
@@ -163,7 +165,7 @@ mouseLeave(){
 	render() {
 		return (
 			<Body>
-				<Background>
+				<Background Background={BackgroundImg}>
 	  				<Container>
 	  					<Next onClick={this.handleNext} onMouseEnter={this.mouseEnter}>Next</Next>
 	  					<Prev onClick={this.handlePrev} onMouseEnter={this.mouseEnter}>Prev</Prev>
@@ -174,7 +176,7 @@ mouseLeave(){
 					  				<p>Featured essential bussiness laptops</p>
 				  				</Words>
 				  				<Computer>
-				  					<Img src="./app/Components/images/laptops1.jpg"/>
+				  					<Img src={Image1}/>
 				  				</Computer>
 				  			</Slide>
 				  			<Slide>
@@ -183,7 +185,7 @@ mouseLeave(){
 					  				<p>Best laptop of 2017</p>
 				  				</Words>
 				  				<Computer>
-				  					<Img src="./app/Components/images/laptops2.jpg"/>
+				  					<Img src={Image2}/>
 				  				</Computer>
 				  			</Slide>
 				  			<Slide>
@@ -192,7 +194,7 @@ mouseLeave(){
 					  				<p>I dont know what type of laptops these are</p>
 				  				</Words>
 				  				<Computer>
-				  					<Img src="./app/Components/images/laptops3.jpg"/>
+				  					<Img src={Image3}/>
 				  				</Computer>
 				  			</Slide>
 				  			<Slide>
@@ -201,7 +203,7 @@ mouseLeave(){
 					  				<p>PCMAG's list of their favorite laptops for 2017 and why</p>
 				  				</Words>
 				  				<Computer>
-				  					<Img src="./app/Components/images/laptops4.jpg"/>
+				  					<Img src={Image4}/>
 				  				</Computer>
 				  			</Slide>
 				  			<Slide>
@@ -210,7 +212,7 @@ mouseLeave(){
 					  				<p>Featured essential bussiness laptops</p>
 				  				</Words>
 				  				<Computer>
-				  					<Img src="./app/Components/images/laptops1.jpg"/>
+				  					<Img src={Image1}/>
 				  				</Computer>
 				  			</Slide>
 				  		</Slides>
