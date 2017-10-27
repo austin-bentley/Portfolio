@@ -70,6 +70,10 @@ export default class Rheintech extends React.Component {
     window.location.assign(url);
 	}
 
+	componentDidMount(){
+		window.scrollTo(0,0);
+	}
+
 	render() {
 		return (
 			<div>

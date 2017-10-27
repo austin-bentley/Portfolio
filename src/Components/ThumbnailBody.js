@@ -61,19 +61,13 @@ const Workimg = styled.a `
 	background-position: center;
 `;
 
-const Unrelated = styled.div`
+const Classes = styled.div`
 	margin-top: 5vh;
 	margin-left: 15vw;
 	margin-bottom: 10vh;
-	float: left;
+	
 `;
 
-const Related = styled.div`
-	margin-right: 15vw;
-	margin-bottom: 10vh;
-	margin-top: 5vh;
-	float: right;
-`;
 
 const Wrapper = styled.div `
 	width: 100%;
@@ -84,7 +78,12 @@ const Wrapper = styled.div `
 `;
 
 const UlContainer = styled.ul `
-	margin-left: ${(props)=> '-' + props.scroll * 12 + 'vw'};
+	margin-left: ${(props)=> {
+		if (props.scroll) return '-' + props.scroll * 12 + 'vw';
+		else {
+			return '-' + props.secondscroll * 12 + 'vw'
+		}
+	}};
 	width: 180vw;
 	list-style-type: none; 
 	transition: all 0.3s ease-out;
@@ -145,31 +144,51 @@ export class WorkBody extends React.Component {
 		super();
 		this.state = {
 			mouseIn: false,
-			scrollValue: 0
+			scrollValue: 0,
+			secondscrollValue: 0,
+			containerID: 0,
+			preventdefaultcount: 0
 		}
-		this.Handlescroll = this.Handlescroll.bind(this);
 	}
 
-	Handlescroll(x) {
-		x.preventDefault();
-		if (x.deltaY === 150){
-			this.setState({mousein: true, scrollValue: this.state.scrollValue + 1});
-
-			if (this.state.scrollValue >= 7){
-				this.setState({scrollValue: 7});
-			}
-		}
-		else if (x.deltaY === -150){
-			this.setState({mousein: true, scrollValue: this.state.scrollValue - 1});
-
-			if (this.state.scrollValue <= 0){
-				this.setState({scrollValue: 0});
-			}
-		}
-		console.log(this.state.scrollValue);
+	Handlescroll(x,y) {
 		
-	}
 
+		console.log(this.state.preventdefaultcount);
+		//-----------------------------------------------------
+		if (x === 1){
+			var _scroll = "scrollValue";
+			var _scrollstate = this.state.scrollValue;
+		}
+		else{
+			 _scroll = "secondscrollValue";
+			 _scrollstate = this.state.secondscrollValue;			
+		}
+
+		if(this.state.preventdefaultcount <= 3 &&  this.state.preventdefaultcount >= 0){
+			y.preventDefault(); 
+		}
+
+
+		//------------------------------------set variables for different sliders^^^^^^^^^^^
+		if (y.deltaY === 150){
+		 	this.setState({mousein: true, [_scroll]: _scrollstate + 1, preventdefaultcount: this.state.preventdefaultcount + 1});
+
+			if (_scrollstate >= 3){
+				this.setState({[_scroll]: 3, preventdefaultcount: 4 });
+			}
+		}
+		//--------------------------------------scroll slider one way and stop it^^^^^^^^^^^^
+		else if (y.deltaY === -150){
+				this.setState({mousein: true, [_scroll]: _scrollstate - 1, preventdefaultcount: this.state.preventdefaultcount - 1});
+
+				if ( _scrollstate <= 0){
+					this.setState({[_scroll]: 0, preventdefaultcount: -1});
+				}
+			
+		}
+		//--------------------------------------scroll slider one way and stop it^^^^^^^^^^^^
+	}
 	render(){
 		return (
 			<div>
@@ -178,14 +197,14 @@ export class WorkBody extends React.Component {
 						<Col lg={12} md={12} sm={12} xs={12}>
 							<div>
 								<ScrollUpButton />
-								<h1>Work</h1>
+								<h1>Case Studies</h1>
 								<h4>(Pertaining to Web Development)</h4>
 							</div>
 						</Col>
 					</Row>
 				</Grid>
 				<Wrapper>
-					<UlContainer onWheel={this.Handlescroll} scroll={this.state.scrollValue}>
+					<UlContainer onWheel={this.Handlescroll.bind(this, 1)} scroll={this.state.scrollValue}>
 						<LiContainer>
 							<ExampleWork title="National Nuclear Museum" link="/NNM" img={NNM} code="https://github.com/Abentley95/Portfolio/blob/master/src/Components/NNM.js"></ExampleWork>
 						</LiContainer>
@@ -193,13 +212,31 @@ export class WorkBody extends React.Component {
 							<ExampleWork title="Rhein Tech Laboratories" link="/Rheintech" img={Rheintech} code="https://github.com/Abentley95/Portfolio/blob/master/src/Components/Rheintech.js"/>
 						</LiContainer>
 						<LiContainer>	
+							<ExampleWork title="Random Designs" link="/" img={NNM} code=""/>
+						</LiContainer>
+					</UlContainer>
+				</Wrapper>
+
+				<Grid>
+					<Row>
+						<Col lg={12} md={12} sm={12} xs={12}>
+							<div>
+								<h1>Demo</h1>
+								<h4>(Pertaining to Web Development)</h4>
+							</div>
+						</Col>
+					</Row>
+				</Grid>
+				<Wrapper>
+					<UlContainer onWheel={this.Handlescroll.bind(this, 2)} secondscroll={this.state.secondscrollValue}>
+						<LiContainer>	
 							<ExampleWork title="Draggable" link="/TokyoGhoul" img={draggable} code="https://github.com/Abentley95/Portfolio/blob/master/src/Components/Draggable.js"/>
 						</LiContainer>
 						<LiContainer>	
-							<ExampleWork title="Random Designs" link="/" img={NNM} code=""/>
+							<ExampleWork title="Slider" link="/Slider" img={slider} code="https://github.com/Abentley95/Portfolio/blob/master/src/Components/Slider.js"/>
 						</LiContainer>
 						<LiContainer>	
-							<ExampleWork title="Slider" link="/Slider" img={slider} code="https://github.com/Abentley95/Portfolio/blob/master/src/Components/Slider.js"/>
+							<ExampleWork title="Icon Drag" link="/IconDrag" img={slider} code="https://github.com/Abentley95/Portfolio/blob/master/src/Components/Slider.js"/>
 						</LiContainer>
 					</UlContainer>
 				</Wrapper>
@@ -216,7 +253,7 @@ export class SchoolBody extends React.Component {
 					<ScrollUpButton />
 					<Row>
 						<Col lg={6} md={6} sm={12} xs={12}>
-							<Unrelated>
+							<Classes>
 								<h1>Unrelated Classes</h1>
 									<p>INTRO TO COMPUTERS: B</p>
 									<p>INTRO TO SOCIOLOGY: A</p>
@@ -233,10 +270,10 @@ export class SchoolBody extends React.Component {
 									<p>INTRO ENTREPRNSHIP: B</p>
 									<p>BUS PROFESSIONALISM: A</p>
 									<br/>
-							</Unrelated>
+							</Classes>
 						</Col>
 						<Col lg={6} md={6} sm={12} xs={12}>
-							<Related>
+							<Classes>
 								<h1>Related Classes</h1>
 									<p>PHOTOSHOP: A</p>
 									<p>WEB PUBLISHING: A</p>
@@ -246,7 +283,7 @@ export class SchoolBody extends React.Component {
 									<p>C++ PROGRAMMING I: A</p>
 									<p>LINUX ESSENTIALS: B</p>
 									<p>JAVASCRIPT WEB PROGRAMMING: A</p>
-							</Related>
+							</Classes>
 						</Col>
 					</Row>
 				</Grid>
