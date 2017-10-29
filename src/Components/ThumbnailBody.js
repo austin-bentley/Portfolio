@@ -1,5 +1,5 @@
 import React from 'react';
-import {Bootstrap, Grid, Row, Col, Button} from 'react-bootstrap';
+import { Grid, Row, Col } from 'react-bootstrap';
 import ScrollUpButton from "react-scroll-up-button";
 import styled from 'styled-components';
 import { ExampleWork } from './exampleWork';
@@ -9,22 +9,12 @@ const Rheintech = require('./images/RheinTech.png');
 const NNM = require('./images/nationalnuclearmuseum.png');
 const draggable = require('./images/draggable.PNG');
 const slider = require('./images/slider.PNG');
-
+const IconDrag = require('./images/IconDragThumbnail.PNG')
 
 const H1 = styled.h1`
 	font-size: 7vh;
 `;
 
-const H2 = styled.h1`
-	text-align: center;
-`;
-
-const WorkContainer = styled.div`
-	margin-bottom: 200px;
-	width: 95vw;
-	overflow: hidden;
-	margin-left: -3vw;
-`;
 
 const P = styled.p`
 	font-size: 3vh;
@@ -51,15 +41,6 @@ const Hr = styled.hr `
 
 `;
 
-const Workimg = styled.a `
-	background: url("./app/Components/images/nationalnuclearmuseum.png");
-	display: block;
-	height: 20vh;
-	background-repeat: no-repeat;
-	margin-top: 10vh;
-	margin-bottom: 0px;
-	background-position: center;
-`;
 
 const Classes = styled.div`
 	margin-top: 5vh;
@@ -84,7 +65,7 @@ const UlContainer = styled.ul `
 			return '-' + props.secondscroll * 12 + 'vw'
 		}
 	}};
-	width: 180vw;
+	width: 300vw;
 	list-style-type: none; 
 	transition: all 0.3s ease-out;
 	background: white;
@@ -94,10 +75,25 @@ const UlContainer = styled.ul `
 const LiContainer = styled.li `
 	display: inline-block;
 	float: left;
-	width: 25vw;
 	height: 70vh;
 	margin-right: 10vw;
 
+
+	@media (min-width : 0px) {
+	 	width: 75vw;
+    }
+
+	@media (min-width : 480px) {
+	 	width: 50vw;
+    }
+
+    @media (min-width : 768px) {
+    	width: 35vw;
+    }
+
+    @media (min-width : 992px) {
+    	width: 25vw;
+    }
 `;
 
 
@@ -153,9 +149,21 @@ export class WorkBody extends React.Component {
 
 	Handlescroll(x,y) {
 		
-
+		y.preventDefault();
 		console.log(this.state.preventdefaultcount);
-		//-----------------------------------------------------
+		console.log(window.innerWidth);
+
+		var vwCount = 0;
+		if(window.innerWidth >= 992){
+			vwCount = 4;
+		}
+		else if(window.innerWidth >= 480 ){
+			vwCount = 8;
+		}
+		else {
+			vwCount = 14;
+		}
+//----------------------------------------------stops image slider dependant on viewport width^^^^^^^^^^^^^^
 		if (x === 1){
 			var _scroll = "scrollValue";
 			var _scrollstate = this.state.scrollValue;
@@ -164,18 +172,18 @@ export class WorkBody extends React.Component {
 			 _scroll = "secondscrollValue";
 			 _scrollstate = this.state.secondscrollValue;			
 		}
+//------------------------------------set variables for different sliders^^^^^^^^^^^
+		// if(this.state.preventdefaultcount <= vwCount &&  this.state.preventdefaultcount >= 0){
+		// 	y.preventDefault(); 
+		// }
 
-		if(this.state.preventdefaultcount <= 3 &&  this.state.preventdefaultcount >= 0){
-			y.preventDefault(); 
-		}
-
-
-		//------------------------------------set variables for different sliders^^^^^^^^^^^
+//------------------------------------prevents scroll only when in slider^^^^^^^^^^^^^^ PROBLEM!!!!!!!!!!!
+		
 		if (y.deltaY === 150){
 		 	this.setState({mousein: true, [_scroll]: _scrollstate + 1, preventdefaultcount: this.state.preventdefaultcount + 1});
 
-			if (_scrollstate >= 3){
-				this.setState({[_scroll]: 3, preventdefaultcount: 4 });
+			if (_scrollstate >= vwCount){
+				this.setState({[_scroll]: vwCount, preventdefaultcount: vwCount + 1 });
 			}
 		}
 		//--------------------------------------scroll slider one way and stop it^^^^^^^^^^^^
@@ -206,13 +214,13 @@ export class WorkBody extends React.Component {
 				<Wrapper>
 					<UlContainer onWheel={this.Handlescroll.bind(this, 1)} scroll={this.state.scrollValue}>
 						<LiContainer>
-							<ExampleWork title="National Nuclear Museum" link="/NNM" img={NNM} code="https://github.com/Abentley95/Portfolio/blob/master/src/Components/NNM.js"></ExampleWork>
+							<ExampleWork caseStudy={true} title="National Nuclear Museum" link="/NNM" img={NNM}></ExampleWork>
 						</LiContainer>
 						<LiContainer>	
-							<ExampleWork title="Rhein Tech Laboratories" link="/Rheintech" img={Rheintech} code="https://github.com/Abentley95/Portfolio/blob/master/src/Components/Rheintech.js"/>
+							<ExampleWork caseStudy={true} title="Rhein Tech Laboratories" link="/Rheintech" img={Rheintech}/>
 						</LiContainer>
 						<LiContainer>	
-							<ExampleWork title="Random Designs" link="/" img={NNM} code=""/>
+							<ExampleWork caseStudy={true} title="Random Designs" link="/" img={NNM} />
 						</LiContainer>
 					</UlContainer>
 				</Wrapper>
@@ -236,7 +244,7 @@ export class WorkBody extends React.Component {
 							<ExampleWork title="Slider" link="/Slider" img={slider} code="https://github.com/Abentley95/Portfolio/blob/master/src/Components/Slider.js"/>
 						</LiContainer>
 						<LiContainer>	
-							<ExampleWork title="Icon Drag" link="/IconDrag" img={slider} code="https://github.com/Abentley95/Portfolio/blob/master/src/Components/Slider.js"/>
+							<ExampleWork title="Icon Drag" link="/IconDrag" img={IconDrag} code="https://github.com/Abentley95/Portfolio/blob/master/src/Components/IconDrag.js"/>
 						</LiContainer>
 					</UlContainer>
 				</Wrapper>

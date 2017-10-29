@@ -60,18 +60,18 @@ const H1 = styled.h1 `
 			this.state = {
 				count: 0,
 				mousedown: true,
-				mouseposx: 0,
-				mouseposy: 0,
-				secondx: 0,
-				secondy: 0,
-				thirdx: 0,
-				thirdy: 0,
-				fourthx: 0,
-				fourthy: 0,
-				fifthx: 0,
-				fifthy: 0,
-				sixthx: 0,
-				sixthy: 0
+				mouseposx: 100,
+				mouseposy: 300,
+				secondx: 100,
+				secondy: 300,
+				thirdx: 100,
+				thirdy: 300,
+				fourthx: 100,
+				fourthy: 300,
+				fifthx: 100,
+				fifthy: 300,
+				sixthx: 100,
+				sixthy: 300
 			}
 				this.handlemousedown = this.handlemousedown.bind(this);
 				this.handlemouseup = this.handlemouseup.bind(this);

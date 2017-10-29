@@ -1,9 +1,6 @@
 import React from 'react';
-import {Bootstrap, Grid, Row, Col, Button} from 'react-bootstrap';
-import ScrollUpButton from "react-scroll-up-button";
 import styled from 'styled-components';
-import  NNM  from "./NNM";
-import { HashRouter, Route, Link} from "react-router-dom";
+import { Link} from "react-router-dom";
 
 
 
@@ -30,6 +27,7 @@ const Border = styled.div `
 	transition: all 0.25s ease-in-out;
 	border-radius: 5px;
 	box-shadow: rgb(56, 56, 56) 0px 5px 30px 5px;
+	position: relative;
 `;
 
 const Demo = styled.p `
@@ -38,7 +36,6 @@ const Demo = styled.p `
 	font-size: 175%;
 	padding-left: 5%;
 	padding-right: 5%;
-	border-right: 1px solid black;
 	position: absolute;
 	bottom: 0px;
 	left: 15%;
@@ -60,13 +57,25 @@ const Img = styled.div `
 	height: 40%;
 	
 `;
-//styles={{fontSize: }}
+
+const CaseStudy = styled.p `
+	font-size: 200%;
+	color: black;
+	cursor: pointer;
+	position: absolute;
+	bottom: 15px;
+	text-align: center;
+	left: 0;
+	right: 0;
+	margin: auto;
+
+`;
 
 export class ExampleWork extends React.Component {	
 	
 	handleRedirect(){
-	let newloc = this.props.code;
-    window.location.assign(newloc);
+		let newloc = this.props.code;
+	    window.location.assign(newloc);
 	}
 
 
@@ -85,11 +94,24 @@ export class ExampleWork extends React.Component {
 					}
 				})()
 			}
+			{(()=>{
+				if (this.props.caseStudy === true){
+					return  <Link to={this.props.link}>
+								<CaseStudy>Lets Go</CaseStudy>
+							</Link>
+				}
+				else{
+					return  <div>
+								<Link to={this.props.link}>
+									<Demo>Demo</Demo>
+								</Link>
+								<Code onClick={this.handleRedirect.bind(this)} page={this.props.code}>Code</Code>
+							</div>
+				}
 
-			<Link to={this.props.link}>
-				<Demo>Demo</Demo>
-			</Link>
-				<Code onClick={this.handleRedirect.bind(this)} page={this.props.code}>Code</Code>
+			})()}
+
+
 		</Border>				
 			
 		);

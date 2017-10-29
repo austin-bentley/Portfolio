@@ -1,5 +1,4 @@
 import React from 'react';
-import {Bootstrap, Grid, Row, Col} from 'react-bootstrap';
 import styled from 'styled-components';
 
 const Resume = require('./images/AustinBentley.jpg');
@@ -139,7 +138,7 @@ const Span = styled.span `
 	transform: rotate(45deg);
 	transition: all 0.5s ease-out;     
 
-	opacity : ${(props) => props.activeFooter != 0? '1' : '0' }
+	opacity : ${(props) => props.activeFooter !== 0? '1' : '0' }
 
 `;
 

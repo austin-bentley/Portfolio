@@ -119,7 +119,7 @@ export default class Slider extends React.Component {
 componentDidMount() {
 		this.time = function() {
 			
-				let slide = setInterval(()=>{
+				setInterval(()=>{
 					if (this.state.run === true){
 						console.log(this.state.pos);
 						this.setState({pos: this.state.pos + 1});
