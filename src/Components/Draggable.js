@@ -54,8 +54,8 @@ const Divider = styled.span `
 			return '0vw';
 		}
 		else{
-		let vwconvert = props.pos* (100/props.width);
-		return  vwconvert + 'vw'; 
+			let vwconvert = props.pos* (100/props.width);
+			return  vwconvert + 'vw'; 
 		}
 	}};
 
@@ -99,6 +99,10 @@ const H1 = styled.h1`
 
 		mouseposition(event){
 			let x = event.clientX;
+			if (x === undefined){
+				x = event.touches[0].clientX;
+			}
+//---------------------------------------fall back on mobile^^^^^^^^^^^^^^^^^^^
 			let w = window.innerWidth;
 			if (this.state.mousedown === false){
 				this.setState({mouseposx: x, clientwidth: w});
@@ -115,14 +119,22 @@ const H1 = styled.h1`
 			render (){
 				return (
 					<Div>
-						<Div bottom={Image1} onMouseMove={this.mouseposition}>
+						<Div bottom={Image1}>
 							<H1 bottom={1}>Tokyo</H1>
 						</Div>
 
-						<OuterDiv onMouseMove={this.mouseposition} pos={this.state.mouseposx} mount={this.state.mounted} width={this.state.clientwidth}>
+						<OuterDiv onMouseMove={this.mouseposition} onTouchMove={this.mouseposition} pos={this.state.mouseposx} mount={this.state.mounted} width={this.state.clientwidth}>
 							<Div top={Image2}>
 								<H1>Tokyo</H1>
-								<Divider onMouseDown={this.handlemousedown} onMouseUp={this.handlemouseup} pos={this.state.mouseposx} mount={this.state.mounted} width={this.state.clientwidth}/>
+								<Divider 
+									onMouseDown={this.handlemousedown} 
+									onMouseUp={this.handlemouseup} 
+									onTouchStart={this.handlemousedown} 
+									onTouchEnd={this.handlemouseup} 
+									pos={this.state.mouseposx} 
+									mount={this.state.mounted} 
+									width={this.state.clientwidth}
+									/>
 							</Div>
 						</OuterDiv>
 						

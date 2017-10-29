@@ -101,8 +101,15 @@ const H1 = styled.h1 `
 
 
 		mouseposition(event){
+
 			let x = event.clientX;
 			let y = event.clientY;
+
+			if (x === undefined){
+				x = event.touches[0].clientX;
+				y = event.touches[0].clientY;
+			}
+
 			let w = window.innerWidth;
 			if (this.state.mousedown === false){
 
@@ -118,14 +125,20 @@ const H1 = styled.h1 `
 
 			render (){
 				return (
-					<Div onMouseMove={this.mouseposition}>
+					<Div onMouseMove={this.mouseposition} onTouchMove={this.mouseposition}>
 						<H1>Drag The Button</H1>
 						<Button6 style={{top: this.state.sixthy, left: this.state.sixthx }} mouse={this.state.mousedown}>F</Button6>
 						<Button5 style={{top: this.state.fifthy, left: this.state.fifthx }} mouse={this.state.mousedown}>E</Button5>
 						<Button4 style={{top: this.state.fourthy, left: this.state.fourthx }} mouse={this.state.mousedown}>D</Button4>
 						<Button3 style={{top: this.state.thirdy, left: this.state.thirdx }} mouse={this.state.mousedown}>C</Button3>
 						<Button2 style={{top: this.state.secondy, left: this.state.secondx }} mouse={this.state.mousedown}>B</Button2>
-						<Button1 style={{top: this.state.mouseposy, left: this.state.mouseposx}} onMouseDown={this.handlemousedown} onMouseUp={this.handlemouseup} mouse={this.state.mousedown}>A</Button1>
+						<Button1 style={{top: this.state.mouseposy, left: this.state.mouseposx}}
+							onMouseDown={this.handlemousedown} 
+							onMouseUp={this.handlemouseup} 
+							mouse={this.state.mousedown} 
+							onTouchStart={this.handlemousedown} 
+							onTouchEnd={this.handlemouseup} 
+						>A</Button1>
 					</Div>
 				);
 			}
