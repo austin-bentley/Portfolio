@@ -38,7 +38,7 @@ const OuterDiv = styled.div `
 `;
 
 const Divider = styled.span `
-	width: 1vw;
+	width: 5vw;
 	height: 100vh;
 	background: linear-gradient(to bottom, #ff3232 1%,#c58cff 100%);
 	position: absolute;
@@ -55,7 +55,7 @@ const Divider = styled.span `
 		}
 		else{
 			let vwconvert = props.pos* (100/props.width);
-			return  vwconvert + 'vw'; 
+			return  vwconvert  + 'vw'; 
 		}
 	}};
 
@@ -119,7 +119,7 @@ const H1 = styled.h1`
 			render (){
 				return (
 					<Div>
-						<Div bottom={Image1}>
+						<Div bottom={Image1} onMouseMove={this.mouseposition} onTouchMove={this.mouseposition}>
 							<H1 bottom={1}>Tokyo</H1>
 						</Div>
 

@@ -88,6 +88,11 @@ const H1 = styled.h1 `
 		handlemouseup(){
 			console.log(this.state.mousedown);
 			this.setState({mousedown: true});
+
+			for ( var key in this.state) {
+				console.log(`${[key]} = ${this.state[key]}`);
+			}
+
 			setTimeout(()=>{
 				this.setState({
 					secondy: this.state.secondy + 50,
@@ -112,7 +117,6 @@ const H1 = styled.h1 `
 
 			let w = window.innerWidth;
 			if (this.state.mousedown === false){
-
 
 				this.setState({mouseposx: x -20, clientwidth: w, mouseposy: y -20, count: this.state.count + 1});
 				setTimeout(()=>{this.setState({secondx: x -20, secondy: y -20});}, 100 );
