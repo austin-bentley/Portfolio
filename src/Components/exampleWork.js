@@ -6,6 +6,7 @@ import { Link} from "react-router-dom";
 
 
 const H3 = styled.h3 `
+	user-select: none;
 	font-size: 150%;
 	font-weight: bold;
 	text-align: center;
@@ -31,6 +32,7 @@ const Border = styled.div `
 `;
 
 const Demo = styled.p `
+	user-select: none;
 	color: black;
 	display: inline;
 	font-size: 175%;
@@ -44,11 +46,13 @@ const Demo = styled.p `
 `;
 
 const Code = Demo.extend `
+	user-select: none;
 	border-right: none;
-		left: 55%;
+	left: 55%;
 `;
 
 const Img = styled.div `
+	user-drag: false;
 	background-image: url(${(props)=> props.src});
 	background-repeat: no-repeat;
 	background-size: contain;
@@ -59,6 +63,7 @@ const Img = styled.div `
 `;
 
 const CaseStudy = styled.p `
+	user-select: none;
 	font-size: 200%;
 	color: black;
 	cursor: pointer;
@@ -96,13 +101,13 @@ export class ExampleWork extends React.Component {
 			}
 			{(()=>{
 				if (this.props.caseStudy === true){
-					return  <Link to={this.props.link}>
+					return  <Link to={this.props.link} draggable="false">
 								<CaseStudy>Lets Go</CaseStudy>
 							</Link>
 				}
 				else{
-					return  <div>
-								<Link to={this.props.link}>
+					return  <div draggable="false">
+								<Link to={this.props.link} draggable="false">
 									<Demo>Demo</Demo>
 								</Link>
 								<Code onClick={this.handleRedirect.bind(this)} page={this.props.code}>Code</Code>

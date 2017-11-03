@@ -59,12 +59,6 @@ const Wrapper = styled.div `
 `;
 
 const UlContainer = styled.ul `
-	margin-left: ${(props)=> {
-		if (props.scroll) return '-' + props.scroll * 12 + 'vw';
-		else {
-			return '-' + props.secondscroll * 12 + 'vw'
-		}
-	}};
 	width: 300vw;
 	list-style-type: none; 
 	transition: all 0.3s ease-out;
@@ -139,64 +133,53 @@ export class WorkBody extends React.Component {
 	constructor(){
 		super();
 		this.state = {
-			mouseIn: false,
-			scrollValue: 0,
-			secondscrollValue: 0,
-			containerID: 0,
-			preventdefaultcount: 0
+			_startDrag: 0,
+			_sliderPosx: 0,
+			_mouseDown: false,
+			_difference: 0,
+			_differencePosControl: 0
 		}
+
+		this.handleMove = this.handleMove.bind(this);
+		this.handleMouseUp = this.handleMouseUp.bind(this);
+		this.handleMouseDown = this.handleMouseDown.bind(this);
 	}
 
-	Handlescroll(x,y) {
+	handleMove(event){
+		let posX = event.clientX;
+		if (posX === undefined){
+			posX = event.touches[0].clientX;
+		}
+
+		if (this.state.mouseDown === true){
+				let difference = (posX - this.state._startDrag);
+				this.setState({_sliderPosx: posX, _difference: difference});
+				console.log(difference);
+		}
 		
-		y.preventDefault();
-		console.log(this.state.preventdefaultcount);
-		console.log(window.innerWidth);
-
-		var vwCount = 0;
-		if(window.innerWidth >= 992){
-			vwCount = 4;
-		}
-		else if(window.innerWidth >= 480 ){
-			vwCount = 8;
-		}
-		else {
-			vwCount = 14;
-		}
-//----------------------------------------------stops image slider dependant on viewport width^^^^^^^^^^^^^^
-		if (x === 1){
-			var _scroll = "scrollValue";
-			var _scrollstate = this.state.scrollValue;
-		}
-		else{
-			 _scroll = "secondscrollValue";
-			 _scrollstate = this.state.secondscrollValue;			
-		}
-//------------------------------------set variables for different sliders^^^^^^^^^^^
-		// if(this.state.preventdefaultcount <= vwCount &&  this.state.preventdefaultcount >= 0){
-		// 	y.preventDefault(); 
-		// }
-
-//------------------------------------prevents scroll only when in slider^^^^^^^^^^^^^^ PROBLEM!!!!!!!!!!!
-		
-		if (y.deltaY === 150){
-		 	this.setState({mousein: true, [_scroll]: _scrollstate + 1, preventdefaultcount: this.state.preventdefaultcount + 1});
-
-			if (_scrollstate >= vwCount){
-				this.setState({[_scroll]: vwCount, preventdefaultcount: vwCount + 1 });
-			}
-		}
-		//--------------------------------------scroll slider one way and stop it^^^^^^^^^^^^
-		else if (y.deltaY === -150){
-				this.setState({mousein: true, [_scroll]: _scrollstate - 1, preventdefaultcount: this.state.preventdefaultcount - 1});
-
-				if ( _scrollstate <= 0){
-					this.setState({[_scroll]: 0, preventdefaultcount: -1});
-				}
-			
-		}
-		//--------------------------------------scroll slider one way and stop it^^^^^^^^^^^^
 	}
+
+	handleMouseUp(){
+		let differencePosControl = this.state._difference;
+		this.setState({mouseDown: false, _differencePosControl: differencePosControl});
+		
+	}
+
+	handleMouseDown(event){
+		event.persist();
+		this.setState({mouseDown: true}, ()=>{this.handleMove(event)});
+
+		let posX = event.clientX;
+		if (posX === undefined){
+			posX = event.touches[0].clientX;
+		}
+
+		console.log(this.state._differencePosControl + "sssssssssssssssssssssss");
+			this.setState({_startDrag: (posX - this.state._differencePosControl)});
+			console.log(this.state._startDrag + "/////////////////////////");
+	}
+
+
 	render(){
 		return (
 			<div>
@@ -212,7 +195,16 @@ export class WorkBody extends React.Component {
 					</Row>
 				</Grid>
 				<Wrapper>
-					<UlContainer onWheel={this.Handlescroll.bind(this, 1)} scroll={this.state.scrollValue}>
+					<UlContainer onTouchMove={this.handleMove} 
+						onMouseMove={this.handleMove} 
+						onMouseDown={this.handleMouseDown} 
+						onMouseUp={this.handleMouseUp} 
+						current={this.state._sliderPosx} 
+						difference={this.state._difference}
+						onTouchStart={this.handleMouseDown}
+						onTouchEnd={this.handleMouseUp}
+						style={{marginLeft: this.state._difference + "px"}}
+						>
 						<LiContainer>
 							<ExampleWork caseStudy={true} title="National Nuclear Museum" link="/NNM" img={NNM}></ExampleWork>
 						</LiContainer>
@@ -236,7 +228,7 @@ export class WorkBody extends React.Component {
 					</Row>
 				</Grid>
 				<Wrapper>
-					<UlContainer onWheel={this.Handlescroll.bind(this, 2)} secondscroll={this.state.secondscrollValue}>
+					<UlContainer>
 						<LiContainer>	
 							<ExampleWork title="Draggable" link="/TokyoGhoul" img={draggable} code="https://github.com/Abentley95/Portfolio/blob/master/src/Components/Draggable.js"/>
 						</LiContainer>
