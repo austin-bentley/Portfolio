@@ -1,12 +1,19 @@
 import React from 'react';
 import { Grid, Row, Col} from 'react-bootstrap';
-import {WorkThumbnail, AboutThumbnail, SchoolThumbnail} from './Thumbnail';
+import Thumbnail from './Thumbnail';
 import { Body } from './Body';
 import {SiteFooter} from './SiteFooter';
 import {connect} from 'react-redux';
 import { activeThumbnail, activeFooter }  from "../actions/activeAction.js";
 import  store  from "../store";
 
+const Wave01 = require('./images/wave_01.png');
+const Wave02 = require('./images/wave_02.png');
+const Wave03 = require('./images/wave_03.png');
+
+const schoolIcon = require('./images/schoolIconBlue.png');
+const workIcon = require('./images/workIconBlue.png');
+const aboutmeIcon = require('./images/aboutmeIconBlue.png');
 
 const noPadding = {
 	paddingLeft: '0px',
@@ -41,16 +48,16 @@ class Layout extends React.Component {
 		<div>
 			<Grid fluid>
 				<Row>
-					<Col lg={4} md={4} sm={12} style ={noPadding}>
-						<AboutThumbnail showThumbnail={(i) => this.props.activeThumbnail(i)} show={this.state.show}/>
+					<Col lg={4} md={4} style ={noPadding}>
+						<Thumbnail showThumbnail={(i) => this.props.activeThumbnail(1)} show={this.state.show} identity={1} img={Wave01} mobileImg={aboutmeIcon} name={"About"}/>
 					</Col>	
 
-					<Col lg={4} md={4} sm={12} style ={noPadding}>
-						<WorkThumbnail  showThumbnail={(i) => this.props.activeThumbnail(i)} show={this.state.show}/>
+					<Col lg={4} md={4} style ={noPadding}>
+						<Thumbnail  showThumbnail={(i) => this.props.activeThumbnail(3)} show={this.state.show} identity={3} img={Wave02} mobileImg={workIcon} name={"Work"}/>
 					</Col>
 
-					<Col lg={4} md={4} sm={12} style ={noPadding}>
-						<SchoolThumbnail showThumbnail={(i) => this.props.activeThumbnail(i)} show={this.state.show}/>
+					<Col lg={4} md={4} style ={noPadding}>
+						<Thumbnail showThumbnail={(i) => this.props.activeThumbnail(2)} show={this.state.show} identity={2} img={Wave03} mobileImg={schoolIcon} name={"School"}/>
 					</Col>
 				</Row>
 				</Grid>

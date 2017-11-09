@@ -173,10 +173,7 @@ export class WorkBody extends React.Component {
 		if (posX === undefined){
 			posX = event.touches[0].clientX;
 		}
-
-		console.log(this.state._differencePosControl + "sssssssssssssssssssssss");
 			this.setState({_startDrag: (posX - this.state._differencePosControl)});
-			console.log(this.state._startDrag + "/////////////////////////");
 	}
 
 
@@ -228,7 +225,16 @@ export class WorkBody extends React.Component {
 					</Row>
 				</Grid>
 				<Wrapper>
-					<UlContainer>
+					<UlContainer onTouchMove={this.handleMove} 
+					onMouseMove={this.handleMove} 
+					onMouseDown={this.handleMouseDown} 
+					onMouseUp={this.handleMouseUp} 
+					current={this.state._sliderPosx} 
+					difference={this.state._difference}
+					onTouchStart={this.handleMouseDown}
+					onTouchEnd={this.handleMouseUp}
+					style={{marginLeft: this.state._difference + "px"}}
+					>
 						<LiContainer>	
 							<ExampleWork title="Draggable" link="/TokyoGhoul" img={draggable} code="https://github.com/Abentley95/Portfolio/blob/master/src/Components/Draggable.js"/>
 						</LiContainer>
