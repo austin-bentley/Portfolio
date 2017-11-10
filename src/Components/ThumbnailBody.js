@@ -32,7 +32,7 @@ const Img = styled.img `
 
 const Div = styled.div `
 	transition: all 1s ease-out;
-
+	margin-top: 15vh;
 `;
 
 
@@ -179,7 +179,7 @@ export class WorkBody extends React.Component {
 
 	render(){
 		return (
-			<div>
+			<Div>
 				<Grid>
 					<Row>
 						<Col lg={12} md={12} sm={12} xs={12}>
@@ -246,7 +246,7 @@ export class WorkBody extends React.Component {
 						</LiContainer>
 					</UlContainer>
 				</Wrapper>
-			</div>
+			</Div>
 		);
 	}
 }
@@ -254,7 +254,7 @@ export class WorkBody extends React.Component {
 export class SchoolBody extends React.Component {
 	render(){
 		return (
-			<div>
+			<Div>
 				<Grid>
 					<ScrollUpButton />
 					<Row>
@@ -293,7 +293,7 @@ export class SchoolBody extends React.Component {
 						</Col>
 					</Row>
 				</Grid>
-			</div>
+			</Div>
 		);
 	}
 

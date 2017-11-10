@@ -5,22 +5,25 @@ import styled from 'styled-components';
 
 const Wrapper = styled.div `
 	@media (min-width : 0px) {
-		height: 10vh;
-		position: fixed;
-		z-index: 1;
-		width: 100vw;
+		width: 33vw;
+		background: white;
+		display: inline-block;
+
+
 
 	}
 
 	@media (min-width : 992px){
+		display: inline-block;
+		width: 34%;
 		transition: all 0.5s ease-in-out;
 		overflow: hidden;
 		height: 70vh;
 		background-color: black;
 		:hover .div {opacity: 1};
 		box-shadow: 2px 5px 15px #888888;
-		position: static;
-		width: 100%;
+		position: relative;
+		vertical-align: top;
 	}
 
 
@@ -46,7 +49,7 @@ const Img = styled.img`
 		background-repeat: none
 		background-size: none;
 		background-position: none;
-		background-color: white;
+		background-color: transparent;
 		transition: none;
 		opacity: none;
     }
@@ -75,15 +78,14 @@ const Button = styled.button`
 		background-size: contain;
 		background-position: center;
 		background-color: transparent;
-		width: 30vw;
-		height: 15vh;
+		width: 20vw;
+		height: 10vh;
 		transition: none;
-		opacity: none;
 		color: transparent;
 		border: 5px solid #597fff;
-		position: relative;
-		display: inline;
-		z-index: 1;
+		z-index: 3;
+
+
 	}
 
 		@media (min-width : 992px){
@@ -92,13 +94,10 @@ const Button = styled.button`
 		background: transparent;
 		color: #597fff;
 		border: 2px solid #597fff;
-		position: absolute;
+		position: relative;
 		font-size: 50px;
-		display: inline;
 		width: 15vw;
 		height: 10vh;
-		left: 40%;
-    	top: 40%;
 	}
 `;
 
@@ -107,7 +106,7 @@ export default class Thumbnail extends React.Component {
 		return (
 			<Wrapper style={this.props.show === this.props.identity && window.innerWidth >= 992? activeScale : null}>
 				<Img style={this.props.show === this.props.identity && window.innerWidth >= 992? activeOpacity : null} className="div" img={this.props.img}></Img>
-				<Button className="center-block" onClick={() => this.props.showThumbnail(this.props.show)} mobileImg={this.props.mobileImg}>{this.props.name}</Button>
+				<Button onClick={() => this.props.showThumbnail(this.props.show)} mobileImg={this.props.mobileImg}>{this.props.name}</Button>
 			</Wrapper>
 		);
 	}  
