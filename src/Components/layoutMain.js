@@ -23,6 +23,7 @@ const noPadding = {
 }
 
 const CenterMobileButtons =styled.div`
+@media (max-width : 992px) {
 	display: inline;
 	width: 100%;
 	position: fixed;
@@ -30,6 +31,8 @@ const CenterMobileButtons =styled.div`
 	height: 10vh;
 	z-index: 1;
 	top: 0;
+}
+
 `;
 
 

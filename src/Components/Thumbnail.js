@@ -5,7 +5,7 @@ import styled from 'styled-components';
 
 const Wrapper = styled.div `
 	@media (min-width : 0px) {
-		width: 33vw;
+		width: 33%;
 		background: white;
 		display: inline-block;
 
@@ -15,7 +15,7 @@ const Wrapper = styled.div `
 
 	@media (min-width : 992px){
 		display: inline-block;
-		width: 34%;
+		width: 33%;
 		transition: all 0.5s ease-in-out;
 		overflow: hidden;
 		height: 70vh;
@@ -94,10 +94,15 @@ const Button = styled.button`
 		background: transparent;
 		color: #597fff;
 		border: 2px solid #597fff;
-		position: relative;
+		position: absolute;
 		font-size: 50px;
 		width: 15vw;
 		height: 10vh;
+		right: 0;
+		left: 0;
+		top: 0;
+		bottom: 0;
+		margin: auto;
 	}
 `;
 
