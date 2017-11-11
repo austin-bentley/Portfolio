@@ -124,7 +124,7 @@ const HideFooter = styled.div `
 	min-height: 5vw;
 	top: 2vh;
 	left: 90vw;
-	background-color: translucent;
+	background-color: transparent;
 `; 
 
 const Span = styled.span `
@@ -153,7 +153,7 @@ export class SiteFooter extends React.Component {
 						<Button onClick={() => this.props.showFooter(1)}>Site</Button>
 						<Button onClick={() => this.props.showFooter(2)}>Credit</Button>
 						<Button onClick={() => this.props.showFooter(3)}>Resume</Button>
-						<HideFooter onClick={() => this.props.showFooter(0)}>
+						<HideFooter onClick={() => this.props.showFooter(false)}>
 							<Span activeFooter={this.props.activeFooter} style={{transform: 'rotate(45deg)'}}></Span>
 							<Span activeFooter={this.props.activeFooter} style={{transform: 'rotate(-45deg)'}}></Span>
 						</HideFooter>
