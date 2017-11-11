@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 const Resume = require('./images/AustinBentley.jpg');
+const Resumedownload = require('./images/AustinBentley.pdf');
 
 
 const Footer = styled.div `
@@ -173,7 +174,7 @@ export class SiteFooter extends React.Component {
 								<CreditP>I'm gonna use this, but what? I'm not quite sure yet</CreditP>
 							</Div>
 							<Div>
-								<ResumeP><a download="AustinBentley.pdf" href="./app/Components/images/AustinBentley.pdf" title="Resume">Download</a> my Resume</ResumeP>	
+								<ResumeP><a download="AustinBentley.pdf" href={Resumedownload} title="Resume">Download</a> my Resume</ResumeP>	
 								<Img alt="AustinBentley's Resume failed to load" src={Resume} />
 							</Div>
 						</Container>
