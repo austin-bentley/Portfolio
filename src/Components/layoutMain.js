@@ -42,7 +42,7 @@ class Layout extends React.Component {
 
 		this.state = {
 			show: 3,
-			activeFooter: 0
+			activeFooter: false
 		}
 
 		store.subscribe(() => {

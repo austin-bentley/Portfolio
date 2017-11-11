@@ -106,7 +106,6 @@ const H1 = styled.h1 `
 
 
 		mouseposition(event){
-
 			let x = event.clientX;
 			let y = event.clientY;
 

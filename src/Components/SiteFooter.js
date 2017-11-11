@@ -36,7 +36,7 @@ const Button = styled.a `
 const ResumeP = styled.p `
 	color: white; 
 	display: inline-block;
-	font-size: 7vh;
+	font-size: 4vh;
 	display: center;
 	padding-top: 10vh;
 `;
@@ -44,7 +44,7 @@ const ResumeP = styled.p `
 const SiteP = styled.h1 `
 	color: #ffffff; 
 	display: block;
-	font-size: 7vh;
+	font-size: 5vh;
 	text-align: left;
 	margin-left: 10vw;
 `;
@@ -52,7 +52,7 @@ const SiteP = styled.h1 `
 const CreditP = styled.p `
 	color: #ffffff !important; 
 	display: inline-block;
-	font-size: 7vh;
+	font-size: 4vh;
 	display: center;
 	padding-top: 10vh;
 	float: none;
@@ -65,6 +65,7 @@ const Ul = styled.ul`
 const Li = styled.li`
 	color: #ffffff;
 	margin-left: 5vw;
+	font-size: 3vh
 `;
 
 const Wrapper = styled.div `
@@ -138,7 +139,7 @@ const Span = styled.span `
 	transform: rotate(45deg);
 	transition: all 0.5s ease-out;     
 
-	opacity : ${(props) => props.activeFooter !== 0? '1' : '0' }
+	opacity : ${(props) => props.activeFooter === false? '0' : '1' }
 
 `;
 
@@ -147,7 +148,7 @@ export class SiteFooter extends React.Component {
 		return(
 			<div>
 				<Footer activeFooter={this.props.activeFooter}>
-
+				{console.log(this.props.activeFooter)}
 					<div>
 						<Button onClick={() => this.props.showFooter(1)}>Site</Button>
 						<Button onClick={() => this.props.showFooter(2)}>Credit</Button>

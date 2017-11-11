@@ -8,7 +8,7 @@ const Wrapper = styled.div `
 		width: 33%;
 		background: white;
 		display: inline-block;
-
+		vertical-align: top;
 
 
 	}

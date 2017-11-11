@@ -44,7 +44,7 @@ const Hr = styled.hr `
 
 const Classes = styled.div`
 	margin-top: 5vh;
-	margin-left: 15vw;
+	margin-left: 10vw;
 	margin-bottom: 10vh;
 	
 `;
