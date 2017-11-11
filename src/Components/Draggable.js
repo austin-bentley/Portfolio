@@ -14,9 +14,11 @@ const Div = styled.div `
 	height: 100vh;
 	width: 100vw;
 	position: absolute;
+	touch-action: none;
 `;
 
 const OuterDiv = styled.div `
+	touch-action: none;
 	height: 100vh;
 	position: absolute;
 	overflow: hidden;
@@ -38,6 +40,7 @@ const OuterDiv = styled.div `
 `;
 
 const Divider = styled.span `
+	touch-action: none;
 	width: 5vw;
 	height: 100vh;
 	background: linear-gradient(to bottom, #ff3232 1%,#c58cff 100%);

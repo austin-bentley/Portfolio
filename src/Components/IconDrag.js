@@ -12,38 +12,38 @@ const Div = styled.div `
 
 const Button1 = styled.button `
 	border-radius: 50%;
-	color: #00B2D6;
+	background-color: #4286f4;
+	color: white;
 	width: 50px;
 	height: 50px;
 	font-size: 200%;
 	position: absolute;
-	border: black 1px solid;
-	background-color: white;
+	border: transparent 1px solid;
 	transition: ${(props)=> props.mouse === true? 'all .1s ease-out' : 'none'};
 `;
 
 const Button2 = Button1.extend `
-	color: #84CE00;
+	background-color: #a641f4;
 	transition: ${(props)=> props.mouse === true? 'all .2s ease-out' : 'none'};
 `;
 
 const Button3 = Button1.extend `
-	color: #FFCF00;
+	background-color: #f44164;
 	transition: ${(props)=> props.mouse === true? 'all .3s ease-out' : 'none'};
 `;
 
 const Button4 = Button1.extend `
-	color: #FF7D01;
+	background-color: #f4d641;
 	transition: ${(props)=> props.mouse === true? 'all .4s ease-out' : 'none'};
 `;
 
 const Button5 = Button1.extend `
-	color: #F42494;
+	background-color: #41f482;
 	transition: ${(props)=> props.mouse === true? 'all .5s ease-out' : 'none'};
 `;
 
 const Button6 = Button1.extend `
-	color: #0024BA;
+	background-color: #98a1a5;
 	transition: ${(props)=> props.mouse === true? 'all .6s ease-out' : 'none'};
 `;
 
