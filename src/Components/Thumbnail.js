@@ -107,6 +107,9 @@ const Button = styled.button`
 `;
 
 export default class Thumbnail extends React.Component {
+
+
+	const 
 	render() {
 		return (
 			<Wrapper style={this.props.show === this.props.identity && window.innerWidth >= 992? activeScale : null}>

@@ -1,5 +1,4 @@
 import React from 'react';
-import { Grid, Row, Col} from 'react-bootstrap';
 import Thumbnail from './Thumbnail';
 import { Body } from './Body';
 import {SiteFooter} from './SiteFooter';

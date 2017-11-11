@@ -6,6 +6,7 @@ const Div = styled.div `
 	width: 98vw;
 	height: 98vh;
 	background-color: white;
+	touch-action: none;
 `;
 
 

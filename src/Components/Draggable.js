@@ -48,14 +48,27 @@ const Divider = styled.span `
 
 	left: ${(props) => {
 		if (props.mount === true){
-			return '49.5vw'; 
+			
+			if(window.innerWidth >= 992){
+				return '49.5vw';  
+			}
+			else{
+				return '46.5vw';  
+			}
 		}
 		else if (props.mount === false){
 			return '0vw';
 		}
 		else{
-			let vwconvert = props.pos* (100/props.width);
-			return  vwconvert  + 'vw'; 
+			if(window.innerWidth >= 992){
+							let vwconvert = props.pos* (100/props.width);
+							return  vwconvert  + 'vw'; 
+			}
+			else{
+				let vwconvert = props.pos* (100/props.width);
+				return  vwconvert - 3 + 'vw'; 
+			}
+
 		}
 	}};
 
