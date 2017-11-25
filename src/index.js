@@ -11,7 +11,7 @@ import  Slider  from "./Components/Slider";
 import  Layout  from "./Components/layoutMain";
 import TokyoGhoul from "./Components/Draggable";
 import IconDrag from "./Components/IconDrag";
-
+import FacebookActivity from "./Components/FacebookActivity";
 
 ReactDOM.render(
 	<Provider store = {store}>
@@ -24,6 +24,7 @@ ReactDOM.render(
 						<Route path="/Designs" exact component={Design}/>
 						<Route path="/TokyoGhoul" exact component={TokyoGhoul}/>
 						<Route path="/IconDrag" exact component={IconDrag}/>
+						<Route path="/FacebookActivity" exact component={FacebookActivity}/>
 					</Switch>	
 				</HashRouter>
 	</Provider>,

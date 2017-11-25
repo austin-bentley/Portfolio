@@ -4,12 +4,13 @@ import ScrollUpButton from "react-scroll-up-button";
 import styled from 'styled-components';
 import { ExampleWork } from './exampleWork';
 
+
 const Me = require('./images/me.jpg');
 const Rheintech = require('./images/RheinTech.png');
 const NNM = require('./images/nationalnuclearmuseum.png');
 const draggable = require('./images/draggable.PNG');
 const slider = require('./images/slider.PNG');
-const IconDrag = require('./images/IconDragThumbnail.PNG')
+const IconDrag = require('./images/IconDragThumbnail.PNG');
 
 const H1 = styled.h1`
 	font-size: 7vh;
@@ -174,6 +175,7 @@ export class WorkBody extends React.Component {
 			posX = event.touches[0].clientX;
 		}
 			this.setState({_startDrag: (posX - this.state._differencePosControl)});
+
 	}
 
 
@@ -243,6 +245,9 @@ export class WorkBody extends React.Component {
 						</LiContainer>
 						<LiContainer>	
 							<ExampleWork title="Icon Drag" link="/IconDrag" img={IconDrag} code="https://github.com/Abentley95/Portfolio/blob/master/src/Components/IconDrag.js"/>
+						</LiContainer>
+						<LiContainer>
+							<ExampleWork title="FaceBook Activity" link="/FacebookActivity" img={IconDrag} code="https://github.com/Abentley95/Portfolio/blob/master/src/Components/IconDrag.js"/>
 						</LiContainer>
 					</UlContainer>
 				</Wrapper>

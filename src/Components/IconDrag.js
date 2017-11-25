@@ -77,6 +77,7 @@ const H1 = styled.h1 `
 				this.handlemousedown = this.handlemousedown.bind(this);
 				this.handlemouseup = this.handlemouseup.bind(this);
 				this.mouseposition = this.mouseposition.bind(this);
+				this.settingthestateforpostition = this.settingthestateforpostition.bind(this);
 				
 		}
 
@@ -94,15 +95,27 @@ const H1 = styled.h1 `
 				console.log(`${[key]} = ${this.state[key]}`);
 			}
 
+
+
 			setTimeout(()=>{
 				this.setState({
-					secondy: this.state.secondy + 50,
-					thirdy: this.state.thirdy + 100,
-					fourthy: this.state.fourthy + 150,
-					fifthy: this.state.fifthy + 200,
-					sixthy: this.state.sixthy + 250
+					secondy: this.state.secondy + 60,
+					thirdy: this.state.thirdy + 25,
+					thirdx: this.state.thirdx + 60,
+					fourthy: this.state.fourthy + 25,
+					fourthx: this.state.fourthx - 60,
+					fifthy: this.state.fifthy - 50,
+					fifthx: this.state.fifthx + 40,
+					sixthy: this.state.sixthy - 50,
+					sixthx: this.state.sixthx - 40
 				})	
 			}, 600)	
+		}
+
+		
+		
+		settingthestateforpostition(x , y, xstate, ystate, time){
+			setTimeout(()=>{this.setState({[xstate]: x -20, [ystate]: y -20});}, time );
 		}
 
 
@@ -119,11 +132,11 @@ const H1 = styled.h1 `
 			if (this.state.mousedown === false){
 
 				this.setState({mouseposx: x -20, clientwidth: w, mouseposy: y -20, count: this.state.count + 1});
-				setTimeout(()=>{this.setState({secondx: x -20, secondy: y -20});}, 100 );
-				setTimeout(()=>{this.setState({thirdx: x -20, thirdy: y -20});}, 200 );
-				setTimeout(()=>{this.setState({fourthx: x -20, fourthy: y -20});}, 300 );
-				setTimeout(()=>{this.setState({fifthx: x -20, fifthy: y -20});}, 400 );
-				setTimeout(()=>{this.setState({sixthx: x -20, sixthy: y -20});}, 500 );
+				this.settingthestateforpostition( x, y, "secondx", "secondy", 100 );
+				this.settingthestateforpostition( x, y, "thirdx", "thirdy", 200 );
+				this.settingthestateforpostition( x, y, "fourthx", "fourthy", 300 );
+				this.settingthestateforpostition( x, y, "fifthx", "fifthy", 400 );
+				this.settingthestateforpostition( x, y, "sixthx", "sixthy", 500 );
 			}
 		}
 
