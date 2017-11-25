@@ -246,9 +246,6 @@ export class WorkBody extends React.Component {
 						<LiContainer>	
 							<ExampleWork title="Icon Drag" link="/IconDrag" img={IconDrag} code="https://github.com/Abentley95/Portfolio/blob/master/src/Components/IconDrag.js"/>
 						</LiContainer>
-						<LiContainer>
-							<ExampleWork title="FaceBook Activity" link="/FacebookActivity" img={IconDrag} code="https://github.com/Abentley95/Portfolio/blob/master/src/Components/IconDrag.js"/>
-						</LiContainer>
 					</UlContainer>
 				</Wrapper>
 			</Div>
