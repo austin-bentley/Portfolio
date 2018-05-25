@@ -5,8 +5,8 @@
   "private": true,
   "dependencies": {
     "@okta/okta-react": "0.0.7",
-    "react": "^16.0.0",
-    "react-dom": "^16.0.0",
+    "react": "^16.4.0",
+    "react-dom": "^16.4.0",
     "react-scripts": "1.0.14"
   },
   "scripts": {
@@ -19,19 +19,19 @@
   },
   "devDependencies": {
     "base64url": "^2.0.0",
-    "file-loader": "^1.1.5",
-    "gh-pages": "^1.0.0",
-    "html-loader": "^0.5.1",
+    "file-loader": "^1.1.11",
+    "gh-pages": "^1.1.0",
+    "html-loader": "^0.5.5",
     "react-bootstrap": "^0.31.5",
-    "react-redux": "^5.0.6",
+    "react-redux": "^5.0.7",
     "react-router": "^4.2.0",
     "react-router-dom": "^4.2.2",
     "react-router-redux": "^4.0.8",
-    "react-scroll-up-button": "^1.5.10",
+    "react-scroll-up-button": "^1.5.11",
     "redux": "^3.7.2",
     "redux-logger": "^3.0.6",
-    "style-loader": "^0.19.0",
-    "styled-components": "^2.2.3",
+    "style-loader": "^0.19.1",
+    "styled-components": "^2.4.0",
     "url-loader": "^0.6.2"
   }
 }
