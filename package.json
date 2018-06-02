@@ -5,8 +5,10 @@
   "private": true,
   "dependencies": {
     "@okta/okta-react": "0.0.7",
+    "font-awesome": "^4.7.0",
     "react": "^16.4.0",
     "react-dom": "^16.4.0",
+    "react-fontawesome": "^1.6.1",
     "react-scripts": "1.0.14"
   },
   "scripts": {

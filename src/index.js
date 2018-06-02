@@ -12,6 +12,8 @@ import  Layout  from "./Components/layoutMain";
 import TokyoGhoul from "./Components/Draggable";
 import IconDrag from "./Components/IconDrag";
 import FacebookActivity from "./Components/FacebookActivity";
+import SurveyModal from './Components/SurveyModal';
+import '../node_modules/font-awesome/css/font-awesome.min.css'; 
 
 ReactDOM.render(
 	<Provider store = {store}>
@@ -25,6 +27,7 @@ ReactDOM.render(
 						<Route path="/TokyoGhoul" exact component={TokyoGhoul}/>
 						<Route path="/IconDrag" exact component={IconDrag}/>
 						<Route path="/FacebookActivity" exact component={FacebookActivity}/>
+						<Route path="/SurveyModal" exact component={SurveyModal}/>
 					</Switch>	
 				</HashRouter>
 	</Provider>,
