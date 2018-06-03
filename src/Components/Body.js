@@ -1,5 +1,5 @@
 import React from 'react';
-import {WorkBody, AboutMeBody, SchoolBody} from './ThumbnailBody';
+import {WorkBody, AboutMeBody, SchoolBody} from './NavTabBodies';
 
 export class Body extends React.Component {
 	constructor(props){

@@ -1,11 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const BackgroundImg = require('./images/background.jpg');
-const Image1 = require('./images/laptops1.jpg');
-const Image2 = require('./images/laptops2.jpg');
-const Image3 = require('./images/laptops3.jpg');
-const Image4 = require('./images/laptops4.jpg');
+const BackgroundImg = require('../images/background.jpg');
+const Image1 = require('../images/laptops1.jpg');
+const Image2 = require('../images/laptops2.jpg');
+const Image3 = require('../images/laptops3.jpg');
+const Image4 = require('../images/laptops4.jpg');
 
 
 

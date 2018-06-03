@@ -210,9 +210,6 @@ export class WorkBody extends React.Component {
 						<LiContainer>	
 							<ExampleWork caseStudy={true} title="Rhein Tech Laboratories" link="/Rheintech" img={Rheintech}/>
 						</LiContainer>
-						<LiContainer>	
-							<ExampleWork caseStudy={true} title="Random Designs" link="/" img={NNM} />
-						</LiContainer>
 					</UlContainer>
 				</Wrapper>
 

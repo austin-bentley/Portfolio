@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const Background = require('./images/rheintechhome.PNG');
+const Background = require('../images/RheinTech.png');
 
 const HomeImg = styled.div`
 	background-image: url(${(props)=> props.Background});

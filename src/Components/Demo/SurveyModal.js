@@ -1,5 +1,5 @@
 import React from 'react';
-import Modal from '../helpers/Modal';
+import Modal from '../../helpers/Modal';
 
 
 export default class SurveyModal extends React.Component {

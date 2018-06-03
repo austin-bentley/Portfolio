@@ -1,5 +1,5 @@
 import React from 'react';
-import Thumbnail from './Thumbnail';
+import NavTab from '../helpers/NavTab';
 import { Body } from './Body';
 import {SiteFooter} from './SiteFooter';
 import {connect} from 'react-redux';
@@ -58,9 +58,9 @@ class Layout extends React.Component {
 		return (
 		<div>
 			<CenterMobileButtons>
-				<Thumbnail showThumbnail={(i) => this.props.activeThumbnail(1)} show={this.state.show} identity={1} img={Wave01} mobileImg={aboutmeIcon} name={"About"}/>
-				<Thumbnail showThumbnail={(i) => this.props.activeThumbnail(3)} show={this.state.show} identity={3} img={Wave02} mobileImg={workIcon} name={"Work"}/>
-				<Thumbnail showThumbnail={(i) => this.props.activeThumbnail(2)} show={this.state.show} identity={2} img={Wave03} mobileImg={schoolIcon} name={"School"}/>
+				<NavTab showThumbnail={(i) => this.props.activeThumbnail(1)} show={this.state.show} identity={1} img={Wave01} mobileImg={aboutmeIcon} name={"About"}/>
+				<NavTab showThumbnail={(i) => this.props.activeThumbnail(3)} show={this.state.show} identity={3} img={Wave02} mobileImg={workIcon} name={"Work"}/>
+				<NavTab showThumbnail={(i) => this.props.activeThumbnail(2)} show={this.state.show} identity={2} img={Wave03} mobileImg={schoolIcon} name={"School"}/>
 			</CenterMobileButtons>	
 
 			<Body show = {this.state.show}/>

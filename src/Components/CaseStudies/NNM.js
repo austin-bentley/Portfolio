@@ -2,8 +2,8 @@ import React from 'react';
 import styled from 'styled-components';
 
 
-const Assesment = require('./images/internshipfinal.png');
-const Background = require('./images/NNMBackground.jpg');
+const Assesment = require('../images/internshipfinal.png');
+const Background = require('../images/NNMBackground.jpg');
 
 const Div = styled.div `
 	background-image: url(${(props)=> props.Background});

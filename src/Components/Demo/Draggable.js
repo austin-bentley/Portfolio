@@ -1,8 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const Image1 = require('./images/tokyoghoul1.png');
-const Image2 = require('./images/tokyoghoul2.jpg');
+const Image1 = require('../images/tokyoghoul1.png');
+const Image2 = require('../images/tokyoghoul2.jpg');
 
 
 const Div = styled.div `

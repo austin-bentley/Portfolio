@@ -25,7 +25,7 @@ const Footer = styled.div `
 const Button = styled.a `
 	height: 6vh;
 	font-size: 5vh;
-	color: white;
+	color: white !important;
 	padding-left: 3vw;
 	padding-right: 3vw;
 	cursor: pointer; 
@@ -96,8 +96,6 @@ const Container = styled.ul `
 			}
 		} 
 	};
-	
-
 `;
 
 const Div = styled.li `
