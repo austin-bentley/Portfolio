@@ -23,7 +23,9 @@ const ModalStyle = styled.div `
 `;
 
 const CloseModalButton = styled.div `
-  float: right;
+  position: absolute;
+  right: 17%;
+  z-index: 9999;
 `;
 
 const CenterButton = styled.div `
@@ -40,33 +42,33 @@ export default class Modal extends React.Component {
 
     this.OpenModal = this.OpenModal.bind(this);
     this.CloseModal = this.CloseModal.bind(this);
-    this.handleOutsideClick = this.handleOutsideClick.bind(this);
+    // this.handleOutsideClick = this.handleOutsideClick.bind(this);
   }
 
-  componentWillUnmount() {
-    document.removeEventListener('click', this.handleOutsideClick, false);
-  }
+  // componentWillUnmount() {
+  //   document.removeEventListener('click', this.handleOutsideClick, false);
+  // }
 
-  handleOutsideClick(e) {
-    if (this.node) {
-      if (!e.target.classList.contains(this.node.state.generatedClassName)) {
-        this.CloseModal();
-      }
-    }
-  }
+  // handleOutsideClick(e) {
+  //   if (this.node) {
+  //     if (!e.target.classList.contains(this.node.state.generatedClassName)) {
+  //       this.CloseModal();
+  //     }
+  //   }
+  // }
 
   OpenModal() {
     this.setState({
       show: true
     });
-    document.addEventListener('click', this.handleOutsideClick, false);
+    // document.addEventListener('click', this.handleOutsideClick, false);
   }
 
   CloseModal() {
     this.setState({
       show: false
     });
-    document.removeEventListener('click', this.handleOutsideClick, false);
+    // document.removeEventListener('click', this.handleOutsideClick, false);
   }
 
   render() {
