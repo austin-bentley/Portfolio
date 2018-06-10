@@ -1,7 +1,10 @@
-import React from 'react';
 import styled from 'styled-components';
 
-const ButtonPlain = styled.button `
+export const Button = styled.button `
+      border-radius: 5px;
+`;
+
+export const SurveyModalButton = Button.extend`
       border-radius: 5px;
       height: 40px;
       width: 250px;
@@ -16,11 +19,3 @@ const ButtonPlain = styled.button `
             color: white;
       }
 `;
-
-export default class Button extends React.Component {
-      render() {
-            return (
-                  <ButtonPlain onClick={this.props.onClick}>{this.props.name}</ButtonPlain>
-            );
-      }
-}

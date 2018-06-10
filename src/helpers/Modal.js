@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import Button from '../helpers/Button';
+import { SurveyModalButton } from '../styles/Button';
 
 const BackDrop = styled.div `
   position: fixed;
@@ -42,40 +42,38 @@ export default class Modal extends React.Component {
 
     this.OpenModal = this.OpenModal.bind(this);
     this.CloseModal = this.CloseModal.bind(this);
-    // this.handleOutsideClick = this.handleOutsideClick.bind(this);
+    this.handleOutsideClick = this.handleOutsideClick.bind(this);
   }
 
-  // componentWillUnmount() {
-  //   document.removeEventListener('click', this.handleOutsideClick, false);
-  // }
+  componentWillUnmount() {
+    document.removeEventListener('click', this.handleOutsideClick, false);
+  }
 
-  // handleOutsideClick(e) {
-  //   if (this.node) {
-  //     if (!e.target.classList.contains(this.node.state.generatedClassName)) {
-  //       this.CloseModal();
-  //     }
-  //   }
-  // }
+  handleOutsideClick(e) {
+      if (e.target.classList[0] === 'sc-bbmXgH') {
+        this.CloseModal();
+      }
+  }
 
   OpenModal() {
     this.setState({
       show: true
     });
-    // document.addEventListener('click', this.handleOutsideClick, false);
+    document.addEventListener('click', this.handleOutsideClick, false);
   }
 
   CloseModal() {
     this.setState({
       show: false
     });
-    // document.removeEventListener('click', this.handleOutsideClick, false);
+    document.removeEventListener('click', this.handleOutsideClick, false);
   }
 
   render() {
     return (
       <div>
         <CenterButton>
-          <Button onClick={this.OpenModal} name={this.props.name}/>
+          <SurveyModalButton onClick={this.OpenModal}>{this.props.name}</SurveyModalButton>
         </CenterButton>
         {
           this.state.show === true &&
