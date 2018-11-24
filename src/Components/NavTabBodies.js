@@ -246,6 +246,9 @@ export class WorkBody extends React.Component {
 						<LiContainer>	
 							<ExampleWork title="Survey Modal" link="/SurveyModal" img={IconDrag} code="https://github.com/Abentley95/Portfolio/blob/master/src/Components/IconDrag.js"/>
 						</LiContainer>
+						<LiContainer>	
+							<ExampleWork title="Bouncing Blocks" link="/BouncingBlocks" img={IconDrag} code="https://github.com/Abentley95/Portfolio/blob/master/src/Components/IconDrag.js"/>
+						</LiContainer>
 					</UlContainer>
 				</Wrapper>
 			</Div>
