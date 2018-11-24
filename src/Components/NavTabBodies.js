@@ -11,6 +11,8 @@ const NNM = require('./images/nationalnuclearmuseum.png');
 const draggable = require('./images/draggable.PNG');
 const slider = require('./images/slider.PNG');
 const IconDrag = require('./images/IconDragThumbnail.PNG');
+const ModalImg = require('./images/modal.png');
+const BlockImg = require('./images/blocks.png');
 
 const H1 = styled.h1`
 	font-size: 7vh;
@@ -244,10 +246,10 @@ export class WorkBody extends React.Component {
 							<ExampleWork title="Icon Drag" link="/IconDrag" img={IconDrag} code="https://github.com/Abentley95/Portfolio/blob/master/src/Components/IconDrag.js"/>
 						</LiContainer>
 						<LiContainer>	
-							<ExampleWork title="Survey Modal" link="/SurveyModal" img={IconDrag} code="https://github.com/Abentley95/Portfolio/blob/master/src/Components/IconDrag.js"/>
+							<ExampleWork title="Survey Modal" link="/SurveyModal" img={ModalImg} code="https://github.com/Abentley95/Portfolio/blob/master/src/Components/Demo/SurveyModal.js"/>
 						</LiContainer>
 						<LiContainer>	
-							<ExampleWork title="Bouncing Blocks" link="/BouncingBlocks" img={IconDrag} code="https://github.com/Abentley95/Portfolio/blob/master/src/Components/IconDrag.js"/>
+							<ExampleWork title="Bouncing Blocks" link="/BouncingBlocks" img={BlockImg} code="https://github.com/Abentley95/Portfolio/blob/master/src/Components/Demo/bouncingBlocks.js"/>
 						</LiContainer>
 					</UlContainer>
 				</Wrapper>
