@@ -1,8 +1,8 @@
 {
   "main.css": "static/css/main.db529a82.css",
   "main.css.map": "static/css/main.db529a82.css.map",
-  "main.js": "static/js/main.87d3a360.js",
-  "main.js.map": "static/js/main.87d3a360.js.map",
+  "main.js": "static/js/main.7fb32363.js",
+  "main.js.map": "static/js/main.7fb32363.js.map",
   "static/media/AustinBentley.jpg": "static/media/AustinBentley.fdda3753.jpg",
   "static/media/AustinBentley.pdf": "static/media/AustinBentley.21d09504.pdf",
   "static/media/IconDragThumbnail.PNG": "static/media/IconDragThumbnail.4035c5a0.PNG",
@@ -28,6 +28,5 @@
   "static/media/tokyoghoul2.jpg": "static/media/tokyoghoul2.7461a7b4.jpg",
   "static/media/wave_01.png": "static/media/wave_01.30a77ff9.png",
   "static/media/wave_02.png": "static/media/wave_02.8e0883f3.png",
-  "static/media/wave_03.png": "static/media/wave_03.59f0c07e.png",
-  "static/media/workIconBlue.png": "static/media/workIconBlue.e752c945.png"
+  "static/media/wave_03.png": "static/media/wave_03.59f0c07e.png"
 }
