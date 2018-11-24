@@ -1,16 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
 
-
-
 const Wrapper = styled.div `
 	@media (min-width : 0px) {
-		width: 33%;
-		background: white;
-		display: inline-block;
-		vertical-align: top;
-
-
+        flex: 1 1 auto;
 	}
 
 	@media (min-width : 992px){
@@ -25,70 +18,53 @@ const Wrapper = styled.div `
 		position: relative;
 		vertical-align: top;
 	}
-
-
 `;
 
 const activeOpacity = {
 	opacity: '1',
 	height: '75vh',
-
 }
 
 const activeScale = {
 	transition: 'all .5s ease-in-out',
 	boxShadow: '5px 13px 22px #888888',
 	height: '75vh',
-
 }
 
 const Img = styled.img`
 
 	@media (min-width : 0px) {
-		background-image: none;
-		background-repeat: none
-		background-size: none;
-		background-position: none;
-		background-color: transparent;
-		transition: none;
-		opacity: none;
+        display: none;
     }
 
 	@media (min-width : 992px){
-	background-image: url(${(props) => { return props.img }});
-	background-repeat: no-repeat;
-	background-size: cover;
-	background-position: center;
-	background-color: #cccccc;
-	width: 100%;
-	height: 100%;
-	transition: all 0.5s ease-in-out;
-	opacity: 0.2;
-}
-
+        display: block;
+        background-image: url(${(props) => { return props.img }});
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        background-color: #cccccc;
+        width: 100%;
+        height: 100%;
+        transition: all 0.5s ease-in-out;
+        opacity: 0.2;
+    }
 `;
 
 
 const Button = styled.button`
 
 	@media (min-width : 0px) {
-		background-image: url(${(props) => { return props.mobileImg }});
-
-		background-repeat: no-repeat;
-		background-size: contain;
-		background-position: center;
-		background-color: transparent;
-		width: 20vw;
-		height: 10vh;
+        color: #597fff;
+		width: 100%;
 		transition: none;
-		color: transparent;
-		border: 5px solid #597fff;
-		z-index: 3;
-
-
+        border: 2px solid #597fff;
+        border-right: none;
+        z-index: 3;
+        background-color: white;
 	}
 
-		@media (min-width : 992px){
+    @media (min-width : 992px){
 		background-image: none;
 		border-radius: 3px;
 		background: transparent;
@@ -106,18 +82,13 @@ const Button = styled.button`
 	}
 `;
 
-export default class Thumbnail extends React.Component {
-
-
-	const 
-	render() {
-		return (
-			<Wrapper style={this.props.show === this.props.identity && window.innerWidth >= 992? activeScale : null}>
-				<Img style={this.props.show === this.props.identity && window.innerWidth >= 992? activeOpacity : null} className="div" img={this.props.img}></Img>
-				<Button onClick={() => this.props.showThumbnail(this.props.show)} mobileImg={this.props.mobileImg}>{this.props.name}</Button>
-			</Wrapper>
-		);
-	}  
+export const NavTab = (props) => {
+    return (
+        <Wrapper style={props.show === props.identity && window.innerWidth >= 992? activeScale : null}>
+            <Img style={props.show === props.identity && window.innerWidth >= 992? activeOpacity : null} className="div" img={props.img}></Img>
+            <Button onClick={() => props.showThumbnail(props.show)}>{props.name}</Button>
+        </Wrapper>
+    ); 
 }
 
 

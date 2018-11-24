@@ -18,11 +18,9 @@ const H1 = styled.h1`
 	font-size: 7vh;
 `;
 
-
 const P = styled.p`
 	font-size: 3vh;
 	text-align: left;
-
 `;
 
 const AlignText = styled.div `
@@ -30,32 +28,24 @@ const AlignText = styled.div `
 `;
 
 const Img = styled.img `
-	height: 70%;
 	width: 70%;
 	border-radius: 50%;
 	margin-left: 5vw;
-
 `;
 
 const Div = styled.div `
-	transition: all 1s ease-out;
-	margin-top: 15vh;
+    margin-top: 10vh
 `;
-
 
 const Hr = styled.hr `
 	height: 15px;
-
 `;
-
 
 const Classes = styled.div`
 	margin-top: 5vh;
 	margin-left: 10vw;
 	margin-bottom: 10vh;
-	
 `;
-
 
 const Wrapper = styled.div `
 	width: 100%;
@@ -121,7 +111,7 @@ export const AboutMeBody = () => {
                         <Hr/>							
                         <P> Well in case you don't know by now my name is Austin Bentley, and I'm an aspiring web developer. I prefer the front-end more than the back-end but it doesnt ruin my day when i have backend work to do. I enjoy all thing's programming.</P>
                         <br/>
-                        <P>If you like what you see here, feel free to shoot me an e-mail at <a href="mailto:australinsurf@gmail.com">abentley3@cnm.edu</a></P>
+                        <P>If you like what you see here, feel free to shoot me an e-mail at <a href="mailto:australinsurf@gmail.com">australinsurf@gmail.com</a></P>
                         <br/>
                         <br/>
                         <br/>

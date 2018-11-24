@@ -1,5 +1,5 @@
 import React from 'react';
-import NavTab from '../helpers/NavTab';
+import { NavTab } from '../helpers/NavTab';
 import { Body } from './Body';
 import {SiteFooter} from './SiteFooter';
 import {connect} from 'react-redux';
@@ -11,10 +11,6 @@ const Wave01 = require('./images/wave_01.png');
 const Wave02 = require('./images/wave_02.png');
 const Wave03 = require('./images/wave_03.png');
 
-const schoolIcon = require('./images/schoolIconBlue.png');
-const workIcon = require('./images/workIconBlue.png');
-const aboutmeIcon = require('./images/aboutmeIconBlue.png');
-
 const noPadding = {
 	paddingLeft: '0px',
 	paddingRight: '0px',
@@ -22,16 +18,14 @@ const noPadding = {
 }
 
 const CenterMobileButtons =styled.div`
-@media (max-width : 992px) {
-	display: inline;
-	width: 100%;
-	position: fixed;
-	background-color: white;
-	height: 10vh;
-	z-index: 1;
-	top: 0;
-}
-
+    @media (max-width : 992px) {
+        width: 100%;
+        position: fixed;
+        z-index: 1;
+        display: flex;
+        top: 0;
+        border-right: 2px solid #597fff;
+    }
 `;
 
 
@@ -58,9 +52,9 @@ class Layout extends React.Component {
 		return (
 		<div>
 			<CenterMobileButtons>
-				<NavTab showThumbnail={(i) => this.props.activeThumbnail(1)} show={this.state.show} identity={1} img={Wave01} mobileImg={aboutmeIcon} name={"About"}/>
-				<NavTab showThumbnail={(i) => this.props.activeThumbnail(3)} show={this.state.show} identity={3} img={Wave02} mobileImg={workIcon} name={"Work"}/>
-				<NavTab showThumbnail={(i) => this.props.activeThumbnail(2)} show={this.state.show} identity={2} img={Wave03} mobileImg={schoolIcon} name={"School"}/>
+				<NavTab showThumbnail={(i) => this.props.activeThumbnail(1)} show={this.state.show} identity={1} img={Wave01} name={"About"}/>
+				<NavTab showThumbnail={(i) => this.props.activeThumbnail(3)} show={this.state.show} identity={3} img={Wave02} name={"Work"}/>
+				<NavTab showThumbnail={(i) => this.props.activeThumbnail(2)} show={this.state.show} identity={2} img={Wave03} name={"School"}/>
 			</CenterMobileButtons>	
 
 			<Body show = {this.state.show}/>
