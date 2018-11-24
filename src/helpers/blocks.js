@@ -38,8 +38,8 @@ export default class Block extends React.Component {
     }
 
     organizeBlocks() {
-        this.setState({ stop: !this.state.stop });
         this.setState({ 
+            stop: !this.state.stop,
             positionX: this.state.orgPositionX,
             positionY: this.state.orgPositionY
         });
