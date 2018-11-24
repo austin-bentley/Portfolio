@@ -17,14 +17,10 @@ const H3 = styled.h3 `
 
 
 const Border = styled.div `
-	text-align: center;
-	margin-top: 5%;
+    margin: 20px;
+    flex: 0 0 350px;
 	position: relative;
 	width: 100%;
-	height: 90%;
-	background: white;
-	opacity: .9;
-	margin-bottom: 3vh;
 	transition: all 0.25s ease-in-out;
 	border-radius: 5px;
 	box-shadow: rgb(56, 56, 56) 0px 5px 30px 5px;
@@ -82,8 +78,6 @@ export class ExampleWork extends React.Component {
 		let newloc = this.props.code;
 	    window.location.assign(newloc);
 	}
-
-
 
 	render(){
 		return (
