@@ -43,7 +43,7 @@ const MeImg = styled.img `
 `;
 
 const Div = styled.div `
-    padding: 24px;
+    padding: 32px;
     @media (min-width : 992px) {
         padding: 10vh;
     }
@@ -55,11 +55,14 @@ const Name = styled.h1 `
 
 const Classes = styled.div`
     flex: 0 1 auto;
+    @media (min-width : 992px) {
+        padding-right: 100px;
+    }
 `;
 
-const ClassConatiner = styled.div`
+const FlexConatiner = styled.div`
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     flex-wrap: wrap;
 `;
 
@@ -73,7 +76,11 @@ const Wrapper = styled.div `
 
 const AboutMeTitleConatiner = styled.div `
     flex: 0 1 400px;
-    `;
+    @media (min-width : 992px) {
+        flex: 0 1 475px;
+        padding-right: 100px;
+    }
+`;
     
 const AboutMeInfoContainer = styled.div `
     flex: 0 1 auto;
@@ -82,12 +89,6 @@ const AboutMeInfoContainer = styled.div `
 const AboutMeDescContainer = styled.div `
     padding-top: 24px;
     font-size: 18px;
-`;
-
-const AboutMeContainer = styled.div `
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
 `;
 
 const WorkConatiner = styled.div `
@@ -135,7 +136,7 @@ export const AboutMeBody = () => {
     return (
         <Div>
             <H1>About Me</H1>	
-            <AboutMeContainer>
+            <FlexConatiner>
                 <AboutMeTitleConatiner>
                     <MeImg src={Me}></MeImg>
                 </AboutMeTitleConatiner>
@@ -145,7 +146,7 @@ export const AboutMeBody = () => {
                     <PDescTitle>Phone: </PDescTitle><PDesc><a href="tel:505-615-2451"> 505-615-2451</a></PDesc><br/>
                     <PDescTitle>Residence: </PDescTitle><PDesc> Albuquerque, New Mexico</PDesc><br/>
                 </AboutMeInfoContainer>
-            </AboutMeContainer>
+            </FlexConatiner>
             <AboutMeDescContainer> 
                 I grew up in Merritt Island, Florida where I picked up a passion for surfing. 
                 Then moved to Albuquerque, New Mexico....the desert. 
@@ -196,7 +197,7 @@ export const SchoolBody = () => {
         <Div>
             <strong>Associate in applied sciences</strong>
             <p>Central New Mexico Community College - Albuquerque, NM</p>
-            <ClassConatiner>
+            <FlexConatiner>
                 <Classes>
                     <h1>Unrelated Classes</h1>
                     <p>INTRO TO COMPUTERS: B</p>
@@ -226,7 +227,7 @@ export const SchoolBody = () => {
                     <p>LINUX ESSENTIALS: B</p>
                     <p>JAVASCRIPT WEB PROGRAMMING: A</p>
                 </Classes>
-            </ClassConatiner>
+            </FlexConatiner>
         </Div>
     );
 }
