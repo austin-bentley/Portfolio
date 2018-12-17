@@ -1,7 +1,6 @@
 import React from 'react';
 import { NavTab } from '../helpers/NavTab';
 import { Body } from './Body';
-import { activeThumbnail, activeFooter }  from "../actions/activeAction.js";
 import styled from 'styled-components';
 
 const Wave01 = require('./images/wave_01.png');
