@@ -4,7 +4,6 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@okta/okta-react": "0.0.7",
     "font-awesome": "^4.7.0",
     "react": "^16.4.0",
     "react-dom": "^16.4.0",
@@ -24,14 +23,9 @@
     "file-loader": "^1.1.11",
     "gh-pages": "^1.1.0",
     "html-loader": "^0.5.5",
-    "react-bootstrap": "^0.31.5",
     "react-redux": "^5.0.7",
     "react-router": "^4.2.0",
     "react-router-dom": "^4.2.2",
-    "react-router-redux": "^4.0.8",
-    "react-scroll-up-button": "^1.5.11",
-    "redux": "^3.7.2",
-    "redux-logger": "^3.0.6",
     "style-loader": "^0.19.1",
     "styled-components": "^2.4.0",
     "url-loader": "^0.6.2"

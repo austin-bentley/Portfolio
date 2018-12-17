@@ -14,7 +14,6 @@ const Wrapper = styled.div `
 		height: 70vh;
 		background-color: black;
 		:hover .div {opacity: 1};
-		box-shadow: 2px 5px 15px #888888;
 		position: relative;
 		vertical-align: top;
 	}
@@ -86,7 +85,7 @@ export const NavTab = (props) => {
     return (
         <Wrapper style={props.show === props.identity && window.innerWidth >= 992? activeScale : null}>
             <Img style={props.show === props.identity && window.innerWidth >= 992? activeOpacity : null} className="div" img={props.img}></Img>
-            <Button onClick={() => props.showThumbnail(props.show)}>{props.name}</Button>
+            <Button onClick={() => props.getThumbnailClick(props.identity)}>{props.name}</Button>
         </Wrapper>
     ); 
 }

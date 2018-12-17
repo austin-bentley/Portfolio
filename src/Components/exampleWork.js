@@ -1,9 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Link} from "react-router-dom";
-
-
-
+import { Link } from "react-router-dom";
 
 const H3 = styled.h3 `
 	user-select: none;
@@ -22,29 +19,23 @@ const Border = styled.div `
 	position: relative;
 	width: 100%;
 	transition: all 0.25s ease-in-out;
-	border-radius: 5px;
-	box-shadow: rgb(56, 56, 56) 0px 5px 30px 5px;
+    border-radius: 5px;
+    border: 1px solid black;
 	position: relative;
 `;
 
-const Demo = styled.p `
-	user-select: none;
-	color: black;
-	display: inline;
-	font-size: 175%;
-	padding-left: 5%;
-	padding-right: 5%;
+const SectionBottom = styled.div `
 	position: absolute;
-	bottom: 0px;
-	left: 15%;
-	cursor: pointer;
-
+    bottom: 0px;
+    width: 100%;
+    display: flex;
+    text-align: center;
 `;
 
-const Code = Demo.extend `
-	user-select: none;
-	border-right: none;
-	left: 55%;
+const Demo = styled.p `
+    flex: 1 1 auto;
+    font-size: 32px;
+    color: black;
 `;
 
 const Img = styled.div `
@@ -55,10 +46,9 @@ const Img = styled.div `
 	background-position: center bottom;
 	width: 100%;
 	height: 40%;
-	
 `;
 
-const CaseStudy = styled.p `
+const CaseStudyTitle = styled.p `
 	user-select: none;
 	font-size: 200%;
 	color: black;
@@ -69,50 +59,31 @@ const CaseStudy = styled.p `
 	left: 0;
 	right: 0;
 	margin: auto;
-
 `;
 
-export class ExampleWork extends React.Component {	
-	
-	handleRedirect(){
-		let newloc = this.props.code;
-	    window.location.assign(newloc);
-	}
+export const ExampleWork = (props) => {	
 
-	render(){
+        let format;
+        if (props.caseStudy === true) {
+            format =
+                <Link to={props.link}>
+                    <CaseStudyTitle>Lets Go</CaseStudyTitle>
+                </Link>
+        } else {
+            format = 
+                <div>
+                    <Link to={props.link}>
+                        <SectionBottom>
+                            <Demo>Demo</Demo>
+                        </SectionBottom>
+                    </Link>
+                </div>
+        }
 		return (
-		<Border>
-			<H3>{this.props.title}</H3>
-			{(() => {
-					if (this.props.title === "Random Designs")
-					{
-						return <p>Not Available</p>
-					}
-					else{
-						return <Img src={this.props.img}></Img>
-					}
-				})()
-			}
-			{(()=>{
-				if (this.props.caseStudy === true){
-					return  <Link to={this.props.link} draggable="false">
-								<CaseStudy>Lets Go</CaseStudy>
-							</Link>
-				}
-				else{
-					return  <div draggable="false">
-								<Link to={this.props.link} draggable="false">
-									<Demo>Demo</Demo>
-								</Link>
-								<Code onClick={this.handleRedirect.bind(this)} page={this.props.code}>Code</Code>
-							</div>
-				}
-
-			})()}
-
-
-		</Border>				
-			
+            <Border>
+                <H3>{props.title}</H3>
+                <Img src={props.img}></Img>
+                {format}
+            </Border>
 		);
 	}
-}
