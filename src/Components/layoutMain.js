@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavTab } from '../helpers/NavTab';
+import { NavTab } from '../subComponents/NavTab';
 import { Body } from './Body';
 import styled from 'styled-components';
 

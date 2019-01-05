@@ -1,5 +1,5 @@
 import React from 'react';
-import Modal from '../../helpers/Modal';
+import Modal from '../../subComponents/Modal';
 import styled from 'styled-components';
 
 const Bg = styled.div `

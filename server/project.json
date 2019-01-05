@@ -1,0 +1,9 @@
+{
+  "name": "Portfolio",
+  "description": "",
+  "AWS_REGION": "us-east-1",
+  "memory": 128,
+  "timeout": 5,
+  "role": "arn:aws:iam::684182682850:role/Portfolio_lambda_function",
+  "environment": {}
+}

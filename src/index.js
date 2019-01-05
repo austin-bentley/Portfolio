@@ -9,6 +9,7 @@ import  Layout  from "./Components/layoutMain";
 import TokyoGhoul from "./Components/Demo/Draggable";
 import IconDrag from "./Components/Demo/IconDrag";
 import SurveyModal from './Components/Demo/SurveyModal';
+import AnimeFinder from './Components/Demo/Anime';
 import BouncingBlocks from './Components/Demo/bouncingBlocks';
 import '../node_modules/font-awesome/css/font-awesome.min.css'; 
 
@@ -22,6 +23,7 @@ ReactDOM.render(
             <Route path="/TokyoGhoul" exact component={TokyoGhoul}/>
             <Route path="/IconDrag" exact component={IconDrag}/>
             <Route path="/SurveyModal" exact component={SurveyModal}/>
+            <Route path="/AnimeFinder" exact component={AnimeFinder}/>
             <Route path="/BouncingBlocks" exact component={BouncingBlocks}/>
         </Switch>	
     </HashRouter>,

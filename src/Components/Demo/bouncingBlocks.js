@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import Block from '../../helpers/blocks';
+import Block from '../../subComponents/blocks';
 
 const Title = styled.div `
     position: absolute;
@@ -159,7 +159,9 @@ export default class BouncingBlocks extends React.Component {
     bounce() {
         for (let key in this.state) {
             this.state[key].ref.current.blockBounce();
-            this.state[key].ref.current.state.stop = false
+            let holder = this.state;
+            holder[key].ref.current.state.stop = false;
+            this.setState(holder);
         }
     }
 
