@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import Filter from 'bad-words';
+import { Loader } from '../../subComponents/loader';
 const filter = new Filter();
 
 const Input = styled.input `
@@ -85,7 +86,8 @@ export default class ServerLess extends React.Component {
             message: '',
             entries: [],
             submitted: false,
-            inputTitle: {}
+            inputTitle: {},
+            loading: true
         }
     }
     
@@ -98,7 +100,10 @@ export default class ServerLess extends React.Component {
     }
 
     handleSubmit() {
-        this.setState({submitted: true});
+        this.setState({
+            submitted: true,
+            loading: true
+        });
         this.inputTitle.value = '';
         this.postToBackend()
         .then(() => {
@@ -127,7 +132,10 @@ export default class ServerLess extends React.Component {
             return res.json();
         })
         .then((res) => {
-            this.setState({entries: res.Items});
+            this.setState({
+                entries: res.Items,
+                loading: false
+            });
         });
     }
 
@@ -151,7 +159,9 @@ export default class ServerLess extends React.Component {
                     <Button onClick={this.handleSubmit.bind(this)}>Submit</Button>
                 </InputContainer>
                 <ItemContainer submitted={this.state.submitted}>
-                    { Items }
+                    {
+                        this.state.loading? <Loader /> : Items
+                    }
                 </ItemContainer>
             </Page>
         );
