@@ -1,4 +1,5 @@
-# [Site](www.theaustinbentley.com)
+# Site
+www.theaustinbentley.com
 
 ## github pages
 `npm run deploy`
