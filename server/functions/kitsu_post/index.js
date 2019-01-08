@@ -11,22 +11,15 @@ exports.handle = function (event, context, callback) {
         TableName: 'comments'
     }
 
-    docClient.put(params, function(err, data){
-        if(err) {
-            callback(err, null);
-        } else {
-            callback(null, successWithCors({'Success': currentDate}));
-        }
-    });
+    if( !event.message ) {
+        callback(new Error(JSON.stringify('Invalid: Message field required!')), null);
+    } else {
+        docClient.put(params, function(err, data){
+            if(err) {
+                callback(err, null);
+            } else {
+                callback(null, JSON.stringify({'Success': currentDate}));
+            }
+        });
+    }
 };
-
-function successWithCors(result) {
-    return { 
-         statusCode: 200,
-         body: JSON.stringify(result),
-         headers: {
-            'Content-Type': 'application/json', 
-            'Access-Control-Allow-Origin': '*' 
-        }
-   };
-}

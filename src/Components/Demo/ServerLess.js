@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import Filter from 'bad-words';
 import { Loader } from '../../subComponents/loader';
+import { ErrorMessage } from '../../subComponents/ErrorMessage';
 const filter = new Filter();
 
 const Input = styled.input `
@@ -53,10 +54,18 @@ const InputContainer = styled.div `
     @media (max-width : 992px) {
         width: 324px;
     }
-    `;
+`;
     
-    const ItemContainer = InputContainer.extend `
+const ItemContainer = InputContainer.extend `
     top: ${(props) => props.submitted? '50%': '70%'};
+    @media (max-width : 992px) {
+        width: 350px;
+    }
+`;
+    
+const ErrorContainer = InputContainer.extend `
+    top: ${(props) => props.submitted? '10%': '46%'};
+    left: 36%;
     
     @media (max-width : 992px) {
         width: 350px;
@@ -87,7 +96,8 @@ export default class ServerLess extends React.Component {
             entries: [],
             submitted: false,
             inputTitle: {},
-            loading: true
+            loading: true,
+            error: false
         }
     }
     
@@ -99,44 +109,55 @@ export default class ServerLess extends React.Component {
         this.setState({message: event.target.value});
     }
 
-    handleSubmit() {
-        this.setState({
-            submitted: true,
-            loading: true
-        });
-        this.inputTitle.value = '';
-        this.postToBackend()
-        .then(() => {
-            this.getFromBackend();
-        });
-
-    }
-
-    postToBackend() {
-        return fetch(`https://pesahwuap7.execute-api.us-east-1.amazonaws.com/DEV/Portfolio_kitsu`, 
-        {
-            method: 'POST',
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({message: filter.clean(this.state.message)})
-        })
-        .then((res) => {
-            return res.json();
-        });
-    }
-
-    getFromBackend() {
-        fetch('https://pesahwuap7.execute-api.us-east-1.amazonaws.com/DEV/Portfolio_kitsu')
-        .then((res) => {
-            return res.json();
-        })
-        .then((res) => {
+    async handleSubmit() {
+        if (this.input.value !== '') {
             this.setState({
-                entries: res.Items,
+                submitted: true,
+                loading: true,
+                error: false
+            });
+            this.input.value = '';
+            await this.postToBackend()
+            await this.getFromBackend();
+        } else {
+            this.setState({ 
+                error: { empty: true }
+            });
+        }
+
+    }
+
+    async postToBackend() {
+        try {
+            const res = await fetch(`https://pesahwuap7.execute-api.us-east-1.amazonaws.com/DEV/Portfolio_kitsu`, 
+            {
+                method: 'POST',
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({message: filter.clean(this.state.message)})
+            });
+            const json = await res.json();
+    
+            if(res.status === 400) {
+                this.setState({ error: json.errorMessage });
+            }
+        } catch (err) {
+            this.setState({ error: err });
+        }
+    }
+
+    async getFromBackend() {
+        try {
+            const res = await fetch('https://pesahwuap7.execute-api.us-east-1.amazonaws.com/DEV/Portfolio_kitsu');
+            const json = await res.json();
+            this.setState({
+                entries: json.Items,
                 loading: false
             });
-        });
+        } catch (err) {
+            this.setState({ error: err });
+        }
     }
 
     formatEntries() {
@@ -151,16 +172,20 @@ export default class ServerLess extends React.Component {
     };
 
     render() {
-        let Items = this.formatEntries();
+        const Items = this.formatEntries();
+        const { error, loading, submitted } = this.state;
         return (
             <Page onChange={this.handleChange.bind(this)}>
-                <InputContainer submitted={this.state.submitted}>
-                    <Input type="text" placeholder="message" ref={el => this.inputTitle = el}></Input>
+                <InputContainer submitted={submitted}>
+                    <Input type="text" placeholder="message" innerRef={comp => this.input = comp}></Input>
                     <Button onClick={this.handleSubmit.bind(this)}>Submit</Button>
                 </InputContainer>
-                <ItemContainer submitted={this.state.submitted}>
+                <ErrorContainer submitted={submitted}>
+                    { error? <ErrorMessage props={error}/> : null }
+                </ErrorContainer>
+                <ItemContainer submitted={submitted}>
                     {
-                        this.state.loading? <Loader /> : Items
+                        loading? <Loader /> : Items
                     }
                 </ItemContainer>
             </Page>
