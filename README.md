@@ -1,11 +1,9 @@
 # Site
 www.theaustinbentley.com
 
-## github pages
+## github pages and S3 Bucket
 `npm run deploy`
-
-## S3 Bucket
-no process setup yet. `npm run build` then copy build files into S3 Bucket
+note: for s3 bucket to succesfully deploy you will need to copy the s3 `/static` folder into a folder named `Portfolio`
 
 ## server-side code
 cd into `server` then `apex deploy` to update lambda functions

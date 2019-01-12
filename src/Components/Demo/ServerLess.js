@@ -64,7 +64,7 @@ const ItemContainer = InputContainer.extend `
 `;
     
 const ErrorContainer = InputContainer.extend `
-    top: ${(props) => props.submitted? '10%': '46%'};
+    top: ${(props) => props.submitted? '15%': '46%'};
     left: 36%;
     
     @media (max-width : 992px) {
