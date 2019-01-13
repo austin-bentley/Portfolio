@@ -4,7 +4,7 @@ const docClient = new AWS.DynamoDB.DocumentClient({region: 'us-east-1'});
 exports.handle = function (event, context, callback) {
 
     let scanningParams = {
-        TableName: 'comments',
+        TableName: 'comments_PRD',
         Limit: '10'
     }
 

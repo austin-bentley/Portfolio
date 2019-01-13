@@ -8,7 +8,7 @@ exports.handle = function (event, context, callback) {
             date: currentDate,
             message: event.message
         },
-        TableName: 'comments'
+        TableName: 'comments_PRD'
     }
 
     if( !event.message ) {

@@ -62,15 +62,6 @@ const ItemContainer = InputContainer.extend `
         width: 350px;
     }
 `;
-    
-const ErrorContainer = InputContainer.extend `
-    top: ${(props) => props.submitted? '15%': '46%'};
-    left: 36%;
-    
-    @media (max-width : 992px) {
-        width: 350px;
-    }
-`;
 
 const Container = styled.div `
     display: flex;
@@ -97,7 +88,8 @@ export default class ServerLess extends React.Component {
             submitted: false,
             inputTitle: {},
             loading: true,
-            error: false
+            error: false,
+            comments_api: process.env.NODE_ENV === 'production' ? 'https://cgj0mb20e2.execute-api.us-east-1.amazonaws.com/PRD/comments' : 'https://0ynkfwygh6.execute-api.us-east-1.amazonaws.com/TEST/comments'
         }
     }
     
@@ -129,7 +121,7 @@ export default class ServerLess extends React.Component {
 
     async postToBackend() {
         try {
-            const res = await fetch(`https://pesahwuap7.execute-api.us-east-1.amazonaws.com/DEV/Portfolio_kitsu`, 
+            const res = await fetch(this.state.comments_api, 
             {
                 method: 'POST',
                 headers: {
@@ -149,7 +141,7 @@ export default class ServerLess extends React.Component {
 
     async getFromBackend() {
         try {
-            const res = await fetch('https://pesahwuap7.execute-api.us-east-1.amazonaws.com/DEV/Portfolio_kitsu');
+            const res = await fetch(this.state.comments_api);
             const json = await res.json();
             this.setState({
                 entries: json.Items,
@@ -179,10 +171,8 @@ export default class ServerLess extends React.Component {
                 <InputContainer submitted={submitted}>
                     <Input type="text" placeholder="message" innerRef={comp => this.input = comp}></Input>
                     <Button onClick={this.handleSubmit.bind(this)}>Submit</Button>
-                </InputContainer>
-                <ErrorContainer submitted={submitted}>
                     { error? <ErrorMessage props={error}/> : null }
-                </ErrorContainer>
+                </InputContainer>
                 <ItemContainer submitted={submitted}>
                     {
                         loading? <Loader /> : Items
