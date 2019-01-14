@@ -5,7 +5,7 @@ import { HashRouter, Route, Switch} from "react-router-dom";
 import  { NNM }  from "./Components/CaseStudies/NNM";
 import  { RSI }  from "./Components/CaseStudies/RuralSourcing";
 import  { Rheintech }  from "./Components/CaseStudies/Rheintech";
-import  Layout  from "./Components/layoutMain";
+import  Layout  from "./Components/Layout";
 import TokyoGhoul from "./Components/Demo/Draggable";
 import IconDrag from "./Components/Demo/IconDrag";
 import SurveyModal from './Components/Demo/SurveyModal';
