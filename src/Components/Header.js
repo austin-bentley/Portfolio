@@ -1,10 +1,12 @@
 import React from 'react';
-import { Body } from './Body';
 import { MenuIcon } from '../subComponents/MenuIcon';
 import styled from 'styled-components';
 
 const Title = styled.h1 `
     font-size: 24px;
+    flex: 0 1 90%;
+    text-align: center;
+    margin: 0;
 `;
 
 const HeaderContainer = styled.div `
@@ -13,6 +15,8 @@ const HeaderContainer = styled.div `
     background-color: #ba2525;
     color: white;
     width: 100%;
+    align-items: center;
+    z-index: 9999;
 `;
 
 
@@ -28,7 +32,7 @@ class Header extends React.Component {
 		return (
             <div ref={node => {this.refs = node}}>
                 <HeaderContainer>
-                    <MenuIcon onClick={this.props.handleSideBar}>somethign</MenuIcon>
+                    <MenuIcon toggleSideBar={this.props.handleSideBarToggle}></MenuIcon>
                     <Title>Austin Bentley</Title>
                 </HeaderContainer>
             </div>

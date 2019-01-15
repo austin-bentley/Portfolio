@@ -133,7 +133,6 @@ export default class Home extends React.Component {
     render() {
         return (
             <Div>
-                <H1>About Me</H1>	
                 <FlexConatiner>
                     <AboutMeTitleConatiner>
                         <MeImg src={Me}></MeImg>

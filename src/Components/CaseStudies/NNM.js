@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 
-
 const Assesment = require('../images/internshipfinal.png');
 const Background = require('../images/NNMBackground.jpg');
 

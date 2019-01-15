@@ -1,23 +1,23 @@
 import React from 'react';
-import { NavTab } from '../subComponents/NavTab';
-import { Body } from './Body';
 import Header from './Header';
 import Home from './Home';
 import styled from 'styled-components';
 import SideBar from './Sidebar';
-
+import { returnActiveComponent } from './returnActiveComponent';
 
 class Layout extends React.Component {
-	constructor(props){
+	constructor(props) {
         super(props);
 		this.state = {
             show: 3,
             isMobile: window.innerWidth < 500 ? true : false,
             isSideBarActive: false,
             sideBarRef: null,
-            headerRef: null
+            headerRef: null,
+            activeComponent: <Home />
         }
-        this.handleSideBar = this.handleSideBar.bind(this);
+        this.handleSideBarToggle = this.handleSideBarToggle.bind(this);
+        this.getActiveComponent = this.getActiveComponent.bind(this);
         this.handleClick = this.handleClick.bind(this);
     };
 
@@ -38,18 +38,25 @@ class Layout extends React.Component {
         }
     }
 
-    handleSideBar() {
+    handleSideBarToggle() {
         this.setState({isSideBarActive: !this.state.isSideBarActive});
     }
 
+    getActiveComponent(active) {
+        this.setState({
+            activeComponent: returnActiveComponent(active),
+            isSideBarActive: false
+        });
+    }
+
 	render() {
-        const { isMobile } = this.state;
+        const { isMobile, isSideBarActive } = this.state;
 		return (
-		<div>
-            <Header isMobile={isMobile} handleSideBar={this.handleSideBar} ref={node => {this.state.headerRef = node}}/>
-            <SideBar isMobile={isMobile} ref={node => {this.state.sideBarRef = node}} isActive={this.state.isSideBarActive}/>
-            <Home />
-		</div>
+            <div>
+                <Header isMobile={isMobile} handleSideBarToggle={this.handleSideBarToggle} ref={node => {this.state.headerRef = node}}/>
+                <SideBar isMobile={isMobile} ref={node => {this.state.sideBarRef = node}} isActive={isSideBarActive} getActiveComponent={this.getActiveComponent}/>
+                { this.state.activeComponent }
+            </div>
 		);
 	}  
 }

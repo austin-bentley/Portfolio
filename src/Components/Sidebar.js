@@ -1,32 +1,31 @@
 import React from 'react';
-import { Body } from './Body';
 import styled from 'styled-components';
 
 const SideBarContainer = styled.div `
-    height: calc(100vh - 36px);
+    height: calc(100vh - 42px);
     width: ${props => props.isActive ? '80%' : '0%'};
     background-color: #333333;
     transition: all 1s ease-in-out;
     opacity: .97;
     position: fixed;
     bottom: 0;
+    z-index: 9999;
 `;
 
-const Home = styled.p `
+const ComponentName = styled.p `
+    font-size: 18px;
+    margin: 0px;
+    font-weight: 300;
+    padding: 4px;
+    color: white;
+`;
+    
+const Group = styled.h2 `
+    padding: 10px 0 10px 0;
     font-size: 18px;
     color: #989696;
     margin: 0px;
     font-weight: 400;
-`;
-    
-const Group = Home.extend `
-    padding: 10px 0 10px 0;
-`;
-
-const ComponentName = Home.extend `
-    font-weight: 300;
-    padding: 4px;
-    color: white;
 `;
 
 const ComponentContainer = styled.div `
@@ -41,19 +40,26 @@ const HomeContainer = styled.div `
 `;
 
 class SideBar extends React.Component {
-	constructor(props){
+	constructor(props) {
         super(props);
 		this.state = {
-            open: false
+            activeComponent: 'Home'
         }
+        this.clickedComponent = this.clickedComponent.bind(this);
     };
+
+    clickedComponent (e) {
+        if (e.target.tagName === 'P') {
+            this.props.getActiveComponent(e.target.innerText);
+        }
+    }
 
 	render() {
 		return (
-            <div ref={node => {this.refs = node}}>
+            <div ref={node => {this.refs = node}} onClick={this.clickedComponent}>
                 <SideBarContainer isActive={this.props.isActive}>
                     <HomeContainer isActive={this.props.isActive}> 
-                        <Home>Home</Home>
+                            <ComponentName>Home</ComponentName>
                             <Group>Case Studies</Group>
                             <ComponentContainer>
                                 <ComponentName>National Nuclear Museum</ComponentName>
@@ -62,7 +68,6 @@ class SideBar extends React.Component {
                             </ComponentContainer>
                             <Group>Demo's</Group>
                             <ComponentContainer>
-                                <ComponentName>Slider</ComponentName>
                                 <ComponentName>Icon Drag</ComponentName>
                                 <ComponentName>Survey Modal</ComponentName>
                                 <ComponentName>Bouncing Blocks</ComponentName>
@@ -75,5 +80,5 @@ class SideBar extends React.Component {
 	}  
 }
 
- export default SideBar;
+export default SideBar
 
