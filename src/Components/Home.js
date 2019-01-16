@@ -7,18 +7,22 @@ const H1 = styled.h1`
 	font-size: 7vh;
 `;
 
-const P = styled.p`
-	font-size: 3vh;
-    text-align: left;
-    `;
+const P = styled.p `
+    padding-left: 10%;
+    margin: 2px;
+`;
     
-const PDesc = P.extend `
+const PDesc = styled.p `
+    font-size: 3vh;
+    text-align: left;
     font-size: 22px;
     padding-left: 5px;
     display: inline-block;
 `;
     
-const PDescTitle = P.extend `
+const PDescTitle = styled.p `
+    font-size: 3vh;
+    text-align: left;
     display: inline-block;
     margin: 0;
 `;
@@ -34,26 +38,16 @@ const MeImg = styled.img `
 `;
 
 const Div = styled.div `
-    padding: 32px;
-    @media (min-width : 992px) {
-        padding: 10vh;
-    }
+    padding-top: 5%;
 `;
 
 const Name = styled.h1 `
 	padding-bottom: 15px;
 `;
 
-const Classes = styled.div`
-    flex: 0 1 auto;
-    @media (min-width : 992px) {
-        padding-right: 100px;
-    }
-`;
-
 const FlexConatiner = styled.div`
     display: flex;
-    justify-content: center;
+    justify-content: start;
     flex-wrap: wrap;
 `;
 
@@ -122,6 +116,10 @@ const LiContainer = styled.li `
     }
 `;
 
+const SubTitle = styled.h4 `
+    text-align: left;
+`;
+
 export default class Home extends React.Component {
 	constructor(props){
         super(props);
@@ -158,35 +156,31 @@ export default class Home extends React.Component {
                 <strong>Associate in applied sciences</strong>
                 <p>Central New Mexico Community College - Albuquerque, NM</p>
                 <FlexConatiner>
-                    <Classes>
-                        <h1>Unrelated Classes</h1>
-                        <p>INTRO TO COMPUTERS: B</p>
-                        <p>INTRO TO SOCIOLOGY: A</p>
-                        <p>INTRO ANTHROPOLOGY: A</p>
-                        <p>DRAWING I: C</p>
-                        <p>COLLEGE WRITING: B</p>
-                        <p>PROB SOLV METHODS: A</p>
-                        <p>ANALYTIC WRITING: C</p>
-                        <p>ETHICS AND SOCIETY: C</p>
-                        <p>TECHNICAL WRITING: B</p>
-                        <p>ALG PROB SOLV II: CR</p>
-                        <p>INTRO TO ART: B</p>
-                        <p>INTERMED ALGEBRA: A</p>
-                        <p>INTRO ENTREPRNSHIP: B</p>
-                        <p>BUS PROFESSIONALISM: A</p>
-                        <br/>
-                    </Classes>
-                    <Classes>
-                        <h1>Related Classes</h1>
-                        <p>PHOTOSHOP: A</p>
-                        <p>WEB PUBLISHING: A</p>
-                        <p>DATABASE DESIGN & INTRO TO SQL: A</p>
-                        <p>PHP WEB PROGRAMMING: B</p>
-                        <p>INTERNSHIP: A</p>
-                        <p>C++ PROGRAMMING I: A</p>
-                        <p>LINUX ESSENTIALS: B</p>
-                        <p>JAVASCRIPT WEB PROGRAMMING: A</p>
-                    </Classes>
+                    <SubTitle>Unrelated Classes:</SubTitle>
+                    <P>INTRO TO COMPUTERS: B</P>
+                    <P>INTRO TO SOCIOLOGY: A</P>
+                    <P>INTRO ANTHROPOLOGY: A</P>
+                    <P>DRAWING I: C</P>
+                    <P>COLLEGE WRITING: B</P>
+                    <P>PROB SOLV METHODS: A</P>
+                    <P>ANALYTIC WRITING: C</P>
+                    <P>ETHICS AND SOCIETY: C</P>
+                    <P>TECHNICAL WRITING: B</P>
+                    <P>ALG PROB SOLV II: CR</P>
+                    <P>INTRO TO ART: B</P>
+                    <P>INTERMED ALGEBRA: A</P>
+                    <P>INTRO ENTREPRNSHIP: B</P>
+                    <P>BUS PROFESSIONALISM: A</P>
+                    <br/>
+                    <SubTitle>Related Classes:</SubTitle>
+                    <P>PHOTOSHOP: A</P>
+                    <P>WEB PUBLISHING: A</P>
+                    <P>DATABASE DESIGN & INTRO TO SQL: A</P>
+                    <P>PHP WEB PROGRAMMING: B</P>
+                    <P>INTERNSHIP: A</P>
+                    <P>C++ PROGRAMMING I: A</P>
+                    <P>LINUX ESSENTIALS: B</P>
+                    <P>JAVASCRIPT WEB PROGRAMMING: A</P>
                 </FlexConatiner>
             </Div>
         );

@@ -14,16 +14,14 @@ const Mainbox = styled.div `
 `;
 
 const ImageBox = styled.div `
-  width: 2700px;
+  width: 325%;
   position: relative;
   left: 0; 
   transition: all .7s ease-in-out;
-
 `;
 
 const ContentBox = styled.div `
   width: 20%;
-  height: 340px;
   float: left;
   text-align: center;
   position: relative;
@@ -41,10 +39,8 @@ const Sumbit = Next.extend`
 `;
 
 const InputContainer = styled.div`
-  width: 540px;
   height: 238px;
   text-align: left;
-  padding: 40px 0 0 40px;
 `;
 
 const Input = styled.input`
@@ -55,50 +51,60 @@ const Input = styled.input`
 const ThankYou = styled.h3`
   margin-top; 130px;
 `;
+const Subtitle = styled.h3`
+    font-size: 24px;
+`;
 
 export default class SurveyModal extends React.Component {
-  constructor(props) {
-    super(props);
-    
-    this.state = {
-      slideNext: 0
+    constructor(props) {
+        super(props);
+        
+        this.state = {
+            slideNext: 0
+        }
+        this.SlideNext = this.SlideNext.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
     }
-    this.SlideNext = this.SlideNext.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
-  }
 
-  SlideNext() {
-    let nextPos = this.state.slideNext - 100;
+    // componentWillMount() {
+    //     document.addEventListener('mousedown', this.handleClick , false)
+    // }
 
-    this.setState({
-      slideNext: nextPos
-    });
-  }
+    // componentWillUnmount() {
+    //     document.removeEventListener('mousedown', this.handleClick , false)
+    // }
 
-  handleSubmit(e) {
-    e.preventDefault();
-    const data = new FormData(e.target);
-    this.setState({
-      slideNext: 0
-    });
-    console.log('Design Review:', data.get('designReview'));
-    console.log('Function Review:', data.get('functionReview'));
-    console.log('Navigate Review:', data.get('navigateReview'));
-    console.log('Experience Review:', data.get('experienceReview'));
-    document.getElementById('survey-form').reset();
-  }
+    SlideNext() {
+        let nextPos = this.state.slideNext - 100;
 
-  render() {
-    return (
-        <div> 
-            <Modal name ="Take Survey!">
-                <Bg>
+        this.setState({
+        slideNext: nextPos
+        });
+    }
+
+    handleSubmit(e) {
+        e.preventDefault();
+        const data = new FormData(e.target);
+        this.setState({
+        slideNext: 0
+        });
+        console.log('Design Review:', data.get('designReview'));
+        console.log('Function Review:', data.get('functionReview'));
+        console.log('Navigate Review:', data.get('navigateReview'));
+        console.log('Experience Review:', data.get('experienceReview'));
+        document.getElementById('survey-form').reset();
+    }
+
+    render() {
+        return (
+            <div> 
+                <Modal name ="Take Survey!">
                     <Mainbox>
                         <ImageBox style={{left: this.state.slideNext + '%'}}>
                             <form id="survey-form" onSubmit={this.handleSubmit}>
 
                                 <ContentBox>
-                                    <h3>Do you like the site's design?</h3>
+                                    <Subtitle>Do you like the site's design?</Subtitle>
                                     <InputContainer>
                                         <Input type="radio" value="great" name="designReview" />Great!<br/>
                                         <Input type="radio" value="decent" name="designReview" />decent<br/>
@@ -110,7 +116,7 @@ export default class SurveyModal extends React.Component {
                                 </ContentBox>
 
                                 <ContentBox>
-                                    <h3>Do you like the functionality?</h3>
+                                    <Subtitle>Do you like the functionality?</Subtitle>
                                     <InputContainer>
                                         <Input type="radio" value="great" name="functionReview" />Great!<br/>
                                         <Input type="radio" value="decent" name="functionReview" />decent<br/>
@@ -122,7 +128,7 @@ export default class SurveyModal extends React.Component {
                                 </ContentBox>
 
                                 <ContentBox>
-                                    <h3>How easy or hard was it to navigate?</h3>
+                                    <Subtitle>How easy or hard was it to navigate?</Subtitle>
                                     <InputContainer>
                                         <Input type="radio" value="great" name="navigateReview" />Great!<br/>
                                         <Input type="radio" value="decent" name="navigateReview" />decent<br/>
@@ -134,7 +140,7 @@ export default class SurveyModal extends React.Component {
                                 </ContentBox>
 
                                 <ContentBox>
-                                    <h3>Did you enjoy your experience?</h3>
+                                    <Subtitle>Did you enjoy your experience?</Subtitle>
                                     <InputContainer>
                                         <Input type="radio" value="great" name="experienceReview" />Great!<br/>
                                         <Input type="radio" value="decent" name="experienceReview" />decent<br/>
@@ -152,9 +158,8 @@ export default class SurveyModal extends React.Component {
                             </form>
                         </ImageBox>
                     </Mainbox>
-                </Bg>
-            </Modal>
-        </div>
-    );
-  }
+                </Modal>
+            </div>
+        );
+    }
 }

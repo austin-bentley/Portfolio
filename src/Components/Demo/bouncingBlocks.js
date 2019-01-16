@@ -12,7 +12,6 @@ const Title = styled.div `
     border: 3px solid #ff3030;
     text-align: center; 
     padding: 5px 0;
-    filter: blur(1px);
     z-index: 3;
     cursor: pointer;
     font-size: 24px;
@@ -29,7 +28,6 @@ const SubTitle = styled.a `
     border: 1px solid;
     text-align: center; 
     padding: 5px 0;
-    filter: blur(1px);
     z-index: 2px;
     cursor: pointer;
 `;
@@ -46,7 +44,7 @@ export default class BouncingBlocks extends React.Component {
                 title: "A",
                 positionX: 40,
                 positionY: 60,
-                orgPositionX: 20,
+                orgPositionX: 0,
                 orgPositionY: 30,
                 ref: React.createRef()
             },
@@ -54,7 +52,7 @@ export default class BouncingBlocks extends React.Component {
                 title: "U",
                 positionX: 40,
                 positionY: 40,
-                orgPositionX: 30,
+                orgPositionX: 17,
                 orgPositionY: 30,
                 ref: React.createRef()
             },
@@ -62,7 +60,7 @@ export default class BouncingBlocks extends React.Component {
                 title: "S",
                 positionX: 65,
                 positionY: 45,
-                orgPositionX: 40,
+                orgPositionX: 34,
                 orgPositionY: 30,
                 ref: React.createRef()
             },
@@ -70,7 +68,7 @@ export default class BouncingBlocks extends React.Component {
                 title: "T",
                 positionX: 30,
                 positionY: 45,
-                orgPositionX: 50,
+                orgPositionX: 51,
                 orgPositionY: 30,
                 ref: React.createRef()
             },
@@ -78,7 +76,7 @@ export default class BouncingBlocks extends React.Component {
                 title: "I",
                 positionX: 55,
                 positionY: 35,
-                orgPositionX: 60,
+                orgPositionX: 68,
                 orgPositionY: 30,
                 ref: React.createRef()
             },
@@ -86,7 +84,7 @@ export default class BouncingBlocks extends React.Component {
                 title: "N",
                 positionX: 25,
                 positionY: 65,
-                orgPositionX: 70,
+                orgPositionX: 85,
                 orgPositionY: 30,
                 ref: React.createRef()
             },
@@ -94,7 +92,7 @@ export default class BouncingBlocks extends React.Component {
                 title: "B",
                 positionX: 70,
                 positionY: 65,
-                orgPositionX: 20,
+                orgPositionX: 0,
                 orgPositionY: 40,
                 ref: React.createRef()
             },
@@ -102,7 +100,7 @@ export default class BouncingBlocks extends React.Component {
                 title: "E",
                 positionX: 35,
                 positionY: 70,
-                orgPositionX: 30,
+                orgPositionX: 15,
                 orgPositionY: 40,
                 ref: React.createRef()
             },
@@ -110,7 +108,7 @@ export default class BouncingBlocks extends React.Component {
                 title: "N",
                 positionX: 32,
                 positionY: 55,
-                orgPositionX: 40,
+                orgPositionX: 30,
                 orgPositionY: 40,
                 ref: React.createRef()
             },
@@ -118,7 +116,7 @@ export default class BouncingBlocks extends React.Component {
                 title: "T",
                 positionX: 60,
                 positionY: 51,
-                orgPositionX: 50,
+                orgPositionX: 45,
                 orgPositionY: 40,
                 ref: React.createRef()
             },
@@ -134,7 +132,7 @@ export default class BouncingBlocks extends React.Component {
                 title: "E",
                 positionX: 45,
                 positionY: 65,
-                orgPositionX: 70,
+                orgPositionX: 75,
                 orgPositionY: 40,
                 ref: React.createRef()
             },
@@ -142,7 +140,7 @@ export default class BouncingBlocks extends React.Component {
                 title: "Y",
                 positionX: 55,
                 positionY: 55,
-                orgPositionX: 80,
+                orgPositionX: 90,
                 orgPositionY: 40,
                 ref: React.createRef()
             },

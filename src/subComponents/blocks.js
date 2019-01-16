@@ -2,15 +2,14 @@ import React from 'react';
 import styled from 'styled-components';
 
 const Blocks = styled.div `
-    width: 80px;
-    height: 80px;
+    width: ${props => props.blockSize ? `${props.blockSize}px` : '60px'};
+    height: ${props => props.blockSize ? `${props.blockSize}px` : '60px'};
     background: black;
     color: white;
     display: flex;
-    filter: blur(2px);
     border-radius: 5px;
     border: 1px white solid;
-    font-size: 40px;
+    font-size: 24px;
     position: absolute;
     transition: ${props => props.stop ? "all 1s ease-in-out" : ""};
 `;
@@ -27,6 +26,7 @@ export default class Block extends React.Component {
             positionY: window.innerHeight * (this.props.blockState.positionY / 100),
             orgPositionX: window.innerWidth * (this.props.blockState.orgPositionX / 100),
             orgPositionY: window.innerHeight * (this.props.blockState.orgPositionY / 100),
+            blockSize: window.innerWidth / 7,
             windowH: window.innerHeight,
             windowW: window.innerWidth,
             slopeX: this.getNewSlope(4,8,-4,-8),
@@ -107,9 +107,9 @@ export default class Block extends React.Component {
     }
 
     render() {
-        let { title, positionX, positionY, stop } = this.state;
+        let { title, positionX, positionY, stop, blockSize } = this.state;
         return (
-            <Blocks stop={stop} style={{top: positionY + 'px', left: positionX + 'px'}}>
+            <Blocks stop={stop} size={blockSize} style={{top: positionY + 'px', left: positionX + 'px'}}>
                 <Sybmbol>{title}</Sybmbol>
             </Blocks>
         )

@@ -1,15 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 
-
-const Div = styled.div `
-	width: 98vw;
-	height: 98vh;
-	background-color: white;
-	touch-action: none;
-`;
-
-
 const Button1 = styled.button `
 	border-radius: 50%;
 	background-color: #4286f4;
@@ -73,26 +64,19 @@ export default class IconDrag extends React.Component {
             sixthx: 100,
             sixthy: 300
         }
-            this.handlemousedown = this.handlemousedown.bind(this);
-            this.handlemouseup = this.handlemouseup.bind(this);
-            this.mouseposition = this.mouseposition.bind(this);
-            this.settingthestateforpostition = this.settingthestateforpostition.bind(this);
-            
+        this.handlemousedown = this.handlemousedown.bind(this);
+        this.handlemouseup = this.handlemouseup.bind(this);
+        this.mouseposition = this.mouseposition.bind(this);
+        this.settingthestateforpostition = this.settingthestateforpostition.bind(this);
     }
 
     handlemousedown(event){
-        console.log(this.state.mousedown);
         event.persist();
         this.setState({mousedown: false, mounted: 1}, ()=>{this.mouseposition(event)});
     }
 
     handlemouseup(){
-        console.log(this.state.mousedown);
         this.setState({mousedown: true});
-
-        for ( var key in this.state) {
-            console.log(`${[key]} = ${this.state[key]}`);
-        }
 
         setTimeout(()=>{
             this.setState({
@@ -136,7 +120,7 @@ export default class IconDrag extends React.Component {
 
     render (){
         return (
-            <Div onMouseMove={this.mouseposition} onTouchMove={this.mouseposition}>
+            <div onMouseMove={this.mouseposition} onTouchMove={this.mouseposition}>
                 <H1>Drag The Button</H1>
                 <Button6 style={{top: this.state.sixthy, left: this.state.sixthx }} mouse={this.state.mousedown}>F</Button6>
                 <Button5 style={{top: this.state.fifthy, left: this.state.fifthx }} mouse={this.state.mousedown}>E</Button5>
@@ -150,7 +134,7 @@ export default class IconDrag extends React.Component {
                     onTouchStart={this.handlemousedown} 
                     onTouchEnd={this.handlemouseup} 
                 >A</Button1>
-            </Div>
+            </div>
         );
     }
 }

@@ -5,6 +5,10 @@ import styled from 'styled-components';
 import SideBar from './Sidebar';
 import { returnActiveComponent } from './returnActiveComponent';
 
+const PagePadding = styled.div`
+    padding: 10%;
+`;
+
 class Layout extends React.Component {
 	constructor(props) {
         super(props);
@@ -55,7 +59,9 @@ class Layout extends React.Component {
             <div>
                 <Header isMobile={isMobile} handleSideBarToggle={this.handleSideBarToggle} ref={node => {this.state.headerRef = node}}/>
                 <SideBar isMobile={isMobile} ref={node => {this.state.sideBarRef = node}} isActive={isSideBarActive} getActiveComponent={this.getActiveComponent}/>
-                { this.state.activeComponent }
+                <PagePadding>
+                    { this.state.activeComponent }
+                </PagePadding>
             </div>
 		);
 	}  

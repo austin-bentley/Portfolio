@@ -33,7 +33,7 @@ const ModalStyle = styled.div `
   max-width: 600px;
   height: 400px;
   margin: 0 auto;
-  padding: 30px;
+  padding: 15px;
   margin-top: 20vh;
 `;
 

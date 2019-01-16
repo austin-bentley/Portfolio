@@ -12,7 +12,8 @@ const Div = styled.div `
 	background-position: center;
 	background-color: #cccccc;
 	height: 100vh;
-	width: 100vw;
+    width: 100vw;
+    left: -0vw;
 	position: absolute;
 	touch-action: none;
 `;
@@ -21,7 +22,7 @@ const OuterDiv = styled.div `
 	touch-action: none;
 	height: 100vh;
 	position: absolute;
-	overflow: hidden;
+    overflow: hidden;
 	width: ${(props) => {
 		if (props.mount === true){
 			return '50.5vw'; 
@@ -85,76 +86,70 @@ const H1 = styled.h1`
 	user-select: none;
 `;
 
-		export default class TokyoGhoul extends React.Component {
+export default class TokyoGhoul extends React.Component {
 
-		//make it draggable by getting mouse move position and mousedown/up
-		constructor(){
-			super();
-			this.state = {
-				mousedown: true,
-				mouseposx: 0,
-				mounted: false,
-				clientwidth: 0
-			}
-				this.handlemousedown = this.handlemousedown.bind(this);
-				this.handlemouseup = this.handlemouseup.bind(this);
-				this.mouseposition = this.mouseposition.bind(this);
-		}
+    //make it draggable by getting mouse move position and mousedown/up
+    constructor(){
+        super();
+        this.state = {
+            mousedown: true,
+            mouseposx: 0,
+            mounted: false,
+            clientwidth: 0
+        }
+            this.handlemousedown = this.handlemousedown.bind(this);
+            this.handlemouseup = this.handlemouseup.bind(this);
+            this.mouseposition = this.mouseposition.bind(this);
+    }
 
-		handlemousedown(event){
-			console.log(this.state.mousedown);
-			event.persist();
-			this.setState({mousedown: false, mounted: 1}, ()=>{this.mouseposition(event)});
-		}
+    handlemousedown(event){
+        event.persist();
+        this.setState({mousedown: false, mounted: 1}, ()=>{this.mouseposition(event)});
+    }
 
-		handlemouseup(){
-			console.log(this.state.mousedown);
-			this.setState({mousedown: true})
-			
-		}
+    handlemouseup(){
+        this.setState({mousedown: true})
+    }
 
-		mouseposition(event){
-			let x = event.clientX;
-			if (x === undefined){
-				x = event.touches[0].clientX;
-			}
+    mouseposition(event){
+        let x = event.clientX;
+        if (x === undefined){
+            x = event.touches[0].clientX;
+        }
 //---------------------------------------fall back on mobile^^^^^^^^^^^^^^^^^^^
-			let w = window.innerWidth;
-			if (this.state.mousedown === false){
-				this.setState({mouseposx: x, clientwidth: w});
-			}
-		}
+        let w = window.innerWidth;
+        if (this.state.mousedown === false){
+            this.setState({mouseposx: x, clientwidth: w});
+        }
+    }
 
-		componentDidMount () {
-			setTimeout(()=>{			
-			this.setState({mounted: true});
-			console.log("mounted");}
-			, 1500);
-		}
+    componentDidMount () {
+        setTimeout(()=> { this.setState({mounted: true})}, 1500);
+    }
 
-			render (){
-				return (
-					<Div>
-						<Div bottom={Image1} onMouseMove={this.mouseposition} onTouchMove={this.mouseposition}>
-							<H1 bottom={1}>Tokyo</H1>
-						</Div>
+    render (){
+        return (
+            <Div>
+                <Div bottom={Image1} onMouseMove={this.mouseposition} onTouchMove={this.mouseposition}>
+                    <H1 bottom={1}>Tokyo</H1>
+                </Div>
 
-						<OuterDiv onMouseMove={this.mouseposition} onTouchMove={this.mouseposition} pos={this.state.mouseposx} mount={this.state.mounted} width={this.state.clientwidth}>
-							<Div top={Image2}>
-								<H1>Tokyo</H1>
-								<Divider 
-									onMouseDown={this.handlemousedown} 
-									onMouseUp={this.handlemouseup} 
-									onTouchStart={this.handlemousedown} 
-									onTouchEnd={this.handlemouseup} 
-									pos={this.state.mouseposx} 
-									mount={this.state.mounted} 
-									width={this.state.clientwidth}
-									/>
-							</Div>
-						</OuterDiv>
-						
-					</Div>
-				);
-			}
-		}
+                <OuterDiv onMouseMove={this.mouseposition} onTouchMove={this.mouseposition} pos={this.state.mouseposx} mount={this.state.mounted} width={this.state.clientwidth}>
+                    <Div top={Image2}>
+                        <H1>Tokyo</H1>
+                        <Divider 
+                            onMouseDown={this.handlemousedown} 
+                            onMouseUp={this.handlemouseup} 
+                            onTouchStart={this.handlemousedown} 
+                            onTouchEnd={this.handlemouseup} 
+                            pos={this.state.mouseposx} 
+                            mount={this.state.mounted} 
+                            width={this.state.clientwidth}
+                            />
+                    </Div>
+                </OuterDiv>
+                
+            </Div>
+        );
+    }
+}

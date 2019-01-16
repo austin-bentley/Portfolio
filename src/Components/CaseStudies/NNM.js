@@ -10,9 +10,10 @@ const Div = styled.div `
 	background-size: cover;
 	background-position: center;
 	background-color: #cccccc;
-	height: 80vh;
-	width: 100%;
-	position: relative;
+	height: 60vh;
+    position: relative;
+    width: 100vw;
+    left: -10vw;
 `;
 
 const H1 = styled.h1 `
@@ -26,15 +27,13 @@ const H1 = styled.h1 `
 `;
 
 const H2 = styled.h2 `
-	padding-left: 10vw;
-	padding-right: 10vw;
-	font-size: 300%;
+    font-size: 32px;
+    padding-top: 24px;
 `;
 
 const P = styled.p `
-	padding-left: 10vw;
-	padding-right: 10vw;
-	font-size: 150%;
+    font-size: 16px;
+    font-weight: 300;
 `;
 
 const Img = styled.img `
@@ -51,9 +50,6 @@ export const NNM =  () =>  {
             </Div>
             <H2>Prep: </H2>
             <P>I started by attending meetings before I was actually admitted into the internship so that I could get an idea of what I was getting myself into and where the last team of interns was going to leave off. Before the leader whisked me into some work I had to be added to their managmnent groups(ca agile and google accounts). I mainly did research on attrative ideas and reported back on the plausibility of them. For example, one idea was to redirect the users based on which site they stood in front of. The problem with that was there was no free wordpress plugin that was accurate enough to pull that off. </P> 
-            
-            <br/>
-            <br/>
             
             <H2>The Start:</H2>
             <P>I had multiple goals to complete for every two week sprint but there was usually one that would take up majority of my time.</P> 

@@ -19,11 +19,11 @@ const Container = styled.div `
 `; 
 
 const P = styled.p`
-    font-size: 24px;
+    font-size: 16px;
 `; 
 
 const Subtitle = styled.h1`
-    font-size: 28px;
+    font-size: 24px;
     font-weight: 600;
 `; 
 

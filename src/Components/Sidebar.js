@@ -69,7 +69,8 @@ class SideBar extends React.Component {
                             <Group>Demo's</Group>
                             <ComponentContainer>
                                 <ComponentName>Icon Drag</ComponentName>
-                                <ComponentName>Survey Modal</ComponentName>
+                                <ComponentName>Slider</ComponentName>
+                                {/* <ComponentName>Survey Modal</ComponentName> */}
                                 <ComponentName>Bouncing Blocks</ComponentName>
                                 <ComponentName>Serverless Backend</ComponentName>
                             </ComponentContainer>

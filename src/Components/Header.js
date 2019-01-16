@@ -7,6 +7,8 @@ const Title = styled.h1 `
     flex: 0 1 90%;
     text-align: center;
     margin: 0;
+    left: calc(50% - 75px);
+    position: absolute;
 `;
 
 const HeaderContainer = styled.div `

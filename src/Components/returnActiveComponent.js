@@ -33,6 +33,9 @@ export const returnActiveComponent = (active) => {
         case 'Bouncing Blocks':
             component = <BouncingBlocks />;
             break;
+        case 'Slider':
+            component = <TokyoGhoul />;
+            break;
         case 'Survey Modal':
             component = <SurveyModal />;
     }

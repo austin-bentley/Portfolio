@@ -33,6 +33,8 @@ const Page = styled.div `
     position: relative;
     background-color: #333333;
     height: 100vh;
+    width: 100vw;
+    left: -10vw;
 `;
     
 const Button = styled.button `
@@ -76,6 +78,7 @@ const Items = styled.p `
 const Date = Items.extend `
     border-right: 1px solid white;
     padding-right: 5px;
+    padding-left: 15px;
 `;
 
 export default class ServerLess extends React.Component {
