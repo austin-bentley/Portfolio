@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { size } from '../../DeviceSizing';
 
 const Background = require('../images/RSILogoLarge.png');
 
@@ -9,12 +10,11 @@ const HomeImg = styled.div`
 	background-size: contain;
 	background-position: center;
 	height: 50vh;
-	position: relative;
+    position: relative;
 `; 
 
 const Container = styled.div `
     padding-top: 20px;
-    width: 80%;
     margin: 0 auto;
 `; 
 

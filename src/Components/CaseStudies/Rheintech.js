@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { size } from '../../DeviceSizing';
 
 const Background = require('../images/RheinTech.png');
 const graph = require('../images/iot.jpg');
@@ -10,33 +11,34 @@ const HomeImg = styled.div`
 	background-size: cover;
 	background-position: center;
 	background-color: #cccccc;
-	position: relative;
     filter: blur(5px);
     height: 60vh;
-    width: 100vw;
-    left: -10vw;
 `; 
 
 const H1 = styled.h1 `
 	padding-left: 3vw;
 	position: absolute;
 	text-align: center;
-	top: 35%;
+	top: 45%;
 	left: 0;
 	right: 0;
     bottom: 0;
     font-size: 48px;
 `;
 
+const ImgContainer = styled.div `
+    position: relative;
+`;
+
  const P = styled.p `
 	 font-size: 16px;
-	 margin-top: 5vh;
+     margin-top: 5vh;
  `;
 
  const Img = styled.img `
  	width: 90vw; 
  	display: block;
- 	margin: auto;
+    margin: auto;
  `;
 
  const Ul = styled.ul `
@@ -55,14 +57,16 @@ const Button = styled.button`
 	color: #F6B600;
 	border: 2px solid #F6B600;
 	position: absolute;
-	font-size: 150%;
+    font-size: 150%;
 `;
 
 export const Rheintech = () => {
     return (
         <div>
-            <HomeImg Background={Background}/>
-            <H1><strong>Rheintech</strong></H1>
+            <ImgContainer>
+                <HomeImg Background={Background}/>
+                <H1><strong>Rheintech</strong></H1>
+            </ImgContainer>
             <P>In short, Rheintech was SEO contract work for a family friend.
             I began by researching their home page and services to find out exactly what the company provided and which one of those services was the most popular.</P>
             <Img src={graph}/>

@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { size } from '../DeviceSizing';
 
 const SideBarContainer = styled.div `
     height: calc(100vh - 42px);
@@ -10,6 +11,17 @@ const SideBarContainer = styled.div `
     position: fixed;
     bottom: 0;
     z-index: 9999;
+
+    @media ${size.tablet} {
+        width: 275px;
+        z-index: 0;
+        background-color: white;
+    }
+    @media ${size.desktop} {
+        width: 350px;
+        z-index: 0;
+        background-color: white;
+    }
 `;
 
 const ComponentName = styled.p `
@@ -18,6 +30,19 @@ const ComponentName = styled.p `
     font-weight: 300;
     padding: 4px;
     color: white;
+    cursor: pointer;
+
+    &:hover {
+        color: #ba2525
+    }
+    
+    &:active {
+        color: #ba2525
+    }
+
+    @media ${size.tablet} {
+        color: black;
+    }
 `;
     
 const Group = styled.h2 `
@@ -37,6 +62,13 @@ const HomeContainer = styled.div `
     position: absolute;
     left: ${props => props.isActive ? '0' : '-300px'};
     transition: all 1s ease-in-out;
+
+    @media ${size.tablet} {
+       left: 0;
+    }
+    @media ${size.desktop} {
+        padding-left: 100px;
+    }
 `;
 
 class SideBar extends React.Component {

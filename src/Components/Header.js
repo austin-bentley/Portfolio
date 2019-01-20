@@ -34,7 +34,7 @@ class Header extends React.Component {
 		return (
             <div ref={node => {this.refs = node}}>
                 <HeaderContainer>
-                    <MenuIcon toggleSideBar={this.props.handleSideBarToggle}></MenuIcon>
+                    <MenuIcon toggleSideBar={this.props.handleSideBarToggle} isActive={this.props.isActive}></MenuIcon>
                     <Title>Austin Bentley</Title>
                 </HeaderContainer>
             </div>

@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { size } from '../../DeviceSizing';
 
 const Assesment = require('../images/internshipfinal.png');
 const Background = require('../images/NNMBackground.jpg');
@@ -12,8 +13,6 @@ const Div = styled.div `
 	background-color: #cccccc;
 	height: 60vh;
     position: relative;
-    width: 100vw;
-    left: -10vw;
 `;
 
 const H1 = styled.h1 `
@@ -23,7 +22,7 @@ const H1 = styled.h1 `
 	top: 35%;
 	left: 0;
 	right: 0;
-	bottom: 0; 
+    bottom: 0; 
 `;
 
 const H2 = styled.h2 `
@@ -39,7 +38,6 @@ const P = styled.p `
 const Img = styled.img `
 	width: 50vw;
 	height: 120vh;
-	margin-left: 25vw;
 `;
 
 export const NNM =  () =>  {

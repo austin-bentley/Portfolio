@@ -4,9 +4,17 @@ import Home from './Home';
 import styled from 'styled-components';
 import SideBar from './Sidebar';
 import { returnActiveComponent } from './returnActiveComponent';
+import { size } from '../DeviceSizing';
 
 const PagePadding = styled.div`
-    padding: 10%;
+    padding: 36px;
+
+    @media ${size.tablet} {
+        padding-left:  275px;
+    }
+    @media ${size.desktop} {
+        padding-left: 350px;
+    }
 `;
 
 class Layout extends React.Component {
@@ -14,7 +22,6 @@ class Layout extends React.Component {
         super(props);
 		this.state = {
             show: 3,
-            isMobile: window.innerWidth < 500 ? true : false,
             isSideBarActive: false,
             sideBarRef: null,
             headerRef: null,
@@ -57,8 +64,8 @@ class Layout extends React.Component {
         const { isMobile, isSideBarActive } = this.state;
 		return (
             <div>
-                <Header isMobile={isMobile} handleSideBarToggle={this.handleSideBarToggle} ref={node => {this.state.headerRef = node}}/>
-                <SideBar isMobile={isMobile} ref={node => {this.state.sideBarRef = node}} isActive={isSideBarActive} getActiveComponent={this.getActiveComponent}/>
+                <Header handleSideBarToggle={this.handleSideBarToggle} ref={node => {this.state.headerRef = node}} isActive={isSideBarActive}/>
+                <SideBar ref={node => {this.state.sideBarRef = node}} isActive={isSideBarActive} getActiveComponent={this.getActiveComponent}/>
                 <PagePadding>
                     { this.state.activeComponent }
                 </PagePadding>

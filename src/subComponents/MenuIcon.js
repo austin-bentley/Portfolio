@@ -1,6 +1,7 @@
 import React from 'react';
 import { keyframes } from 'styled-components';
 import styled from 'styled-components';
+import { size } from '../DeviceSizing';
 
 const Span = styled.span `
     transition: all 1s ease-in-out;
@@ -10,6 +11,12 @@ const Span = styled.span `
     display: block;
     margin: 3px 0 3px 0;
     border-radius: 3px;
+    transform: ${props => props.isActive? 'translate(0%, 0%) rotate(90deg)': 'translate(0%, 0%) rotate(0deg)'};
+    
+    @media ${size.tablet} {
+        display: none;
+    }
+
 `;
 
 const Label = styled.label `
@@ -20,9 +27,6 @@ const Label = styled.label `
 
 const Input = styled.input `
     display: none;
-    &:checked + ${Label} > span {
-        transform: translate(0%, -50%) rotate(90deg);
-    }
 `;
 
 const Div = styled.div `
@@ -41,9 +45,9 @@ export class MenuIcon extends React.Component {
             <Div>
                 <Input id="menuButton" type="checkbox" />
                 <Label onClick={this.props.toggleSideBar} htmlFor="menuButton">
-                    <Span></Span>
-                    <Span></Span>
-                    <Span></Span>
+                    <Span isActive={this.props.isActive}></Span>
+                    <Span isActive={this.props.isActive}></Span>
+                    <Span isActive={this.props.isActive}></Span>
                 </Label>
             </Div>
         );

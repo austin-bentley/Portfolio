@@ -10,6 +10,7 @@ const H1 = styled.h1`
 const P = styled.p `
     padding-left: 10%;
     margin: 2px;
+    width: 425px;
 `;
     
 const PDesc = styled.p `
@@ -49,6 +50,10 @@ const FlexConatiner = styled.div`
     display: flex;
     justify-content: start;
     flex-wrap: wrap;
+`;
+
+const ClassContainer = styled.div`
+     width: 400px;
 `;
 
 const Wrapper = styled.div `
@@ -156,31 +161,35 @@ export default class Home extends React.Component {
                 <strong>Associate in applied sciences</strong>
                 <p>Central New Mexico Community College - Albuquerque, NM</p>
                 <FlexConatiner>
-                    <SubTitle>Unrelated Classes:</SubTitle>
-                    <P>INTRO TO COMPUTERS: B</P>
-                    <P>INTRO TO SOCIOLOGY: A</P>
-                    <P>INTRO ANTHROPOLOGY: A</P>
-                    <P>DRAWING I: C</P>
-                    <P>COLLEGE WRITING: B</P>
-                    <P>PROB SOLV METHODS: A</P>
-                    <P>ANALYTIC WRITING: C</P>
-                    <P>ETHICS AND SOCIETY: C</P>
-                    <P>TECHNICAL WRITING: B</P>
-                    <P>ALG PROB SOLV II: CR</P>
-                    <P>INTRO TO ART: B</P>
-                    <P>INTERMED ALGEBRA: A</P>
-                    <P>INTRO ENTREPRNSHIP: B</P>
-                    <P>BUS PROFESSIONALISM: A</P>
-                    <br/>
-                    <SubTitle>Related Classes:</SubTitle>
-                    <P>PHOTOSHOP: A</P>
-                    <P>WEB PUBLISHING: A</P>
-                    <P>DATABASE DESIGN & INTRO TO SQL: A</P>
-                    <P>PHP WEB PROGRAMMING: B</P>
-                    <P>INTERNSHIP: A</P>
-                    <P>C++ PROGRAMMING I: A</P>
-                    <P>LINUX ESSENTIALS: B</P>
-                    <P>JAVASCRIPT WEB PROGRAMMING: A</P>
+                    <ClassContainer>
+                        <SubTitle>Unrelated Classes:</SubTitle>
+                        <P>INTRO TO COMPUTERS: B</P>
+                        <P>INTRO TO SOCIOLOGY: A</P>
+                        <P>INTRO ANTHROPOLOGY: A</P>
+                        <P>DRAWING I: C</P>
+                        <P>COLLEGE WRITING: B</P>
+                        <P>PROB SOLV METHODS: A</P>
+                        <P>ANALYTIC WRITING: C</P>
+                        <P>ETHICS AND SOCIETY: C</P>
+                        <P>TECHNICAL WRITING: B</P>
+                        <P>ALG PROB SOLV II: CR</P>
+                        <P>INTRO TO ART: B</P>
+                        <P>INTERMED ALGEBRA: A</P>
+                        <P>INTRO ENTREPRNSHIP: B</P>
+                        <P>BUS PROFESSIONALISM: A</P>
+                        <br/>
+                    </ClassContainer>
+                    <ClassContainer>
+                        <SubTitle>Related Classes:</SubTitle>
+                        <P>PHOTOSHOP: A</P>
+                        <P>WEB PUBLISHING: A</P>
+                        <P>DATABASE DESIGN & INTRO TO SQL: A</P>
+                        <P>PHP WEB PROGRAMMING: B</P>
+                        <P>INTERNSHIP: A</P>
+                        <P>C++ PROGRAMMING I: A</P>
+                        <P>LINUX ESSENTIALS: B</P>
+                        <P>JAVASCRIPT WEB PROGRAMMING: A</P>
+                    </ClassContainer>
                 </FlexConatiner>
             </Div>
         );

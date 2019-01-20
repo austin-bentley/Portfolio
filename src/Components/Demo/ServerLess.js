@@ -3,14 +3,13 @@ import styled from 'styled-components';
 import Filter from 'bad-words';
 import { Loader } from '../../subComponents/loader';
 import { ErrorMessage } from '../../subComponents/ErrorMessage';
+import { size } from '../../DeviceSizing';
 const filter = new Filter();
 
 const Input = styled.input `
-    width: 400px;
     background-color: #333333;
     border: 1px solid #333333;
     border-bottom: 4px solid white;
-    font-size: 32px;
     transition : border 500ms ease-out;
     color: white;
 
@@ -24,8 +23,8 @@ const Input = styled.input `
         border-bottom: 4px solid #597fff;
     }
 
-    @media (max-width : 992px) {
-        width: 200px;
+    @media ${size.desktop} {
+        font-size: 32px;
     }
 `;
     
@@ -33,8 +32,6 @@ const Page = styled.div `
     position: relative;
     background-color: #333333;
     height: 100vh;
-    width: 100vw;
-    left: -10vw;
 `;
     
 const Button = styled.button `
@@ -42,8 +39,12 @@ const Button = styled.button `
     border-radius: 5px;
     color: white;
     margin-left: 10px;
-    font-size: 32px;
+    font-size: 22px;
     border: 1px solid #333333;
+
+    @media ${size.desktop} {
+        font-size: 32px;
+    }
 `;
 
 const InputContainer = styled.div `
@@ -54,14 +55,18 @@ const InputContainer = styled.div `
     transition : 500ms ease-out;
     
     @media (max-width : 992px) {
-        width: 324px;
+        width: 275px;
+    }
+
+    @media ${size.desktop} {
+        text-align: center;
     }
 `;
     
 const ItemContainer = InputContainer.extend `
     top: ${(props) => props.submitted? '50%': '70%'};
     @media (max-width : 992px) {
-        width: 350px;
+        width: 300px;
     }
 `;
 

@@ -1,40 +1,61 @@
 import React from 'react';
 import styled from 'styled-components';
+import { size } from '../../DeviceSizing';
 
 const Image1 = require('../images/tokyoghoul1.png');
 const Image2 = require('../images/tokyoghoul2.jpg');
 
+const ComponentContainer = styled.div `
+    width: 100%;
+    height: 92vh;
+    position: relative;
+`;
 
-const Div = styled.div `
+const ImageOneDiv = styled.div `
 	background-image: url(${(props) => props.bottom? props.bottom : props.top});
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-position: center;
 	background-color: #cccccc;
-	height: 100vh;
-    width: 100vw;
-    left: -0vw;
+	height: 100%;
+    width: 100%;
+    position: absolute;
+`;
+
+const ImageTwoDiv = styled.div `
+	background-image: url(${(props) => props.bottom? props.bottom : props.top});
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+	background-color: #cccccc;
+	height: 100%;
+    width: ${(props) => props.containerSize? props.containerSize + 'px' : '100%'};
 	position: absolute;
-	touch-action: none;
 `;
 
 const OuterDiv = styled.div `
 	touch-action: none;
-	height: 100vh;
+	height: 100%;
 	position: absolute;
     overflow: hidden;
 	width: ${(props) => {
 		if (props.mount === true){
-			return '50.5vw'; 
+			return '50%'; 
 		}
 		else if (props.mount === false){
-			return '.9vw';
+			return '.9%';
 		}
-		else{
-		let vwconvert = props.pos * (100/props.width);
-		return  vwconvert + 1 +'vw'; 
+            if (props.pos !== 0) {
+                if (props.windowW < 678) { 
+                    return  props.pos - 36 + 'px'; 
+                } else if (props.windowW < 1024) {
+                    return  props.pos - 265 + 'px'; 
+                } else {
+                    return  props.pos - 340 + 'px'; 
+                }
+            }
 		}
-	}};
+    }};
 
 	transition: ${(props)=> props.mount === true? 'all 1s ease-in-out' : 'none' };
 
@@ -42,8 +63,8 @@ const OuterDiv = styled.div `
 
 const Divider = styled.span `
 	touch-action: none;
-	width: 5vw;
-	height: 100vh;
+	width: 5%;
+	height: 100%;
 	background: linear-gradient(to bottom, #ff3232 1%,#c58cff 100%);
 	position: absolute;
 	top: 0;	
@@ -52,27 +73,21 @@ const Divider = styled.span `
 
 	left: ${(props) => {
 		if (props.mount === true){
-			
-			if(window.innerWidth >= 992){
-				return '49.5vw';  
-			}
-			else{
-				return '46.5vw';  
-			}
+			return '48%';
 		}
 		else if (props.mount === false){
-			return '0vw';
-		}
-		else{
-			if(window.innerWidth >= 992){
-							let vwconvert = props.pos* (100/props.width);
-							return  vwconvert  + 'vw'; 
-			}
-			else{
-				let vwconvert = props.pos* (100/props.width);
-				return  vwconvert - 3 + 'vw'; 
-			}
-
+			return '0%';
+		} else {
+            console.log('somethingg', props.pos - 265);
+            if (props.pos !== 0) {
+                if (props.windowW < 678) { 
+                    return  props.pos - 45 + 'px'; 
+                } else if (props.windowW < 1024) {
+                    return  props.pos - 275 + 'px'; 
+                } else {
+                    return  props.pos - 355 + 'px'; 
+                }
+            }
 		}
 	}};
 
@@ -81,7 +96,7 @@ const Divider = styled.span `
 
 const H1 = styled.h1`
 	color: ${(props=> props.bottom === 1? 'black' : 'white' )};
-	font-size: 32vw;
+	font-size: 25vw;
 	text-align: center;
 	user-select: none;
 `;
@@ -95,11 +110,13 @@ export default class TokyoGhoul extends React.Component {
             mousedown: true,
             mouseposx: 0,
             mounted: false,
-            clientwidth: 0
+            containerSize: React.createRef(),
+            windowW: window.innerWidth
         }
-            this.handlemousedown = this.handlemousedown.bind(this);
-            this.handlemouseup = this.handlemouseup.bind(this);
-            this.mouseposition = this.mouseposition.bind(this);
+        this.handlemousedown = this.handlemousedown.bind(this);
+        this.handlemouseup = this.handlemouseup.bind(this);
+        this.mouseposition = this.mouseposition.bind(this);
+        this.getContainerSize = this.getContainerSize.bind(this);
     }
 
     handlemousedown(event){
@@ -116,10 +133,9 @@ export default class TokyoGhoul extends React.Component {
         if (x === undefined){
             x = event.touches[0].clientX;
         }
-//---------------------------------------fall back on mobile^^^^^^^^^^^^^^^^^^^
         let w = window.innerWidth;
         if (this.state.mousedown === false){
-            this.setState({mouseposx: x, clientwidth: w});
+            this.setState({mouseposx: x});
         }
     }
 
@@ -127,15 +143,21 @@ export default class TokyoGhoul extends React.Component {
         setTimeout(()=> { this.setState({mounted: true})}, 1500);
     }
 
+    getContainerSize() {
+        if(this.state.containerSize.current) {
+            return this.state.containerSize.current.offsetWidth;
+        }
+    }
+
     render (){
         return (
-            <Div>
-                <Div bottom={Image1} onMouseMove={this.mouseposition} onTouchMove={this.mouseposition}>
+            <ComponentContainer innerRef={this.state.containerSize}>
+                <ImageOneDiv bottom={Image1} onMouseMove={this.mouseposition} onTouchMove={this.mouseposition}>
                     <H1 bottom={1}>Tokyo</H1>
-                </Div>
+                </ImageOneDiv>
 
-                <OuterDiv onMouseMove={this.mouseposition} onTouchMove={this.mouseposition} pos={this.state.mouseposx} mount={this.state.mounted} width={this.state.clientwidth}>
-                    <Div top={Image2}>
+                <OuterDiv windowW={this.state.windowW} onMouseMove={this.mouseposition} onTouchMove={this.mouseposition} pos={this.state.mouseposx} mount={this.state.mounted} width={this.getContainerSize()}>
+                    <ImageTwoDiv top={Image2} containerSize={this.getContainerSize()}>
                         <H1>Tokyo</H1>
                         <Divider 
                             onMouseDown={this.handlemousedown} 
@@ -144,12 +166,12 @@ export default class TokyoGhoul extends React.Component {
                             onTouchEnd={this.handlemouseup} 
                             pos={this.state.mouseposx} 
                             mount={this.state.mounted} 
-                            width={this.state.clientwidth}
+                            windowW={this.state.windowW}
+                            width={this.getContainerSize()}
                             />
-                    </Div>
+                    </ImageTwoDiv>
                 </OuterDiv>
-                
-            </Div>
+            </ComponentContainer>
         );
     }
 }

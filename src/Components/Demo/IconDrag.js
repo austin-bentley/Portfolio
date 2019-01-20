@@ -1,6 +1,13 @@
 import React from 'react';
 import styled from 'styled-components';
 
+
+const Div = styled.div `
+	height: 98vh;
+	background-color: white;
+	touch-action: none;
+`;
+
 const Button1 = styled.button `
 	border-radius: 50%;
 	background-color: #4286f4;
@@ -45,29 +52,31 @@ const H1 = styled.h1 `
 	color: black;
 `;
 
-export default class IconDrag extends React.Component {
+    export default class IconDrag extends React.Component {
+        //make it draggable by getting mouse move position and mousedown/up
     constructor(){
         super();
+        let centerX = window.innerWidth / 2;
         this.state = {
             count: 0,
             mousedown: true,
-            mouseposx: 100,
+            mouseposx: centerX,
             mouseposy: 300,
-            secondx: 100,
+            secondx: centerX,
             secondy: 300,
-            thirdx: 100,
+            thirdx: centerX,
             thirdy: 300,
-            fourthx: 100,
+            fourthx: centerX,
             fourthy: 300,
-            fifthx: 100,
+            fifthx: centerX,
             fifthy: 300,
-            sixthx: 100,
+            sixthx: centerX,
             sixthy: 300
         }
-        this.handlemousedown = this.handlemousedown.bind(this);
-        this.handlemouseup = this.handlemouseup.bind(this);
-        this.mouseposition = this.mouseposition.bind(this);
-        this.settingthestateforpostition = this.settingthestateforpostition.bind(this);
+            this.handlemousedown = this.handlemousedown.bind(this);
+            this.handlemouseup = this.handlemouseup.bind(this);
+            this.mouseposition = this.mouseposition.bind(this);
+            this.settingthestateforpostition = this.settingthestateforpostition.bind(this);
     }
 
     handlemousedown(event){
@@ -90,7 +99,7 @@ export default class IconDrag extends React.Component {
                 sixthy: this.state.sixthy - 50,
                 sixthx: this.state.sixthx - 40
             })	
-        }, 600)	
+        }, 600)
     }
 
     settingthestateforpostition(x , y, xstate, ystate, time){
@@ -120,7 +129,7 @@ export default class IconDrag extends React.Component {
 
     render (){
         return (
-            <div onMouseMove={this.mouseposition} onTouchMove={this.mouseposition}>
+            <Div onMouseMove={this.mouseposition} onTouchMove={this.mouseposition}>
                 <H1>Drag The Button</H1>
                 <Button6 style={{top: this.state.sixthy, left: this.state.sixthx }} mouse={this.state.mousedown}>F</Button6>
                 <Button5 style={{top: this.state.fifthy, left: this.state.fifthx }} mouse={this.state.mousedown}>E</Button5>
@@ -134,7 +143,7 @@ export default class IconDrag extends React.Component {
                     onTouchStart={this.handlemousedown} 
                     onTouchEnd={this.handlemouseup} 
                 >A</Button1>
-            </div>
+            </Div>
         );
     }
 }
