@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { size } from '../DeviceSizing';
 
-const SideBarContainer = styled.div `
+const SideBarContainer = styled.div`
     height: calc(100vh - 42px);
     width: ${props => props.isActive ? '80%' : '0%'};
     background-color: #333333;
@@ -24,7 +24,7 @@ const SideBarContainer = styled.div `
     }
 `;
 
-const ComponentName = styled.p `
+const ComponentName = styled.p`
     font-size: 18px;
     margin: 0px;
     font-weight: 300;
@@ -44,8 +44,8 @@ const ComponentName = styled.p `
         color: black;
     }
 `;
-    
-const Group = styled.h2 `
+
+const Group = styled.h2`
     padding: 10px 0 10px 0;
     font-size: 18px;
     color: #989696;
@@ -53,11 +53,11 @@ const Group = styled.h2 `
     font-weight: 400;
 `;
 
-const ComponentContainer = styled.div `
+const ComponentContainer = styled.div`
     padding-left: 15px;
 `;
 
-const HomeContainer = styled.div `
+const HomeContainer = styled.div`
     padding: 10px 0 0 10px;
     position: absolute;
     left: ${props => props.isActive ? '0' : '-300px'};
@@ -72,45 +72,44 @@ const HomeContainer = styled.div `
 `;
 
 class SideBar extends React.Component {
-	constructor(props) {
-        super(props);
-		this.state = {
-            activeComponent: 'Home'
-        }
-        this.clickedComponent = this.clickedComponent.bind(this);
-    };
-
-    clickedComponent (e) {
-        if (e.target.tagName === 'P') {
-            this.props.getActiveComponent(e.target.innerText);
-        }
+  constructor(props) {
+    super(props);
+    this.state = {
+      activeComponent: 'Home'
     }
+    this.clickedComponent = this.clickedComponent.bind(this);
+  };
 
-	render() {
-		return (
-            <div ref={node => {this.refs = node}} onClick={this.clickedComponent}>
-                <SideBarContainer isActive={this.props.isActive}>
-                    <HomeContainer isActive={this.props.isActive}> 
-                            <ComponentName>Home</ComponentName>
-                            <Group>Case Studies</Group>
-                            <ComponentContainer>
-                                <ComponentName>National Nuclear Museum</ComponentName>
-                                <ComponentName>RheinTech Laboratories</ComponentName>
-                                <ComponentName>Rural Sourcing Inc</ComponentName>
-                            </ComponentContainer>
-                            <Group>Demo's</Group>
-                            <ComponentContainer>
-                                <ComponentName>Icon Drag</ComponentName>
-                                <ComponentName>Slider</ComponentName>
-                                {/* <ComponentName>Survey Modal</ComponentName> */}
-                                <ComponentName>Bouncing Blocks</ComponentName>
-                                <ComponentName>Serverless Backend</ComponentName>
-                            </ComponentContainer>
-                    </HomeContainer>
-                </SideBarContainer>
-            </div>
-		);
-	}  
+  clickedComponent(e) {
+    if (e.target.tagName === 'P') {
+      this.props.getActiveComponent(e.target.innerText);
+    }
+  }
+
+  render() {
+    return (
+      <div ref={node => { this.refs = node }} onClick={this.clickedComponent}>
+        <SideBarContainer isActive={this.props.isActive}>
+          <HomeContainer isActive={this.props.isActive}>
+            <ComponentName>Home</ComponentName>
+            <Group>Case Studies</Group>
+            <ComponentContainer>
+              <ComponentName>National Nuclear Museum</ComponentName>
+              <ComponentName>RheinTech Laboratories</ComponentName>
+              <ComponentName>Rural Sourcing Inc</ComponentName>
+            </ComponentContainer>
+            <Group>Demo's</Group>
+            <ComponentContainer>
+              <ComponentName>Icon Drag</ComponentName>
+              <ComponentName>Slider</ComponentName>
+              {/* <ComponentName>Survey Modal</ComponentName> */}
+              <ComponentName>Bouncing Blocks</ComponentName>
+            </ComponentContainer>
+          </HomeContainer>
+        </SideBarContainer>
+      </div>
+    );
+  }
 }
 
 export default SideBar
