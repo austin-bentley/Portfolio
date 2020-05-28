@@ -1,3 +1,7 @@
 // global styles
 @import "App";
+@import "styles/mixins";
 @import "styles/svg";
+
+// section styles
+@import "styles/sections/Header";

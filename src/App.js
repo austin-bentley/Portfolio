@@ -1,14 +1,12 @@
 import React from "react";
-import svg from "./assets/sprite_60fps.svg";
+import Particles from "react-particles-js";
+import Header from "./sections/Header";
 
 function App() {
   return (
     <div className="App">
-      <div
-        class="shapeshifter play"
-        style={{ backgroundImage: `url(${svg})` }}
-      ></div>
-      <div id="particles-js"></div>
+      <Header />
+      <Particles className="particle-background" />
     </div>
   );
 }
