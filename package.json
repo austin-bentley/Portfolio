@@ -12,8 +12,10 @@
     "eject": "react-scripts eject"
   },
   "dependencies": {
+    "node-sass": "^4.14.1",
     "react": "^16.4.0",
     "react-dom": "^16.4.0",
+    "react-particles-js": "^3.2.1",
     "react-scripts": "^3.4.1"
   },
   "devDependencies": {

@@ -1,0 +1,19 @@
+@keyframes play150 {
+  0% {
+    background-position: 0px 0px;
+  }
+  100% {
+    background-position: -39450px 0px;
+  }
+}
+.shapeshifter {
+  animation-duration: 2500ms;
+  animation-timing-function: steps(150);
+  width: 263px;
+  height: 106px;
+  background-repeat: no-repeat;
+  animation-fill-mode: forwards;
+}
+.shapeshifter.play {
+  animation-name: play150;
+}

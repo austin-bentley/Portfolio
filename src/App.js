@@ -1,6 +1,5 @@
 import React from "react";
 import svg from "./assets/sprite_60fps.svg";
-// import "./App.css";
 
 function App() {
   return (
@@ -9,6 +8,7 @@ function App() {
         class="shapeshifter play"
         style={{ backgroundImage: `url(${svg})` }}
       ></div>
+      <div id="particles-js"></div>
     </div>
   );
 }
