@@ -22,8 +22,7 @@
     "gh-pages": "^1.1.0",
     "html-loader": "^0.5.5",
     "react-router": "^4.2.0",
-    "react-router-dom": "^4.2.2",
-    "styled-components": "^2.4.0"
+    "react-router-dom": "^4.2.2"
   },
   "browserslist": [
     ">0.2%",
