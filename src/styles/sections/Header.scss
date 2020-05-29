@@ -1,10 +1,55 @@
 .header-section {
   height: 100vh;
-  padding-top: 50%;
+  padding-top: 250px;
 
   .name-svg {
     width: 350px;
     height: 146px;
     margin: 0 auto;
+
+    &.tablet {
+      display: none;
+    }
+
+    &.shapeshifter.play {
+      animation-name: play150Mobile;
+    }
+  }
+
+  @include tablet {
+    .name-svg {
+      width: 722px;
+      height: 288px;
+
+      &.mobile {
+        display: none;
+      }
+
+      &.tablet {
+        display: block;
+      }
+
+      &.shapeshifter.play {
+        animation-name: play150Tablet;
+      }
+    }
+  }
+
+  @keyframes play150Tablet {
+    0% {
+      background-position: 0px 0px;
+    }
+    100% {
+      background-position: -108300px 0px;
+    }
+  }
+
+  @keyframes play150Mobile {
+    0% {
+      background-position: 0px 0px;
+    }
+    100% {
+      background-position: -52500px 0px;
+    }
   }
 }
