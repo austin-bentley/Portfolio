@@ -1,6 +1,8 @@
 html,
 body {
   height: 100%;
+  font-family: "Roboto";
+  color: $white;
 }
 
 .App {
@@ -12,5 +14,32 @@ body {
     height: 100%;
     top: 0;
     left: 0;
+  }
+
+  // dp = design pattern
+  .dp-title {
+    font-size: 48px;
+    opacity: 0.8;
+
+    &.red {
+      color: $red;
+    }
+
+    &.blue {
+      color: $blue;
+    }
+
+    &.white {
+      color: $white;
+    }
+  }
+
+  .dp-section {
+    padding: 16px;
+
+    &--text {
+      font-size: 16px;
+      padding: 0 8px;
+    }
   }
 }

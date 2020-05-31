@@ -16,7 +16,8 @@
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-particles-js": "^3.2.1",
-    "react-scripts": "^3.4.1"
+    "react-scripts": "^3.4.1",
+    "typeface-roboto": "0.0.75"
   },
   "devDependencies": {
     "base64url": "^3.0.1",
