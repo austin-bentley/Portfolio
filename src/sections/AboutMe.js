@@ -9,7 +9,7 @@ function AboutMe() {
           className="name-logo"
           style={{ backgroundImage: `url(${LOGOMobileAB})` }}
         ></div>
-        <h2 className="dp-title red">out me</h2>
+        <h2 className="dp-title">out me</h2>
       </div>
       <p className="dp-section--text">
         I'm passionate in many aspects of my life but passion always seems to go
