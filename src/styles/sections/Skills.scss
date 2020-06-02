@@ -1,2 +1,10 @@
 .skills-section {
+  display: flex;
+  flex-wrap: wrap;
+
+  &--text {
+    @include desktop {
+      width: 700px;
+    }
+  }
 }
