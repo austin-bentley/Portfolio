@@ -24,9 +24,15 @@ body {
   }
 
   .dp-subtitle {
-    font-size: 24px;
+    font-size: 36px;
     opacity: 0.8;
     color: $blue;
+
+    &--secondary {
+      font-size: 24px;
+      opacity: 0.8;
+      color: $yellow;
+    }
   }
 
   .dp-section {

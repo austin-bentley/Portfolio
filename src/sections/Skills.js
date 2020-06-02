@@ -1,5 +1,5 @@
 import React from "react";
-
+// maybe a rubix cube of skills?
 function Skills() {
   return (
     <div className="skills-section dp-section">
@@ -9,9 +9,21 @@ function Skills() {
         are a few of the big ones.
       </p>
       <h4 className="dp-subtitle">Front-end</h4>
-      <p className="dp-section--text">a few front end techs</p>
+      <ul>
+        <li>React</li>
+        <li>Vanilla JS</li>
+        <li>SCSS/CSS</li>
+        <li>Webpack</li>
+        <li>Karma/Chai/Jasmine/Mocha</li>
+      </ul>
       <h4 className="dp-subtitle">Back-end</h4>
-      <p className="dp-section--text">a few back end techs</p>
+      <ul>
+        <li>Elixir</li>
+        <li>Phoenix</li>
+        <li>Phoenix Live View</li>
+        <li>Postgres</li>
+        <li>AWS (Lambda/API Gateway)</li>
+      </ul>
     </div>
   );
 }
