@@ -4,17 +4,20 @@ import {
   VerticalTimelineElement,
 } from "react-vertical-timeline-component";
 import "react-vertical-timeline-component/style.min.css";
+import FadeInSection from "../components/FadeInSection";
 
 function Experience() {
   return (
     <div className="experience-section dp-section">
-      <h2 className="dp-title">Experience</h2>
-      <p className="dp-section--text">
-        Cars.com has been my home as a subcontractor over the past two years.
-        I've spent my time building many different products/features with some
-        of the most incredible people I've ever had the privlage of coming
-        across.
-      </p>
+      <FadeInSection>
+        <h2 className="dp-title">Experience</h2>
+        <p className="dp-section--text">
+          Cars.com has been my home as a subcontractor over the past two years.
+          I've spent my time building many different products/features with some
+          of the most incredible people I've ever had the privlage of coming
+          across.
+        </p>
+      </FadeInSection>
 
       <VerticalTimeline>
         <VerticalTimelineElement
@@ -167,10 +170,11 @@ function Experience() {
         >
           <h3 className="vertical-timeline-element-title">Cooldown: </h3>
           <p>
-            Every 6 weeks we take 2 weeks to work on whatever we want. I spent
+            Every 6 weeks we take 2 weeks to work on whatever we want. I spend
             most cooldowns adding unit tests, reviewing PR's, and looking into
-            new technologies. I did help add a E2E tester to our pipeline and
-            write tests for it during one cooldown.
+            new technologies. Occasionally I'll take on some larger work with a
+            small team of whoever is interested. For example, adding a E2E
+            tester to our pipeline and writing tests for it.
           </p>
         </VerticalTimelineElement>
       </VerticalTimeline>
