@@ -46,7 +46,7 @@ const cubes = [
   {
     position: { x: -0.5, y: -0.5, z: -0.5 },
     textSide: [
-      { side: 1, text: "Angular (1)" },
+      { side: 1, text: "Angular 1.X" },
       { side: 3, text: "Mocha" },
       { side: 5, text: "Jenkins" },
     ],
@@ -90,11 +90,7 @@ function setCamera() {
 
 function setRendererSize() {
   const renderer = new THREE.WebGLRenderer({ alpha: true });
-  if (isDesktop(window.innerWidth)) {
-    renderer.setSize(700, 350);
-  } else {
-    renderer.setSize(200, 400);
-  }
+  renderer.setSize(window.innerWidth * 0.6, window.innerHeight * 0.6);
   return renderer;
 }
 
@@ -127,7 +123,7 @@ function makeCubeMaterial(cube) {
     text.textAlign = "center";
     text.fillRect(0, 0, 300, 150);
     text.fillStyle = "black";
-    text.font = "30pt Roboto";
+    text.font = "36pt Roboto";
 
     text.fillText(getText(i, cube), textContainerWidth, textContainerHeight);
 
@@ -158,7 +154,8 @@ function RubiksCube() {
     cubes.forEach((cube) => {
       const materials = makeCubeMaterial(cube);
 
-      materials.map((material) => {
+      materials.forEach((material) => {
+        material.map.minFilter = THREE.LinearFilter;
         material.map.needsUpdate = true;
       });
 
