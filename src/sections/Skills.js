@@ -14,7 +14,7 @@ function Skills() {
           the years.
         </p>
         <p className="dp-section--text">
-          Fun Fact: My best time on a rubix cube is 36 seconds!
+          Fun Fact: My best time on a 3X3 rubix cube is 36 seconds!
         </p>
       </div>
       <RubiksCube />
