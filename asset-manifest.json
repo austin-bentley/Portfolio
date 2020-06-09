@@ -1,29 +1,29 @@
 {
   "files": {
-    "main.css": "/static/css/main.2d5ed4e3.chunk.css",
-    "main.js": "/static/js/main.a2725478.chunk.js",
-    "main.js.map": "/static/js/main.a2725478.chunk.js.map",
-    "runtime-main.js": "/static/js/runtime-main.ecaff0c6.js",
-    "runtime-main.js.map": "/static/js/runtime-main.ecaff0c6.js.map",
-    "static/css/2.f681e662.chunk.css": "/static/css/2.f681e662.chunk.css",
-    "static/js/2.02d20da6.chunk.js": "/static/js/2.02d20da6.chunk.js",
-    "static/js/2.02d20da6.chunk.js.map": "/static/js/2.02d20da6.chunk.js.map",
-    "index.html": "/index.html",
-    "precache-manifest.6efa69822984a5bd7f5a44aa9c8d6be1.js": "/precache-manifest.6efa69822984a5bd7f5a44aa9c8d6be1.js",
-    "service-worker.js": "/service-worker.js",
-    "static/css/2.f681e662.chunk.css.map": "/static/css/2.f681e662.chunk.css.map",
-    "static/css/main.2d5ed4e3.chunk.css.map": "/static/css/main.2d5ed4e3.chunk.css.map",
-    "static/js/2.02d20da6.chunk.js.LICENSE.txt": "/static/js/2.02d20da6.chunk.js.LICENSE.txt",
-    "static/media/LOGO-mobileAB.svg": "/static/media/LOGO-mobileAB.3774eff4.svg",
-    "static/media/MobileName.svg": "/static/media/MobileName.428bc815.svg",
-    "static/media/TabletName.svg": "/static/media/TabletName.5e1794e7.svg",
-    "static/media/index.scss": "/static/media/roboto-latin-900italic.ebf6d164.woff2"
+    "main.css": "/Portfolio/static/css/main.48adc455.chunk.css",
+    "main.js": "/Portfolio/static/js/main.3d1a646f.chunk.js",
+    "main.js.map": "/Portfolio/static/js/main.3d1a646f.chunk.js.map",
+    "runtime-main.js": "/Portfolio/static/js/runtime-main.0c6ad60f.js",
+    "runtime-main.js.map": "/Portfolio/static/js/runtime-main.0c6ad60f.js.map",
+    "static/css/2.f681e662.chunk.css": "/Portfolio/static/css/2.f681e662.chunk.css",
+    "static/js/2.02d20da6.chunk.js": "/Portfolio/static/js/2.02d20da6.chunk.js",
+    "static/js/2.02d20da6.chunk.js.map": "/Portfolio/static/js/2.02d20da6.chunk.js.map",
+    "index.html": "/Portfolio/index.html",
+    "precache-manifest.7cfd88584a88a9d14e252ddf8e38bd39.js": "/Portfolio/precache-manifest.7cfd88584a88a9d14e252ddf8e38bd39.js",
+    "service-worker.js": "/Portfolio/service-worker.js",
+    "static/css/2.f681e662.chunk.css.map": "/Portfolio/static/css/2.f681e662.chunk.css.map",
+    "static/css/main.48adc455.chunk.css.map": "/Portfolio/static/css/main.48adc455.chunk.css.map",
+    "static/js/2.02d20da6.chunk.js.LICENSE.txt": "/Portfolio/static/js/2.02d20da6.chunk.js.LICENSE.txt",
+    "static/media/LOGO-mobileAB.svg": "/Portfolio/static/media/LOGO-mobileAB.3774eff4.svg",
+    "static/media/MobileName.svg": "/Portfolio/static/media/MobileName.428bc815.svg",
+    "static/media/TabletName.svg": "/Portfolio/static/media/TabletName.5e1794e7.svg",
+    "static/media/index.scss": "/Portfolio/static/media/roboto-latin-900italic.ebf6d164.woff2"
   },
   "entrypoints": [
-    "static/js/runtime-main.ecaff0c6.js",
+    "static/js/runtime-main.0c6ad60f.js",
     "static/css/2.f681e662.chunk.css",
     "static/js/2.02d20da6.chunk.js",
-    "static/css/main.2d5ed4e3.chunk.css",
-    "static/js/main.a2725478.chunk.js"
+    "static/css/main.48adc455.chunk.css",
+    "static/js/main.3d1a646f.chunk.js"
   ]
 }
