@@ -9,7 +9,6 @@ function Skills() {
         <div className="skills-section--text">
           <h2 className="dp-title">Skills</h2>
           <p className="dp-section--text">
-            I've worked with hundreds of toolkits/librarys/frameworks...etc.
             I've done front-end for most of my career and while it never gets
             boring I sure do love being able to build from the ground up. These
             are some of the more recognizable technologies that i've enjoyed

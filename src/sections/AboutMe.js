@@ -20,9 +20,9 @@ function AboutMe() {
           all working together with a well focused team.
         </p>
         <p className="dp-section--text">
-          Nonetheless programing takes it's toll on the body and I think it's
+          Nonetheless programing takes its toll on the body and I think it's
           important to spend time outdoors being active. I rock climb
-          extensivley, sometimes up to 5 times a week. I share this passion with
+          extensively, sometimes up to 5 times a week. I share this passion with
           two friends who I constantly entrust my life too.
         </p>
       </div>

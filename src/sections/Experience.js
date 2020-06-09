@@ -14,7 +14,7 @@ function Experience() {
         <p className="dp-section--text">
           Cars.com has been my home as a subcontractor over the past two years.
           I've spent my time building many different products/features with some
-          of the most incredible people I've ever had the privlage of coming
+          of the most incredible people I've ever had the privilege of coming
           across.
         </p>
       </FadeInSection>
@@ -32,7 +32,7 @@ function Experience() {
             Conversations was an integration that allowed the user to message
             the dealer in real time. If the dealer wasn't available then a
             watson based bot would take over and continue the conversation to
-            the best of its ability's. This included many calls to different
+            the best of its abilities. This included many calls to different
             endpoints, websocket connections, dynamic templating, and a boat
             load of vanilla js.
           </p>
@@ -49,7 +49,7 @@ function Experience() {
             This feature allowed a customer to go through the process of buying
             a car without stepping foot in the dealership...well almost. It
             enabled users to fill out all of their information with the promise
-            of recieving a real time pre-approved quote from the dealership.
+            of receiving a real time pre-approved quote from the dealership.
           </p>
         </VerticalTimelineElement>
         <VerticalTimelineElement
@@ -63,7 +63,7 @@ function Experience() {
             In-between features
           </h3>
           <p>
-            When I wasn't working on a new feature or product I was usally
+            When I wasn't working on a new feature or product I was usually
             fixing bugs and writing tests, not the most engaging work but it's
             always worth while.
           </p>
@@ -78,7 +78,7 @@ function Experience() {
           <h3 className="vertical-timeline-element-title">Beta</h3>
           <p>
             I joined what was called "team Beta" in the second year of work with
-            the privlage of developing Cars.com from the ground up with new
+            the privilege of developing Cars.com from the ground up with new
             technologies. We worked in a methodology called "Shape Up" were we
             worked in small teams for 6 weeks on a tangible goal.
           </p>
@@ -105,7 +105,7 @@ function Experience() {
           contentArrowStyle={{ borderRight: "7px solid  #353535" }}
         >
           <h3 className="vertical-timeline-element-title">Cycle: 2</h3>
-          <p>Fraudnet integration with replayable jobs and email to dealer.</p>
+          <p>Fraudnet integration with replayable jobs and email to dealers.</p>
         </VerticalTimelineElement>
         <VerticalTimelineElement
           className="vertical-timeline-element--education"
@@ -124,7 +124,7 @@ function Experience() {
             handle traffic. I was moved midway through this cycle to a different
             team to help fill the position of someone who recently left the
             company. On the new team I worked on adding
-            structs/validation/ednpoints to a reverse proxy that would take the
+            structs/validation/endpoints to a reverse proxy that would take the
             incoming data and feed it back to alpha unchanged while still adding
             it to our new Beta DB.
           </p>
@@ -157,8 +157,8 @@ function Experience() {
             section to page. Conditionally render linkpacks for makes that have
             less than 20 listings. I spent quite a bit of extra time adding DB
             index's and looking at parallel scans trying to figure out how much
-            it would cost to make this call. Unfortunaly COVID ended that study
-            before I got an answer.
+            it would cost to make this call. Unfortunately COVID ended that
+            study before I got an answer.
           </p>
         </VerticalTimelineElement>
         <VerticalTimelineElement
