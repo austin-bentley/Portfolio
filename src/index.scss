@@ -1,0 +1,14 @@
+// global styles
+@import "typeface-roboto";
+@import "styles/mixins";
+@import "styles/svg";
+@import "styles/variables";
+@import "App";
+
+// section styles
+@import "styles/sections/Header";
+@import "styles/sections/AboutMe";
+@import "styles/sections/Skills";
+
+// component styles
+@import "styles/components/RubiksCube";
