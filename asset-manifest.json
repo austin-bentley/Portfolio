@@ -1,19 +1,29 @@
 {
-  "main.js": "/Portfolio/static/js/main.ab6bb9ec.chunk.js",
-  "main.js.map": "/Portfolio/static/js/main.ab6bb9ec.chunk.js.map",
-  "static/js/1.7c248d55.chunk.js": "/Portfolio/static/js/1.7c248d55.chunk.js",
-  "static/js/1.7c248d55.chunk.js.map": "/Portfolio/static/js/1.7c248d55.chunk.js.map",
-  "runtime~main.js": "/Portfolio/static/js/runtime~main.3b961160.js",
-  "runtime~main.js.map": "/Portfolio/static/js/runtime~main.3b961160.js.map",
-  "static/media/me.jpg": "/Portfolio/static/media/me.1fd7efcf.jpg",
-  "static/media/tokyoghoul2.jpg": "/Portfolio/static/media/tokyoghoul2.7461a7b4.jpg",
-  "static/media/internshipfinal.png": "/Portfolio/static/media/internshipfinal.8e5629f4.png",
-  "static/media/NNMBackground.jpg": "/Portfolio/static/media/NNMBackground.c910c1c0.jpg",
-  "static/media/RheinTech.png": "/Portfolio/static/media/RheinTech.9c711912.png",
-  "static/media/iot.jpg": "/Portfolio/static/media/iot.c9f63e1b.jpg",
-  "static/media/RSILogoLarge.png": "/Portfolio/static/media/RSILogoLarge.0accb3ea.png",
-  "static/media/tokyoghoul1.png": "/Portfolio/static/media/tokyoghoul1.1fd2794e.png",
-  "index.html": "/Portfolio/index.html",
-  "precache-manifest.7549a18db17587f96e2dd761b7adbbf2.js": "/Portfolio/precache-manifest.7549a18db17587f96e2dd761b7adbbf2.js",
-  "service-worker.js": "/Portfolio/service-worker.js"
+  "files": {
+    "main.css": "/static/css/main.2d5ed4e3.chunk.css",
+    "main.js": "/static/js/main.a2725478.chunk.js",
+    "main.js.map": "/static/js/main.a2725478.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.ecaff0c6.js",
+    "runtime-main.js.map": "/static/js/runtime-main.ecaff0c6.js.map",
+    "static/css/2.f681e662.chunk.css": "/static/css/2.f681e662.chunk.css",
+    "static/js/2.02d20da6.chunk.js": "/static/js/2.02d20da6.chunk.js",
+    "static/js/2.02d20da6.chunk.js.map": "/static/js/2.02d20da6.chunk.js.map",
+    "index.html": "/index.html",
+    "precache-manifest.6efa69822984a5bd7f5a44aa9c8d6be1.js": "/precache-manifest.6efa69822984a5bd7f5a44aa9c8d6be1.js",
+    "service-worker.js": "/service-worker.js",
+    "static/css/2.f681e662.chunk.css.map": "/static/css/2.f681e662.chunk.css.map",
+    "static/css/main.2d5ed4e3.chunk.css.map": "/static/css/main.2d5ed4e3.chunk.css.map",
+    "static/js/2.02d20da6.chunk.js.LICENSE.txt": "/static/js/2.02d20da6.chunk.js.LICENSE.txt",
+    "static/media/LOGO-mobileAB.svg": "/static/media/LOGO-mobileAB.3774eff4.svg",
+    "static/media/MobileName.svg": "/static/media/MobileName.428bc815.svg",
+    "static/media/TabletName.svg": "/static/media/TabletName.5e1794e7.svg",
+    "static/media/index.scss": "/static/media/roboto-latin-900italic.ebf6d164.woff2"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.ecaff0c6.js",
+    "static/css/2.f681e662.chunk.css",
+    "static/js/2.02d20da6.chunk.js",
+    "static/css/main.2d5ed4e3.chunk.css",
+    "static/js/main.a2725478.chunk.js"
+  ]
 }
