@@ -1,11 +1,10 @@
 {
   "name": "abentley95",
-  "homepage": "https://abentley95.github.io/Portfolio",
   "version": "0.1.0",
   "private": true,
   "scripts": {
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build && aws s3 sync build/ s3://theaustinbentley.com",
+    "deploy": "aws s3 sync build/ s3://theaustinbentley.com",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
@@ -19,7 +18,6 @@
   "devDependencies": {
     "base64url": "^3.0.1",
     "file-loader": "^1.1.11",
-    "gh-pages": "^1.1.0",
     "html-loader": "^0.5.5",
     "react-router": "^4.2.0",
     "react-router-dom": "^4.2.2",

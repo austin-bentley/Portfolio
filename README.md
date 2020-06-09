@@ -1,6 +1,10 @@
 # Site
+
 www.theaustinbentley.com
 
-## github pages and S3 Bucket
-`npm run deploy`
-note: for s3 bucket to succesfully deploy you will need to copy the s3 `/static` folder into a folder named `Portfolio`
+## S3 Bucket deploy
+
+1. `npm run deploy`
+2. Remove reminants of old deploy
+3. Copy the s3 `/static` folder into a folder named `Portfolio`
+4. Rerun Cloudfront distribution
