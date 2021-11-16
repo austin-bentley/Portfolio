@@ -1,0 +1,15 @@
+@import "../../includes.scss";
+
+.page-section {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 32px;
+
+  @include desktop {
+    padding: 60px;
+  }
+
+  @include desktop-lg {
+    padding: 60px 0 60px 0;
+  }
+}

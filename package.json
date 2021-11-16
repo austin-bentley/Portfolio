@@ -1,26 +1,33 @@
 {
-  "name": "gatsby-starter-default",
+  "name": "portfolio",
   "private": true,
-  "description": "A simple starter to get up and developing quickly with Gatsby",
-  "version": "0.1.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "description": "Portfolio site for Austin Bentley",
+  "version": "1.0.0",
+  "author": "Austin Bentley <australinsurf@gmail.com>",
   "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.15.4",
     "gatsby": "^4.1.1",
     "gatsby-plugin-gatsby-cloud": "^4.1.0",
     "gatsby-plugin-image": "^2.1.0",
     "gatsby-plugin-manifest": "^4.1.0",
     "gatsby-plugin-offline": "^5.1.0",
     "gatsby-plugin-react-helmet": "^5.1.0",
+    "gatsby-plugin-react-svg": "^3.1.0",
+    "gatsby-plugin-sass": "^5.1.1",
     "gatsby-plugin-sharp": "^4.1.0",
     "gatsby-source-filesystem": "^4.1.0",
     "gatsby-transformer-sharp": "^4.1.0",
     "prop-types": "^15.7.2",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
-    "react-helmet": "^6.1.0"
+    "react-helmet": "^6.1.0",
+    "sass": "^1.43.4"
   },
   "devDependencies": {
-    "prettier": "^2.4.1"
+    "prettier": "^2.4.1",
+    "react-particles-js": "^3.6.0",
+    "react-vertical-timeline-component": "^3.5.2",
+    "three": "^0.134.0"
   },
   "keywords": [
     "gatsby"
