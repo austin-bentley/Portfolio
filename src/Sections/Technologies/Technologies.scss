@@ -1,0 +1,51 @@
+@import "../../includes.scss";
+
+.technologies-section {
+  color: black;
+
+  .title {
+    background: linear-gradient(to top, $blue 40%, transparent 40%);
+  }
+
+  .technologies {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 0 auto;
+    max-width: 1200px;
+
+    .tech-category {
+      flex: 1 1 250px;
+      padding: 12px;
+
+      .tech-category-title {
+        font-size: 28px;
+        font-weight: 500;
+        margin: 0px;
+      }
+
+      .tech {
+        padding-left: 0;
+        list-style-type: none;
+        display: flex;
+        flex-wrap: wrap;
+
+        li {
+          padding-bottom: 12px;
+          padding-right: 12px;
+          align-items: center;
+          display: flex;
+        }
+
+        .tech-link {
+          font-size: 24px;
+          font-weight: 300;
+          color: $body-font;
+        }
+      }
+    }
+  }
+
+  @include tablet {
+  }
+}

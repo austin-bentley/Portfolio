@@ -1,9 +1,11 @@
+const { cars } = require("./src/data/cars.js")
+
 exports.createPages = async ({ actions }) => {
-  const { createPage } = actions
-  createPage({
-    path: "/using-dsg",
-    component: require.resolve("./src/templates/using-dsg.js"),
-    context: {},
-    defer: true,
+  cars.map(car => {
+    actions.createPage({
+      path: `/projects/cars-${car.slug}`,
+      component: require.resolve("./src/templates/cars.js"),
+      context: car,
+    })
   })
 }

@@ -1,0 +1,55 @@
+@import "../../includes.scss";
+
+.about-section {
+  color: black;
+
+  .title {
+    background: linear-gradient(to top, $blue 40%, transparent 40%);
+  }
+  .about {
+    display: flex;
+    flex-direction: column;
+
+    .content {
+      width: 100%;
+
+      .quote {
+        font-size: 36px;
+        font-weight: 300;
+      }
+
+      .description {
+        font-size: 18px;
+      }
+
+      .social {
+        .icon {
+          background-color: $border-soft;
+          font-size: 20px;
+          color: $icon;
+          display: inline-block;
+          border-radius: 50%;
+          padding: 12px;
+          margin: 12px 22px 0 0;
+        }
+      }
+    }
+  }
+
+  @include tablet {
+    .about {
+      flex-direction: row;
+
+      .content {
+        padding: 40px;
+      }
+    }
+  }
+  @include desktop {
+    .about {
+      .content {
+        padding: 0 60px 0 60px;
+      }
+    }
+  }
+}

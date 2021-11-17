@@ -1,0 +1,57 @@
+@import "../includes.scss";
+
+html,
+body {
+  height: 100%;
+  font-family: "Roboto";
+  color: $white;
+  width: 100%;
+  margin: 0;
+
+  main {
+    background-color: $bg-dark;
+  }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-family: "Larsseit-Bold", sans-serif;
+}
+
+p,
+a {
+  font-family: "Atlas Grotesk Web", sans-serif;
+  font-size: 16px;
+}
+
+.dp-title {
+  margin: 0;
+  font-size: 36px;
+  letter-spacing: 1.5px;
+  margin: 0 0 20px 0;
+  max-width: 1200px;
+  width: 300px;
+  padding-left: 6px;
+
+  @include tablet {
+    font-size: 42px;
+    margin: 0 0 36px 0;
+    width: 350px;
+  }
+
+  @include desktop {
+    font-size: 48px;
+    width: 400px;
+  }
+}
+
+.section-white {
+  background-color: $white;
+}
+
+.black {
+  background-color: $bg-dark;
+}
