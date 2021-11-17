@@ -10,6 +10,14 @@ module.exports = {
     `gatsby-plugin-image`,
     `gatsby-plugin-sass`,
     {
+      resolve: `gatsby-plugin-s3`,
+      options: {
+        bucketName: "theaustinbentley.com",
+        protocol: "https",
+        hostname: "www.theaustinbentley.com",
+      },
+    },
+    {
       resolve: "gatsby-plugin-react-svg",
       options: {
         rule: {
