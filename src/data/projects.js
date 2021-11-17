@@ -1,26 +1,26 @@
 import React from "react"
 import { StaticImage } from "gatsby-plugin-image"
 
-export const projects = () => [
-  {
-    name: "Cars Beta",
-    link: "/cars-beta",
-    image: (
-      <StaticImage
-        src="../assets/cars-beta.webp"
-        layout="constrained"
-        alt="Cars Beta Image"
-      />
-    ),
-  },
+export const projects = [
   {
     name: "Cars Alpha",
-    link: "/cars-alpha",
+    link: "/projects/cars-alpha",
     image: (
       <StaticImage
         src="../assets/cars-alpha.webp"
         layout="constrained"
         alt="Cars Alpha Image"
+      />
+    ),
+  },
+  {
+    name: "Cars Beta",
+    link: "/projects/cars-beta",
+    image: (
+      <StaticImage
+        layout="constrained"
+        alt="Cars Beta Image"
+        src="../assets/cars-beta.webp"
       />
     ),
   },

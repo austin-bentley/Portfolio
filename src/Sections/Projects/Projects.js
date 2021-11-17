@@ -8,7 +8,7 @@ export const Projects = () => {
     <Section className="projects-section">
       <h2 className="dp-title title">Projects</h2>
       <div className="projects">
-        {projects().map(({ name, link, image }) => (
+        {projects.map(({ name, link, image }) => (
           <Card name={name} link={link} image={image} key={link} />
         ))}
       </div>

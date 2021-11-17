@@ -9,6 +9,7 @@ $border-soft: #e6e6e6;
 $tablet-width: 768px;
 $desktop-width: 1024px;
 $desktop-lg-width: 1320px;
+$vertical-timeline: 1170px;
 
 @mixin tablet {
   @media (min-width: #{$tablet-width}) {
@@ -24,6 +25,12 @@ $desktop-lg-width: 1320px;
 
 @mixin desktop-lg {
   @media (min-width: #{$desktop-lg-width}) {
+    @content;
+  }
+}
+
+@mixin vertical-timeline {
+  @media (min-width: #{$vertical-timeline}) {
     @content;
   }
 }

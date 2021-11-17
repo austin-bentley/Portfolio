@@ -1,0 +1,109 @@
+@import "../includes.scss";
+
+.cars {
+  .header {
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .title {
+    font-size: 60px;
+    display: flex;
+    flex-direction: column;
+
+    .title-color {
+      font-weight: 100;
+      font-size: 24px;
+      padding: 0 30px 0 6px;
+      width: fit-content;
+      margin-top: 8px;
+      &.page-color--blue {
+        background: linear-gradient(to top, $blue 30%, transparent 30%);
+      }
+      &.page-color--red {
+        background: linear-gradient(to top, $red 30%, transparent 30%);
+      }
+    }
+  }
+
+  .vertical-timeline {
+    padding: 0;
+    width: 90%;
+
+    &::before {
+      height: 97%;
+    }
+
+    .vertical-timeline-element {
+      color: $body-font;
+
+      .icon {
+        background: white;
+        width: 30px;
+        height: 30px;
+        margin-left: 5px;
+      }
+
+      &--end {
+        .icon {
+          background: $red;
+        }
+      }
+    }
+  }
+
+  .page-bottom {
+    padding-bottom: 60px;
+  }
+
+  @include vertical-timeline {
+    .header {
+      height: 400px;
+    }
+
+    .title {
+      font-size: 72px;
+      display: block;
+
+      .title-color {
+        font-size: 56px;
+        padding: 0 60px 0 12px;
+        margin-left: 20px;
+        margin-top: 0;
+      }
+    }
+
+    .vertical-timeline {
+      &::before {
+        top: 15px;
+      }
+
+      .vertical-timeline-element {
+        .icon {
+          top: 15px;
+          left: 50%;
+          margin-left: -15px;
+        }
+
+        &--end {
+          &.page-color--blue {
+            .icon {
+              background: $blue;
+            }
+          }
+          &.page-color--red {
+            .icon {
+              background: $red;
+            }
+          }
+        }
+      }
+    }
+
+    .page-bottom {
+      padding-bottom: 120px;
+    }
+  }
+}
