@@ -28,7 +28,7 @@
     "prettier": "^2.4.1",
     "react-particles-js": "^3.6.0",
     "react-vertical-timeline-component": "^3.5.2",
-    "three": "^0.134.0"
+    "three": "^0.137.0"
   },
   "keywords": [
     "gatsby"
